@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script> <!-- Add the datalabels plugin -->
+
+{% endblock %}
+
+
+{% block body %}
+
+<h1 style="margin-top: 20px; margin-left: 60px;">Rentabilidade</h1>
+<form id="filterForm" class="filter-form">
+    <label for="filter_choice" class="filter-label">Filter by:</label>
+    <select name="filter_choice" id="filter_choice"  class="filter-select">
+        <option value="all">All</option>
+        <option value="safest_bet">Safest Bet</option>
+        <option value="safe_bet">Safe Bet</option>
+        <option value="risky_bet">Risky Bet</option>
+    </select>
+    <button type="submit" class="btn btn-sn btn-outline-primary w-20">Apply Filter</button>
+</form>
+<div class="containerEvolution">
+    <div class="cardEvolution">
+        <div class="card-header">
+            <h5 class="card-title">Montante Inicial</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ initial_amount }}</p>
+        </div>
+    </div>
+
+    <div class="cardEvolution">
+        <div class="card-header">
+            <h5 class="card-title">Montante Atual</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ current_amount }}</p>
+        </div>
+    </div>
+
+    <div class="cardEvolution">
+        <div class="card-header">
+            <h5 class="card-title">Lucro</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">R$ {{ lucro }}</p>
+        </div>
+    </div>
+
+    <div class="cardEvolution">
+        <div class="card-header">
+            <h5 class="card-title">Lucro (%)</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ lucro_perc }}%</p>
+        </div>
+    </div>
+</div>
+
+<dialog id="modal">
+    <h2 style="text-align: center;">Premissas</h2>
+    <p>Apostas Nível 1 ➜ Apostar R$ 20.</p>
+    <p>Apostas Nível 2 ➜ Apostar R$ 15.</p>
+    <p>Apostas Nível 3 ➜ Apostar R$ 10.</p>
+    <button class="btn btn-sn btn-outline-primary w-100 close-button">close modal</button>
+</dialog>
+
+<div class="chartContainer">
+    <div class="infoImg">
+        <button class="btn btn-sn btn-outline-primary open-button">Premissas</button>
+    </div>
+
+    <div class="chartStyle">
+        <canvas id="lineChart" width="800" height="300"></canvas>
+    </div>
+</div>
+
+
+<script>
+    var formattedDates = {{ dataframe.datetime_column.to_json(orient="values") }};
+    var saldoValues = {{ dataframe.Saldo.to_json(orient="values") }};
+
+    var formattedDatesString = formattedDates.map(function (date) {
+        return new Date(date).toLocaleDateString();
+    });
+
+    var maxIndex = saldoValues.indexOf(Math.max(...saldoValues));
+    var minIndex = saldoValues.indexOf(Math.min(...saldoValues));
+
+    var ctx = document.getElementById('lineChart').getContext('2d');
+    var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: formattedDatesString,
+            datasets: [{
+                label: 'Saldo',
+                data: saldoValues,
+                fill: 'origin', // Fill the area below the line with the dataset's fill color
+                borderColor: 'black',
+                backgroundColor: 'rgba(0, 255, 0, 0.3)', // Green with 30% opacity                borderWidth: 2,
+                // Add the following attributes to show data points
+                point: true,
+                pointBackgroundColor: 'blue', // Customize data point color
+                pointRadius: 2, // Customize data point size
+                pointStyle: 'circle', // Customize data point shape (options: circle, cross, crossRot, dash, line, rect, rectRounded, rectRot, star, triangle)
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Date'
+                    },
+                    ticks: {
+                        maxRotation: 0, // Prevent label rotation
+                        autoSkip: true,
+                        maxTicksLimit: 10, // Adjust the number of labels displayed
+                        callback: function (value, index, values) {
+                            if (index % 2 === 0) {
+                                return formattedDatesString[index];
+                            } else {
+                                return ''; // Skip the label if not the 3rd label
+                            }
+                        }
+                    }
+                },
+                y: {
+                    display: true,
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Saldo'
+                    },
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Set the legend to not display
+                },
+                datalabels: { // Add the datalabels configuration
+                    display: function(context) {
+                        return context.dataIndex === maxIndex || context.dataIndex === minIndex;
+                    },
+                    align: 'top',
+                    anchor: 'end',
+                    color: 'black',
+                    font: {
+                        weight: 'bold'
+                    },
+                    formatter: function(value, context) {
+                        var label = 'R$ ' + value; // Add currency symbol to the label
+                        if (context.dataIndex === maxIndex) {
+                            return 'Maior: ' + label;
+                        } else if (context.dataIndex === minIndex) {
+                            return 'Menor: ' + label;
+                        }
+                        return label;
+                    },
+                    clamp: true, // Keep the labels inside the chart area
+                },
+                annotation: {
+                    annotations: {
+                        line1: {
+                            type: 'line',
+                            yMin: 100,
+                            yMax: 100,
+                            borderColor: 'blue',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            label: {
+                                enabled: true,
+                                content: 'Início: R$ 100',
+                                position: 'middle',
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        plugins: [ChartDataLabels] // Add the datalabels plugin
+    });
+
+const modal = document.querySelector('#modal');
+const openModal = document.querySelector('.open-button');
+const closeModal = document.querySelector('.close-button');
+
+openModal.addEventListener("click", () => {
+  modal.showModal();
+});
+
+closeModal.addEventListener("click", () => {
+  modal.close();
+});
+
+</script>
+
+{% endblock %}

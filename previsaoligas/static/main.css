@@ -1,0 +1,316 @@
+/* Style for the body and HTML */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Center the text vertically and horizontally */
+.centered-text {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Style for the centered text */
+.centered-text h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Style for the sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Style for the heading */
+.sidebar h2 {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+/* Style for the dropdown fields */
+.dropdown {
+  margin-bottom: 40px;
+}
+
+/* Style for the label */
+.dropdown label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Style for the select element */
+.dropdown select {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 95vw;
+}
+
+.card-deck {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Add this line */
+  margin-left: -40px;
+  margin-right: +40px
+ }
+
+.card {
+  flex: 1 0 0; /* Add this line */
+}
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.col-3 {
+  margin-bottom: 20px; /* Adjust this value as needed */
+}
+
+
+.square-card {
+  width: 100px; /* Set the desired width of the square card */
+  height: 100px; /* Set the desired height of the square card */
+  background-color: #e9e9e9; /* Set the background color of the card */
+  border: 2px solid #000 /* Add a border around the card */
+  border-radius: 0; /* Remove rounded corners */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-deck {
+  display: flex;
+  justify-content: space-between;
+}
+
+.team-info {
+  display: flex;
+  align-items: flex-start;
+}
+
+.image-container {
+  margin-right: 10px;
+}
+
+.team-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.increased-font-size {
+  font-size: 40px; /* Adjust the value as needed */
+}
+
+.ind-body {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Set the desired width */
+  padding-top: 10px;
+  padding-left: 10px
+  /* Add any other desired styles */
+}
+
+.indicators-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.indicator {
+  color: #333;
+  margin-right: 6px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding-right: 100px
+}
+
+.table-container {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+#next_games {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#next_games th, #next_games td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+
+#next_games th {
+  background-color: #f2f2f2;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 4px 8px; /* Adjust the padding values as needed */
+  font-size: 13px; /* Adjust the font size as needed */
+}
+
+.dataTables_wrapper .dataTables_length {
+  margin-bottom: 20px; /* Adjust the margin value as needed */
+}
+
+.containerEvolution {
+    display: flex;
+    justify-content: center; /* Center align the cards horizontally */
+    gap: 0px; /* Add 20px gap between the cards */
+    margin-top: 40px;
+}
+
+.cardEvolution {
+    width: 300px;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 40px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: none;
+    padding: 5px;
+}
+.card-title {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.card-body {
+    padding: 15px;
+}
+.card-text {
+    font-weight: bold;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.chartStyle {
+    display: flex;
+    justify-content: center;
+    margin-right: 55px;
+    margin-left: 8px;
+}
+
+.chartContainer {
+    position: relative;
+}
+
+.infoImg {
+    position: left;
+    margin-left: 55px;
+    top: -20px;
+    right: 30px;
+}
+
+.modal {
+  // padding: 1em;
+  max-width: 50ch;
+  // border: 0;
+  // box-shadow: 0 0 1em rgb(0 0 0 / .3);
+
+  & > * {
+    margin: 0 0 0.5rem 0;
+  }
+}
+
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
+
+.button {
+  border: 0;
+  cursor: pointer;
+  background: black;
+  color: green;
+  font-weight: 700;
+  padding: var(--size-2) var(--size-4);
+}
+
+.button:hover,
+.button:focus {
+  background: var(--cyan-9);
+}
+
+.filter-form {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: 60px;
+        margin-top: 10px
+
+    }
+
+.filter-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-select,
+.filter-button {
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #555;
+}
+
+.filter-select:focus,
+.filter-button:focus {
+    outline: none;
+    border-color: #66afe9;
+}
+
+.filter-button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+.chart-container {
+    justify-content: center; /* Center align the cards horizontally */
+    gap: 0px; /* Add 20px gap between the cards */
+    width: 90.7%;
+    height: 250px;
+}
+

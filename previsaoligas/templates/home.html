@@ -1,0 +1,290 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<script>
+  window.onload = function() {
+    populateTeams();
+  };
+</script>
+
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-3">
+      <!-- Sidebar -->
+      <div class="sidebar mt-5">
+        <h2>Selecione as opções abaixo:</h2>
+
+        <div class="dropdown mt-4">
+          <label for="league">LIGA</label>
+          <select id="league" onchange="populateTeams()">
+            <option value="">-- Selecione --</option>
+            <option value="Bundesliga">Bundesliga</option>
+            <option value="La Liga">La Liga</option>
+            <option value="Ligue 1">Ligue 1</option>
+            <option value="Premier League">Premier League</option>
+            <option value="Serie A">Serie A</option>
+          </select>
+        </div>
+        <form id="teamForm" method="POST">
+          <div class="dropdown">
+            <label for="home_team">Time CASA</label>
+            <select id="home_team" name="team1" onchange="updateFotoTime()">
+              <option value="">-- Selecione --</option>
+            </select>
+          </div>
+
+          <div class="dropdown">
+            <label for="away_team">Time VISITANTE</label>
+            <select id="away_team" name="team2" onchange="updateFotoTime()">
+              <option value="">-- Selecione --</option>
+            </select>
+          </div>
+          <button class="btn btn-sn btn-outline-primary w-100" onclick="showIndicators(event)">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-9">
+      <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Quem vencerá a partida?</h1>
+      </div>
+
+      <div class="card-deck mb-3 text-center">
+        <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Time CASA</h4>
+          </div>
+          <div class="card-body">
+            <div class="team-info">
+            <div class="image-container">
+              <img id="foto_time_casa" src="" alt="Home Team Image">
+              <div class="mt-3" id="home_team_name"></div>
+            </div>
+            <div>
+              <div class="card-body mt-4">
+                <h5 class="card-title">Probabilidade de Vitória</h5>
+                <p class="card-text increased-font-size" id="prediction_ml"></p>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="card mb-3 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Time VISITANTE</h4>
+          </div>
+          <div class="card-body">
+            <div class="team-info">
+              <div class="image-container">
+                <img id="foto_time_visitante" src="" alt="Away Team Image">
+                <div class="mt-3" id="away_team_name"></div>
+              </div>
+                <!-- Additional card for Time VISITANTE -->
+              <div class="card-body mt-4">
+                <h5 class="card-title">Probabilidade de Vitória</h5>
+                <p class="card-text increased-font-size" id="prediction2_ml"></p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indicators Card -->
+        <div class="card" id="indicators_card" style="display: none; margin-right: 40px; margin-left: -40px;">
+          <div class="card-header" style="text-align: center;">
+            <h4 class="my-0 font-weight-normal">Indicadores</h4>
+          </div>
+            <div class="ind-body">
+              <!-- Indicators content goes here -->
+              <!-- Example: -->
+              <div class="indicators-group">
+                <div id="points_last_season_h" class="indicator"></div>
+                <div id="gf_rolling_h" class="indicator"></div>
+                <div id="ga_rolling_h" class="indicator"></div>
+                <div id="pont_rolling_h" class="indicator"></div>
+                <div id="last_results_h" class="indicator"></div>
+              </div>
+
+              <div class="indicators-group">
+                <div id="points_last_season_a" class="indicator"></div>
+                <div id="gf_rolling_a" class="indicator"></div>
+                <div id="ga_rolling_a" class="indicator"></div>
+                <div id="pont_rolling_a" class="indicator"></div>
+                <div id="last_results_a" class="indicator"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <script>
+    var teamsMap = {{ teams_map_json|safe }};
+
+  function populateTeams() {
+    var leagueDropdown = document.getElementById('league');
+    var homeTeamDropdown = document.getElementById('home_team');
+    var awayTeamDropdown = document.getElementById('away_team');
+
+    // Clear the home and away team dropdowns
+    homeTeamDropdown.innerHTML = '<option value="">-- Selecione --</option>';
+    awayTeamDropdown.innerHTML = '<option value="">-- Selecione --</option>';
+
+    // Get the selected league
+    var selectedLeague = leagueDropdown.value;
+
+    // If no league is selected, set default image and name for home and away teams
+    if (!selectedLeague) {
+      var fotoTimeCasaImage = document.getElementById('foto_time_casa');
+      var homeTeamNameElement = document.getElementById('home_team_name');
+      fotoTimeCasaImage.src = '{{ url_for('static', filename='fotos_time/default_team.png') }}';
+      homeTeamNameElement.textContent = 'Selecione um time';
+
+      var fotoTimeVisitanteImage = document.getElementById('foto_time_visitante');
+      var awayTeamNameElement = document.getElementById('away_team_name');
+      fotoTimeVisitanteImage.src = '{{ url_for('static', filename='fotos_time/default_team.png') }}';
+      awayTeamNameElement.textContent = 'Selecione um time';
+    } else {
+      // If a league is selected, populate the home and away team dropdowns
+      var homeTeams = teamsMap[selectedLeague];
+      var awayTeams = teamsMap[selectedLeague];
+
+      // Add options to the home team dropdown
+      for (var i = 0; i < homeTeams.length; i++) {
+        var option = document.createElement('option');
+        option.value = homeTeams[i];
+        option.text = homeTeams[i];
+        homeTeamDropdown.appendChild(option);
+      }
+
+      // Add options to the away team dropdown
+      for (var j = 0; j < awayTeams.length; j++) {
+        var option = document.createElement('option');
+        option.value = awayTeams[j];
+        option.text = awayTeams[j];
+        awayTeamDropdown.appendChild(option);
+      }
+    }
+  }
+
+  function updateFotoTime() {
+    var homeTeamDropdown = document.getElementById('home_team');
+    var awayTeamDropdown = document.getElementById('away_team');
+
+    var selectedHomeTeam = homeTeamDropdown.value;
+    var selectedAwayTeam = awayTeamDropdown.value;
+
+    var fotoTimeCasaImage = document.getElementById('foto_time_casa');
+    var fotoTimeVisitanteImage = document.getElementById('foto_time_visitante');
+
+    var homeTeamNameElement = document.getElementById('home_team_name');
+    var awayTeamNameElement = document.getElementById('away_team_name');
+
+    // Update home team image and name
+    if (selectedHomeTeam) {
+        var fotoTimeCasaURL = '{{ url_for('static', filename='fotos_time/') }}' + selectedHomeTeam.replace(/\s+/g, '_') + '.png';
+        fotoTimeCasaImage.src = fotoTimeCasaURL;
+        homeTeamNameElement.textContent = selectedHomeTeam;
+      } else {
+        // Set default image and name for home team
+        fotoTimeCasaImage.src = '{{ url_for('static', filename='fotos_time/default_team.png') }}';
+        homeTeamNameElement.textContent = 'Selecione um time';
+      }
+
+      // Update away team image and name
+      if (selectedAwayTeam) {
+        var fotoTimeVisitanteURL = '{{ url_for('static', filename='fotos_time/') }}' + selectedAwayTeam.replace(/\s+/g, '_') + '.png';
+        fotoTimeVisitanteImage.src = fotoTimeVisitanteURL;
+        awayTeamNameElement.textContent = selectedAwayTeam;
+      } else {
+        // Set default image and name for away team
+        fotoTimeVisitanteImage.src = '{{ url_for('static', filename='fotos_time/default_team.png') }}';
+        awayTeamNameElement.textContent = 'Selecione um time';
+      }
+  }
+
+  document.getElementById('teamForm').addEventListener('submit', getData);
+
+  function getData(event) {
+    event.preventDefault(); // Prevent form submission and page refresh
+
+    var indicatorsCard = document.getElementById('indicators_card');
+    indicatorsCard.style.display = 'block';
+
+    var team1 = document.getElementById('home_team').value;
+    var team2 = document.getElementById('away_team').value;
+    var params = {
+      team1_input: team1,
+      team2_input: team2
+    };
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('post', '../output', true)
+    xhr.setRequestHeader('Content-type', 'application/json');
+
+    xhr.onload = function () {
+      console.log('Reached');
+      var response = JSON.parse(this.responseText);
+
+      var gf_rolling = response.gf_rolling;
+      var ga_rolling = response.ga_rolling;
+      var pont_rolling = response.pont_rolling;
+      var points_last_season = response.points_last_season;
+      var last_results = response.last_results;
+
+      var gf_rolling2 = response.gf_rolling2;
+      var ga_rolling2 = response.ga_rolling2;
+      var pont_rolling2 = response.pont_rolling2;
+      var points_last_season2 = response.points_last_season2;
+      var last_results2 = response.last_results2;
+
+      var prediction = response.prediction;
+      var prediction2 = response.prediction2;
+
+      var points_last_seasonElement = document.getElementById('points_last_season_h');
+      points_last_seasonElement.innerHTML = '<strong>' + team1 + ' (Últ. 3 jogos em casa)' + '</strong>' + '<br><br> - Pontuação Última Temporada: ' + points_last_season;
+
+      var gf_rollingElement = document.getElementById('gf_rolling_h');
+      gf_rollingElement.innerHTML = '- Gols Marcados: ' + gf_rolling;
+
+      var ga_rollingElement = document.getElementById('ga_rolling_h');
+      ga_rollingElement.innerHTML = '- Gols Sofridos: ' + ga_rolling;
+
+      var pont_rollingElement = document.getElementById('pont_rolling_h');
+      pont_rollingElement.innerHTML = '- Pontuação: ' + pont_rolling;
+
+      var last_resultsElement = document.getElementById('last_results_h');
+      last_resultsElement.innerHTML = '- Últimos Confrontos: ' + last_results;
+
+
+      var points_last_season2Element = document.getElementById('points_last_season_a');
+      points_last_season2Element.innerHTML = '<strong>' + team2 + ' (Últ. 3 jogos fora)' + '</strong>' + '<br><br> - Pontuação Última Temporada: ' + points_last_season2;
+
+      var gf_rolling2Element = document.getElementById('gf_rolling_a');
+      gf_rolling2Element.innerHTML = '- Gols Marcados: ' + gf_rolling2;
+
+      var ga_rolling2Element = document.getElementById('ga_rolling_a');
+      ga_rolling2Element.innerHTML = '- Gols Sofridos: ' + ga_rolling2;
+
+      var pont_rolling2Element = document.getElementById('pont_rolling_a');
+      pont_rolling2Element.innerHTML = '- Pontuação: ' + pont_rolling2;
+
+      var last_results2Element = document.getElementById('last_results_a');
+      last_results2Element.innerHTML = '- Últimos Confrontos: ' + last_results2;
+
+      var predictionElement = document.getElementById('prediction_ml');
+      predictionElement.innerHTML = prediction;
+
+      var prediction2Element = document.getElementById('prediction2_ml');
+      prediction2Element.innerHTML = prediction2;
+
+    };
+    xhr.send(JSON.stringify(params));
+  }
+  </script>
+
+{% endblock %}

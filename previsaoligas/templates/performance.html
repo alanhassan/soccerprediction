@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% endblock %}
+
+{% block body %}
+
+<h1 style="margin-top: 20px; margin-left: 60px;">Performance</h1>
+<form id="filterForm" class="filter-form">
+    <label for="filter_choice" class="filter-label">Filtrar por:</label>
+    <select name="filter_choice" id="filter_choice"  class="filter-select">
+        <option value="all">All</option>
+        <option value="safest_bet">Aposta Segura</option>
+        <option value="safe_bet">Aposta Média</option>
+        <option value="risky_bet">Aposta Arriscada</option>
+    </select>
+    <button type="submit" class="btn btn-sn btn-outline-primary w-20">Aplicar Filtro</button>
+</form>
+
+<div class="containerEvolution" id="metrics_card">
+    <div class="cardEvolution">
+        <div class="card-header">
+            <h5 class="card-title">Corretas ✅</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text" id="corretas_length">{{ dataframe_length }}</p> <!-- Display the length of the filtered dataframe -->
+        </div>
+    </div>
+
+    <div class="cardEvolution">
+        <div class="card-header">
+            <h5 class="card-title">Incorretas ❌</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text" id="incorretas_length">{{ dataframe_length }}</p> <!-- Display the length of the filtered dataframe -->
+        </div>
+    </div>
+
+    <div class="cardEvolution">
+        <div class="card-header">
+            <h5 class="card-title">Precisão 🔮</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text" id="precision_length">{{ dataframe_length }}</p> <!-- Display the length of the filtered dataframe -->
+        </div>
+    </div>
+
+    <div class="cardEvolution">
+        <div class="card-header">
+            <h5 class="card-title">Bet Média 💵</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text" id="bet_media_length">{{ dataframe_length }}</p> <!-- Display the length of the filtered dataframe -->
+        </div>
+    </div>
+</div>
+
+<div class="chart-container">
+    <canvas id="myChart" style="max-width: 100%; margin-left: 60px"></canvas>
+</div>
+
+<script>
+    var myChart = null; // Declare a variable to store the chart instance
+
+    function updateChart(chartData) {
+    if (myChart) {
+      myChart.destroy(); // Destroy the existing chart if it exists
+    }
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chartHeight = 250;
+
+    myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: chartData.labels,
+        datasets: [
+          {
+            label: 'Corretas',
+            data: chartData.bet_right,
+            backgroundColor: 'rgba(46, 204, 113, 0.8)',
+            borderColor: 'rgba(46, 204, 113, 1)',
+            borderWidth: 1,
+          },
+          {
+            label: 'Incorretas',
+            data: chartData.bet_wrong,
+            backgroundColor: 'rgba(255, 99, 132, 0.8)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Correct vs. Incorrect Bets', // Add a title to the chart
+                font: {
+                    size: 18,
+                    weight: 'bold'
+                }
+            },
+            tooltip: {
+                mode: 'index',
+                intersect: false,
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                footerColor: '#fff',
+                callbacks: {
+                    label: function (context) {
+                        var label = context.dataset.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        if (context.parsed.y !== null) {
+                            label += context.parsed.y;
+                        }
+                        return label;
+                    }
+                }
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    maxTicksLimit: 10,
+                },
+                stacked: true,
+                grid: {
+                    display: false
+                }
+            },
+            y: {
+                beginAtZero: true,
+                stacked: true,
+                grid: {
+                    color: 'rgba(0, 0, 0, 0.1)'
+                }
+            }
+        },
+        animation: {
+            duration: 1000, // Add animation to the chart
+            easing: 'easeInOutQuart'
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: 'bottom',
+                labels: {
+                    font: {
+                        size: 14
+                    }
+                }
+            }
+        }
+      },
+    });
+  }
+
+
+    function getData(event) {
+        event.preventDefault(); // Prevent form submission and page refresh
+
+        var indicatorsCard = document.getElementById('metrics_card');
+        indicatorsCard.style.display = 'flex';
+
+        var filterChoice = document.getElementById('filter_choice').value;
+        var params = {
+            filter_choice: filterChoice, // Use the correct key 'filter_choice' to match the Python request.json['filter_choice']
+        };
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('post', '../output2', true);
+        xhr.setRequestHeader('Content-type', 'application/json');
+
+        xhr.onload = function () {
+            console.log('Reached');
+            var response = JSON.parse(this.responseText);
+
+            var corretas = response.corretas; // Use the correct key 'prediction2'
+            var incorretas = response.incorretas
+            var precision = response.precision
+            var bet_media = response.bet_media
+
+            var corretasElement = document.getElementById('corretas_length');
+            var incorretasElement = document.getElementById('incorretas_length');
+            var precisionElement = document.getElementById('precision_length');
+            var bet_mediaElement = document.getElementById('bet_media_length');
+
+            corretasElement.innerHTML = corretas;
+            incorretasElement.innerHTML = incorretas;
+            precisionElement.innerHTML = precision;
+            bet_mediaElement.innerHTML = bet_media;
+
+            var chartData = response.chart_data;
+            updateChart(chartData); // Call the updateChart function with the new data
+    };
+        xhr.send(JSON.stringify(params));
+    }
+
+    document.getElementById('filterForm').addEventListener('submit', getData);
+
+</script>
+
+{% endblock %}
