@@ -11,6 +11,7 @@ from git import Repo
 
 warnings.filterwarnings("ignore")
 
+
 # serie-A
 # trazendo informações mais atualizadas do site https://fbref.com/
 
@@ -212,15 +213,15 @@ match_df = match_df[['date', 'comp', 'team', 'opponent', 'venue', 'gf', 'ga', 'r
 # selecionando até o último jogo disponível
 match_df = match_df[~pd.isna(match_df['gf'])]
 
-# inserindo a base de histórico (antes de '2022-08-01'), para conseguir pegar os resultados dos últimos confrontos entre os times
-url_leagues = 'https://github.com/alanhassan/previsao_ligas/blob/main/leagues.xlsx?raw=true'
+# inserindo a base de histórico (antes de '2023-08-01'), para conseguir pegar os resultados dos últimos confrontos entre os times
+url_leagues = 'https://github.com/alanhassan/soccerprediction/blob/main/leagues.xlsx?raw=true'
 data = requests.get(url_leagues).content
 leagues = pd.read_excel(data)
 leagues = leagues[['date', 'comp', 'team', 'opponent', 'venue', 'gf', 'ga', 'result']]
 
 leagues['date'] = pd.to_datetime(leagues['date'])
 
-leagues = leagues[leagues['date'] < pd.to_datetime('2022-08-01')]
+leagues = leagues[leagues['date'] < pd.to_datetime('2023-08-01')]
 
 # adicionando a base 'leagues' com a 'match_df'
 match_df_final_all = pd.concat([leagues, match_df])
@@ -299,8 +300,8 @@ df_rolling = df_rolling_home.merge(df_rolling_away, left_on=['date', 'opponent']
 
 
 # inserindo as informações de "Points last season"
-#url_add = 'https://github.com/alanhassan/previsao_ligas_futebol/blob/main/additional.xlsx?raw=true'
-additional = pd.read_excel(r'C:\Users\alan.hassan\Desktop\github\previsao_ligas\additional.xlsx')
+#url_add = 'https://github.com/alanhassan/soccerprediction/blob/main/additional.xlsx?raw=true'
+additional = pd.read_excel(r'C:\Users\alan.hassan\Desktop\github\soccerprediction\additional.xlsx')
 
 df_rolling = df_rolling.merge(additional, how = 'left', left_on='team_home', right_on='team')
 df_rolling.rename(columns={"Points last season_": "Points last season_home"}, inplace=True)
@@ -325,12 +326,12 @@ df_rolling = df_rolling[['date', 'comp', 'home', 'gf_rolling_home',
 df_rolling.rename(columns={"last_2_results_sum_home": "last_2_results"}, inplace=True)
 
 
-df_rolling.to_excel('C:/Users/alan.hassan/Desktop/github/previsao_ligas/df_rolling.xlsx')
-match_df_final_all.to_excel('C:/Users/alan.hassan/Desktop/github/previsao_ligas/match_df_final_all.xlsx')
+df_rolling.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/df_rolling.xlsx')
+match_df_final_all.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/match_df_final_all.xlsx')
 
 # update no Github
 
-repo = Repo('C:/Users/alan.hassan/Desktop/github/previsao_ligas')  # if repo is CWD just do '.'
+repo = Repo('C:/Users/alan.hassan/Desktop/github/soccerprediction')  # if repo is CWD just do '.'
 origin = repo.remote('origin')
 assert origin.exists()
 origin.fetch()
