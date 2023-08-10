@@ -14,14 +14,14 @@ g = Github(key)
 #repositório
 
 def get_repo():
-    repo = g.get_repo("alanhassan/previsao_ligas")
+    repo = g.get_repo("alanhassan/soccerprediction")
     return repo
 repo = get_repo()
 
 #get ml model from github
 
 def get_ml():
-    url_ml = 'https://github.com/alanhassan/previsao_ligas/blob/main/best_lr.pkl?raw=true'
+    url_ml = 'https://github.com/alanhassan/soccerprediction/blob/main/best_lr.pkl?raw=true'
     file = BytesIO(requests.get(url_ml).content)
     ml = joblib.load(file)
     return ml
@@ -33,7 +33,7 @@ ml.fitted_ = True
 # updated database with recent matches from github
 
 def get_df_rolling():
-    url_df = 'https://github.com/alanhassan/previsao_ligas/blob/main/df_rolling.xlsx?raw=true'
+    url_df = 'https://github.com/alanhassan/soccerprediction/blob/main/df_rolling.xlsx?raw=true'
     data = requests.get(url_df).content
     df = pd.read_excel(data)
 
@@ -44,7 +44,7 @@ df = get_df_rolling()
 # updated database with next matches and odds
 
 def get_df_odds():
-    url_df_odds = 'https://github.com/alanhassan/previsao_ligas/blob/main/df_odds.xlsx?raw=true'
+    url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds.xlsx?raw=true'
     data_odds = requests.get(url_df_odds).content
     df_odds = pd.read_excel(data_odds)
     df_odds['League'] = df_odds['League'].str.split("-").str[0]
@@ -64,7 +64,7 @@ df_odds = get_df_odds()
 # get information for 'last_2_results_sum'
 
 def get_match_df_final_all():
-    url_df_l2r = 'https://github.com/alanhassan/previsao_ligas/blob/main/match_df_final_all.xlsx?raw=true'
+    url_df_l2r = 'https://github.com/alanhassan/soccerprediction/blob/main/match_df_final_all.xlsx?raw=true'
     data_l2r = requests.get(url_df_l2r).content
     match_df_final_all = pd.read_excel(data_l2r)
     return match_df_final_all
@@ -73,15 +73,9 @@ match_df_final_all = get_match_df_final_all()
 
 # get information for 'tips_original_result'
 
-tips_original_result = 'https://github.com/alanhassan/previsao_ligas/blob/main/tips_original_result.xlsx?raw=true'
+tips_original_result = 'https://github.com/alanhassan/soccerprediction/blob/main/tips_original_result.xlsx?raw=true'
 tips_original_result = requests.get(tips_original_result).content
 tips_original_result = pd.read_excel(tips_original_result)
-
-# get information for 'df_money_evolution'
-
-df_money_evolution = 'https://github.com/alanhassan/previsao_ligas/blob/main/df_money_evolution.xlsx?raw=true'
-df_money_evolution = requests.get(df_money_evolution).content
-df_money_evolution = pd.read_excel(df_money_evolution)
 
 # func home
 def homeData(df, team):
