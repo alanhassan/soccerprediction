@@ -203,7 +203,7 @@ df = df.rename(index=lambda x: x + 1)
 
 # filtrando o df
 
-df_filtered = df[(df['Country'].str.contains('ENGLAND|GERMANY|SPAIN|ITALY|FRANCE'))]
+df_filtered = df[(df['Country'].str.contains('ENGLAND|GERMANY|SPAIN|ITALY|FRANCE|BRAZIL'))]
 df_filtered = df_filtered[(df_filtered['League'].str.contains('PREMIER LEAGUE|BUNDESLIGA|LALIGA|LIGUE 1|SERIE A'))]
 df_filtered = df_filtered[~(df_filtered['League'].str.contains('LALIGA2|2. BUNDESLIGA|WOMEN|JUNIOREN|PLAY OFFS|RELEGATION'))]
 df_filtered['Date'] = pd.to_datetime(df_filtered['Date'].str.replace('.', '/'), format='%d/%m/%Y').dt.date
@@ -237,7 +237,12 @@ df_odds = df_odds.replace({'Home' : { 'Leeds' : 'Leeds United',
                                         'Paris SG' : 'Paris Saint Germain',
                                         'FC Koln' : 'Koln',
                                         'AS Roma' : 'Roma',
-                                        'Atl. Madrid' : 'Atletico Madrid'}})
+                                        'Atl. Madrid' : 'Atletico Madrid',
+                                        'Atletico-MG' : 'Atletico Mineiro',
+                                        'Flamengo RJ' : 'Flamengo',
+                                        'Athletico-PR' : 'Atletico Paranaense',
+                                        'Vasco' : 'Vasco da Gama'
+                                        }})
 
 df_odds = df_odds.replace({'Away' : { 'Leeds' : 'Leeds United',
                                         'Leicester' : 'Leicester City',
@@ -263,7 +268,11 @@ df_odds = df_odds.replace({'Away' : { 'Leeds' : 'Leeds United',
                                         'Paris SG' : 'Paris Saint Germain',
                                         'FC Koln' : 'Koln',
                                         'AS Roma' : 'Roma',
-                                        'Atl. Madrid' : 'Atletico Madrid'}})
+                                        'Atl. Madrid' : 'Atletico Madrid',
+                                        'Atletico-MG' : 'Atletico Mineiro',
+                                        'Flamengo RJ' : 'Flamengo',
+                                        'Athletico-PR' : 'Atletico Paranaense',
+                                        'Vasco' : 'Vasco da Gama'}})
 
 df_odds = df_odds.reset_index()
 # previsões de ml
@@ -271,6 +280,10 @@ prediction_home = []
 for i in range(0,len(df_odds)):
     pred = ratio(df_rolling, df_odds['Home'][i], df_odds['Away'][i])
     pred['last_2_results'] = last_2_results(df_rolling, df_odds['Home'][i], df_odds['Away'][i])
+    
+    # Handle missing values in 'pred' DataFrame, if any
+    pred.fillna(0, inplace=True)
+
     prediction = ml.predict_proba(pred)[0][1]
     prediction_home.append(prediction)
 
