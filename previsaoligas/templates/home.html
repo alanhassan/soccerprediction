@@ -185,7 +185,7 @@
 
     // Update home team image and name
     if (selectedHomeTeam) {
-        var fotoTimeCasaURL = '{{ url_for('static', filename='fotos_time/') }}' + selectedHomeTeam.replace(/\s+/g, '_') + '.png';
+        var fotoTimeCasaURL = '{{ url_for('static', filename='fotos_time/') }}' + selectedHomeTeam.toLowerCase().replace(/\s+/g, '_') + '.png';
         fotoTimeCasaImage.src = fotoTimeCasaURL;
         homeTeamNameElement.textContent = selectedHomeTeam;
       } else {
@@ -196,7 +196,7 @@
 
       // Update away team image and name
       if (selectedAwayTeam) {
-        var fotoTimeVisitanteURL = '{{ url_for('static', filename='fotos_time/') }}' + selectedAwayTeam.replace(/\s+/g, '_') + '.png';
+        var fotoTimeVisitanteURL = '{{ url_for('static', filename='fotos_time/') }}' + selectedAwayTeam.toLowerCase().replace(/\s+/g, '_') + '.png';
         fotoTimeVisitanteImage.src = fotoTimeVisitanteURL;
         awayTeamNameElement.textContent = selectedAwayTeam;
       } else {
