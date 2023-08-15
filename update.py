@@ -15,6 +15,37 @@ warnings.filterwarnings("ignore")
 # serie-A
 # trazendo informações mais atualizadas do site https://fbref.com/
 
+
+print('Start of Campeonato Brasileiro')
+
+all_matches = []
+standings_url = "https://fbref.com/en/comps/24/Serie-A-Stats"
+
+data = requests.get(standings_url)
+soup = BeautifulSoup(data.text)
+standings_table = soup.select('table.stats_table')[0]
+links = [l.get("href") for l in standings_table.find_all('a')]
+links = [l for l in links if '/squads' in l]
+team_urls = [f"https://fbref.com{l}" for l in links]
+
+for team_url in team_urls:
+    team_name = team_url.split("/")[-1].replace("-Stats", "").replace("-", " ")
+        
+    data = requests.get(team_url)
+    matches = pd.read_html(data.text, match="Scores & Fixtures")[0]
+            
+    matches = matches[matches["Comp"] == "Série A"]
+    matches["Team"] = team_name
+    all_matches.append(matches)
+    time.sleep(8)
+    
+match_df = pd.concat(all_matches)
+match_df.columns = [c.lower() for c in match_df.columns]
+serie_a_br = match_df
+
+print('End of Campeonato Brasileiro')
+
+
 print('Start of Serie A')
 
 all_matches = []
@@ -172,37 +203,6 @@ ligue_1 = match_df
 
 print('End of Ligue 1')
 
-# Ligue 1
-# trazendo informações mais atualizadas do site https://fbref.com/
-
-print('Start of Campeonato Brasileiro')
-
-all_matches = []
-standings_url = "https://fbref.com/en/comps/24/Serie-A-Stats"
-
-data = requests.get(standings_url)
-soup = BeautifulSoup(data.text)
-standings_table = soup.select('table.stats_table')[0]
-links = [l.get("href") for l in standings_table.find_all('a')]
-links = [l for l in links if '/squads' in l]
-team_urls = [f"https://fbref.com{l}" for l in links]
-
-for team_url in team_urls:
-    team_name = team_url.split("/")[-1].replace("-Stats", "").replace("-", " ")
-        
-    data = requests.get(team_url)
-    matches = pd.read_html(data.text, match="Scores & Fixtures")[0]
-            
-    matches = matches[matches["Comp"] == "Série A"]
-    matches["Team"] = team_name
-    all_matches.append(matches)
-    time.sleep(8)
-    
-match_df = pd.concat(all_matches)
-match_df.columns = [c.lower() for c in match_df.columns]
-serie_a_br = match_df
-
-print('End of Campeonato Brasileiro')
 
 # consolidando as 6 ligas
 match_df = pd.concat([serie_a, premier_league, la_liga, bundesliga, ligue_1, serie_a_br])
