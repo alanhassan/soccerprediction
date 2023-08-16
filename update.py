@@ -283,8 +283,19 @@ match_df_final = match_df_final_all[match_df_final_all['date'] >= pd.to_datetime
 def rolling_sum(group, cols, new_cols, venue):
     group = group[group['venue'] == venue]
     group = group.sort_values('date')
-    rolling_stats = group[cols].rolling(3, closed='right').sum()
-    group[new_cols] = rolling_stats
+    
+    if len(group) >= 3:
+        rolling_stats = group[cols].rolling(3, closed='right').sum()
+        group[new_cols] = rolling_stats
+    elif len(group) == 2:
+        rolling_stats = group[cols].rolling(2, closed='right').sum()
+        group[new_cols] = rolling_stats
+    elif len(group) == 1:
+        rolling_stats = group[cols].rolling(1, closed='right').sum()
+        group[new_cols] = rolling_stats
+    else:
+        group[new_cols] = None
+        
     group = group.dropna(subset=new_cols)
     return group
 
