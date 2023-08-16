@@ -28,7 +28,7 @@ def home():
 
     # Convert the sets to lists in the dictionary
     for comp, teams in teams_dict.items():
-        teams_dict[comp] = list(teams)
+        teams_dict[comp] = sorted(list(teams))
 
     # Convert the home_teams_map to a JSON string
     teams_map_json = json.dumps(teams_dict)
