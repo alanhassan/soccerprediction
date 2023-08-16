@@ -11,10 +11,27 @@ import json
 @app.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
-    # Group the DataFrame by 'comp' and aggregate 'home' values as a list
-    teams_map = df.groupby('comp')['home'].unique().agg(list).to_dict()
+    # Create a dictionary to store the teams for each competition
+    teams_dict = {}
+
+    # Iterate through each row in the DataFrame
+    for index, row in df.iterrows():
+        comp = row["comp"]
+        home = row["home"]
+        away = row["away"]
+        
+        # Add home and away teams to the competition's list of teams
+        if comp not in teams_dict:
+            teams_dict[comp] = set()
+        teams_dict[comp].add(home)
+        teams_dict[comp].add(away)
+
+    # Convert the sets to lists in the dictionary
+    for comp, teams in teams_dict.items():
+        teams_dict[comp] = list(teams)
+
     # Convert the home_teams_map to a JSON string
-    teams_map_json = json.dumps(teams_map)
+    teams_map_json = json.dumps(teams_dict)
     return render_template('home.html', teams_map_json=teams_map_json)
 
 @app.route('/output', methods=['GET', 'POST'])
