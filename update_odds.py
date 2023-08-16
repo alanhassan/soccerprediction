@@ -284,8 +284,8 @@ for i in range(0,len(df_odds)):
     # Handle missing values in 'pred' DataFrame, if any
     pred.fillna(0, inplace=True)
 
-    prediction = ml.predict_proba(pred)[0][1]
-    prediction_home.append(prediction)
+prediction = ml.predict_proba(pred)[0][1]
+prediction_home.append(prediction)
 
 # adicionando coluna
 df_odds['Pred_H'] = prediction_home
