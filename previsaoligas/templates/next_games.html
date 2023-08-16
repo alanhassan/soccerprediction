@@ -9,6 +9,102 @@
   <!-- Include DataTables -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css">
   <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+
+  <!-- Add custom CSS styles -->
+  <style>
+    /* Reduce font size */
+    table#next_games th,
+    table#next_games td {
+      font-size: 12px;
+    }
+
+    /* Trim cell padding */
+    table#next_games td {
+      padding: 4px;
+    }
+    
+    /* Adjust column width */
+    table#next_games th,
+    table#next_games td {
+      max-width: 100px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    
+    /* Remove unnecessary space */
+    table#next_games td {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    /* Style for the filter container */
+    .filter-container {
+      margin: 0px 50px;
+      margin-left: 65px;
+      text-align: left;
+    }
+
+    /* Style for the styled select dropdown */
+    .styled-select {
+      display: inline-block;
+      margin-bottom: 2px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+
+
+    /* Adjust the font size and padding for the "Show [X] entries" dropdown */
+    div.dataTables_wrapper select {
+      font-size: 12px; /* Adjust the font size as needed */
+      padding: 2px; /* Adjust the padding as needed */
+    }    
+
+    /* Adjust the font size and styling for the "Showing X to Y of Z entries" info */
+    div.dataTables_info {
+      font-size: 15px; /* Adjust the font size as needed */
+      padding: 4px 0; /* Adjust the padding as needed */
+    }    
+
+    /* Adjust the font size and padding for the search box */
+    div.dataTables_filter input {
+      font-size: 12px; /* Adjust the font size as needed */
+      padding: 4px;
+      margin-bottom: 5px;
+    }  
+
+    /* Adjust spacing between "Show [X] entries" and filter */
+    div.dataTables_length {
+      margin-top: -5px; /* Adjust the negative margin as needed */
+    }    
+
+    /* Position the filter group next to the table header */
+    .filter-group {
+      margin-top: 20px; /* Adjust the margin as needed */
+    }
+
+    /* Style for the filter container */
+    .filter-container {
+      display: inline-block;
+      margin-right: 10px; /* Adjust the margin as needed */
+    }
+
+    /* Style for the second filter container */
+    .second-filter {
+      margin-left: 20px; /* Adjust the margin as needed */
+    }
+  </style>    
 </head>
 
 {% endblock %}
@@ -17,45 +113,82 @@
 
 <body>
     <h1 style="margin-top: 20px; margin-left: 60px;">Próximos Jogos</h1>
-    <div class="table-container">
-      <table id="next_games">
-        <thead>
-          <tr>
-            {% for column in dataframe.columns %}
-            <th>{{ column }}</th>
-            {% endfor %}
-          </tr>
-        </thead>
-        <tbody>
-          {% for index, row in dataframe.iterrows() %}
-          {% set color = '#C0C0C0' %}
-            {% if (row['Previsão CASA'] > 0.80 and row['Odds CASA'] > 1.40) or (row['Previsão VISITANTE'] > 0.80 and row['Odds VISITANTE'] > 1.40) %}
-              {% set color = '#32CD32' %}
-          {% elif (row['Previsão CASA'] > 0.75 and row['Odds CASA'] > 1.60) or (row['Previsão VISITANTE'] > 0.75 and row['Odds VISITANTE'] > 1.60) %}
-            {% set color = '#7FFFD4' %}
-          {% elif (row['Previsão CASA'] > 0.70 and row['Odds CASA'] > 1.85) or (row['Previsão VISITANTE'] > 0.70 and row['Odds VISITANTE'] > 1.85) %}
-            {% set color = '##ADD8E6' %}
-          {% endif %}
-          <tr style="background-color: {{ color }};">
-            {% for value in row %}
-            <td>{{ value }}</td>
-            {% endfor %}
-          </tr>
+
+    <!-- Styled dropdown filter for "Campeonato" -->
+  <div class="filter-group">  
+    <div class="filter-container">
+      <label for="campeonatoFilter" class="filter-label">Campeonato:</label>
+      <select id="campeonatoFilter" class="filter-select">
+          <option value="">Todos</option>
+          {% for campeonato in dataframe['Campeonato'].unique() %}
+              <option value="{{ campeonato }}">{{ campeonato }}</option>
           {% endfor %}
-        </tbody>
-      </table>
+      </select>
     </div>
+
+    <!-- Filter container for "Data" -->
+    <div class="filter-container second-filter">
+      <label for="dataFilter" class="filter-label">Data:</label>
+      <select id="dataFilter" class="filter-select">
+          <option value="">Todas</option>
+          {% for data in dataframe['Data'].unique() %}
+              <option value="{{ data }}">{{ data }}</option>
+          {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table id="next_games">
+      <thead>
+        <tr>
+          {% for column in dataframe.columns %}
+          <th>{{ column }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for index, row in dataframe.iterrows() %}
+        {% set color = '#C0C0C0' %}
+          {% if (row['Previsão CASA'] > 0.80 and row['Odds CASA'] > 1.40) or (row['Previsão VISITANTE'] > 0.80 and row['Odds VISITANTE'] > 1.40) %}
+            {% set color = '#32CD32' %}
+        {% elif (row['Previsão CASA'] > 0.75 and row['Odds CASA'] > 1.60) or (row['Previsão VISITANTE'] > 0.75 and row['Odds VISITANTE'] > 1.60) %}
+          {% set color = '#7FFFD4' %}
+        {% elif (row['Previsão CASA'] > 0.70 and row['Odds CASA'] > 1.85) or (row['Previsão VISITANTE'] > 0.70 and row['Odds VISITANTE'] > 1.85) %}
+          {% set color = '##ADD8E6' %}
+        {% endif %}
+        <tr style="background-color: {{ color }};">
+          {% for value in row %}
+          <td>{{ value }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
   </body>
 
-<script>
-$(document).ready(function() {
-  $('#next_games').DataTable({
-    "paging": true, // Enable pagination
-    "searching": false, // Enable searching
-    // Add more options as needed
+  <script>
+  $(document).ready(function() {
+    var table = $('#next_games').DataTable({
+      "paging": true,
+      "searching": true,
+      // Add more options as needed
+    });
+
+    // Apply the custom filter when the dropdown changes
+    $('#campeonatoFilter').on('change', function() {
+      var selectedCampeonato = $(this).val();
+      table.column(1).search(selectedCampeonato).draw(); // Assuming "Campeonato" is the second column
+    });
+
+  // Apply the custom filter when the "Data" dropdown changes
+    $('#dataFilter').on('change', function() {
+      var selectedData = $(this).val();
+      table.column(0).search(selectedData).draw(); // Assuming "Data" is the third column
+    });
   });
-});
-</script>
+  </script>
 
 {% endblock %}
 
