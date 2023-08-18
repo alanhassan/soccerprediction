@@ -205,7 +205,7 @@ df = df.rename(index=lambda x: x + 1)
 
 df_filtered = df[(df['Country'].str.contains('ENGLAND|GERMANY|SPAIN|ITALY|FRANCE|BRAZIL'))]
 df_filtered = df_filtered[(df_filtered['League'].str.contains('PREMIER LEAGUE|BUNDESLIGA|LALIGA|LIGUE 1|SERIE A'))]
-df_filtered = df_filtered[~(df_filtered['League'].str.contains('LALIGA2|2. BUNDESLIGA|WOMEN|JUNIOREN|PLAY OFFS|RELEGATION'))]
+df_filtered = df_filtered[~(df_filtered['League'].str.contains('LALIGA2|2. BUNDESLIGA|WOMEN|JUNIOREN|PLAY OFFS|RELEGATION|CUP'))]
 df_filtered['Date'] = pd.to_datetime(df_filtered['Date'].str.replace('.', '/'), format='%d/%m/%Y').dt.date
 df_filtered = df_filtered.sort_values(by=['Date', 'Country'])
 
@@ -277,15 +277,20 @@ df_odds = df_odds.replace({'Away' : { 'Leeds' : 'Leeds United',
 df_odds = df_odds.reset_index()
 # previsões de ml
 prediction_home = []
-for i in range(0,len(df_odds)):
+for i in range(0, len(df_odds)):
     pred = ratio(df_rolling, df_odds['Home'][i], df_odds['Away'][i])
     pred['last_2_results'] = last_2_results(df_rolling, df_odds['Home'][i], df_odds['Away'][i])
     
-    # Handle missing values in 'pred' DataFrame, if any
-    pred.fillna(0, inplace=True)
+    # Check if there are any NaN values in 'pred' DataFrame
+    if pred.isnull().values.any():
+        prediction = None  # Skip prediction for this row
+    else:
+        # Handle missing values in 'pred' DataFrame, if any
+        pred.fillna(0, inplace=True)
 
-prediction = ml.predict_proba(pred)[0][1]
-prediction_home.append(prediction)
+        prediction = ml.predict_proba(pred)[0][1]
+        
+    prediction_home.append(prediction)
 
 # adicionando coluna
 df_odds['Pred_H'] = prediction_home
