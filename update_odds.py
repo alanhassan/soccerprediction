@@ -11,6 +11,8 @@ from git import Repo
 from tqdm import tqdm
 from selenium.webdriver.common.by import By
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import os
 import base64
 import joblib
@@ -102,6 +104,8 @@ def last_2_results(df, team1, team2):
     return last_2_results_sum
 
 
+service=Service(ChromeDriverManager().install())
+
 # Instanciando o Objeto ChromeOptions
 options = webdriver.ChromeOptions()
 
@@ -111,7 +115,7 @@ options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 
 # Criação do WebDriver do Chrome
-wd_Chrome = webdriver.Chrome('chromedriver',options=options)
+wd_Chrome = webdriver.Chrome(service=service, options=options)
 
 # Com o WebDrive a gente consegue a pedir a página (URL)
 wd_Chrome.get("https://www.flashscore.com/")
