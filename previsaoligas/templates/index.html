@@ -1,0 +1,22 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Page</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h1>Pay to Use the Website</h1>
+    <button id="payButton">Pay $10</button>
+
+    <script>
+        var stripe = Stripe('{{ app.config["STRIPE_PUBLISHABLE_KEY"] }}');
+
+        document.querySelector('#payButton').addEventListener('click', function() {
+            stripe.redirectToCheckout({
+                sessionId: '{{ create_stripe_session() }}'
+            });
+        });
+    </script>
+</body>
+</html>

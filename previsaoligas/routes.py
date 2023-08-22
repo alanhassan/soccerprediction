@@ -6,6 +6,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from previsaoligas.database import df, homeData, awayData, last_results_text_home, last_results_text_away, ml_pred,\
     df_odds, tips_original_result
 import json
+import stripe
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -248,3 +249,27 @@ def output2():
 
     return jsonify(response)
 
+@app.route('/payment')
+def index():
+    return render_template('index.html')
+
+@app.route('/success')
+def success():
+    return 'Payment successful! Thank you for using the website.'
+
+@app.route('/cancel')
+def cancel():
+    return 'Payment cancelled.'
+
+def create_stripe_session():
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[{
+            'price': 'price_123',  # Replace with your actual price ID
+            'quantity': 1,
+        }],
+        mode='payment',
+        success_url=request.url_root + 'success',
+        cancel_url=request.url_root + 'cancel',
+    )
+    return session.id
