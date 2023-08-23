@@ -155,7 +155,7 @@
         {% elif (row['Previsão CASA'] > 0.75 and row['Odds CASA'] > 1.60) or (row['Previsão VISITANTE'] > 0.75 and row['Odds VISITANTE'] > 1.60) %}
           {% set color = '#7FFFD4' %}
         {% elif (row['Previsão CASA'] > 0.70 and row['Odds CASA'] > 1.85) or (row['Previsão VISITANTE'] > 0.70 and row['Odds VISITANTE'] > 1.85) %}
-          {% set color = '##ADD8E6' %}
+          {% set color = '#FFFF00' %}
         {% endif %}
         <tr style="background-color: {{ color }};">
           {% for value in row %}

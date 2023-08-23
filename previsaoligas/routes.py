@@ -6,7 +6,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from previsaoligas.database import df, homeData, awayData, last_results_text_home, last_results_text_away, ml_pred,\
     df_odds, tips_original_result
 import json
-
+import stripe
 
 @app.route('/', methods=['GET', 'POST'])
 #@login_required
@@ -70,6 +70,11 @@ def output():
         'prediction2': prediction2
     }
     return jsonify(response)
+
+@app.route('/about')
+#@login_required
+def about():
+    return render_template('about.html')
 
 @app.route('/next_games')
 #@login_required
@@ -247,3 +252,21 @@ def output2():
     response['chart_data'] = chart_data
 
     return jsonify(response)
+
+
+@app.route('/payment')
+def index():
+    return render_template('index.html', stripe_public_key='pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ')
+
+stripe.api_key = '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'
+
+@app.route('/create-payment-intent', methods=['POST'])
+def create_payment_intent():
+    amount = request.json['amount']
+
+    payment_intent = stripe.PaymentIntent.create(
+        amount=amount,
+        currency='brl'
+    )
+
+    return jsonify({'client_secret': payment_intent.client_secret})

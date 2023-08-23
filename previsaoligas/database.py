@@ -51,6 +51,8 @@ def get_df_odds():
     df_odds['Date'] = df_odds['Date'].dt.date
     df_odds = df_odds.sort_values(by=['Date', 'Country'])
     df_odds['Date'] = df_odds['Date'].astype(str)
+    # Update 'League' values based on 'Country'
+    df_odds.loc[df_odds['Country'] == 'BRAZIL', 'League'] = 'BR - SÉRIE A'
     df_odds = df_odds[['Date', 'League', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A', 'Pred_H', 'Pred_A']]
     df_odds = df_odds.rename(columns={"Date": "Data", "League": "Campeonato",
                                       "Home": "Time CASA", 'Away': "time VISITANTE",
