@@ -9,6 +9,7 @@
 {% block body %}
 
 <h1 style="margin-top: 20px; margin-left: 60px;">Performance</h1>
+
 <form id="filterForm" class="filter-form">
     <label for="filter_choice" class="filter-label">Filtrar por:</label>
     <select name="filter_choice" id="filter_choice"  class="filter-select">
@@ -205,7 +206,7 @@
     };
         xhr.send(JSON.stringify(params));
     }
-
+    
     document.getElementById('filterForm').addEventListener('submit', getData);
 
 </script>

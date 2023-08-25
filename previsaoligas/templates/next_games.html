@@ -114,6 +114,14 @@
 <body>
     <h1 style="margin-top: 20px; margin-left: 60px;">Próximos Jogos</h1>
 
+    <dialog id="modal">
+      <h2 style="text-align: center;">Premissas</h2>
+      <p>Dica Segura ➜ Destacada em <b><span style= "color: white; background-color: green;">VERDE</span></b>.</p>
+      <p>Dica Média ➜ Descatacada em <b><span style="background-color: yellow;">AMARELO</span></b>.</p>
+      <p>Não apostar ➜ Descatacada em <b><span style="color: white; background-color: gray;">CINZA</span></b>.</p>
+      <button class="btn btn-sn btn-outline-primary w-100 close-button">Fechar</button>
+    </dialog>
+
     <!-- Styled dropdown filter for "Campeonato" -->
   <div class="filter-group">  
     <div class="filter-container">
@@ -135,8 +143,10 @@
               <option value="{{ data }}">{{ data }}</option>
           {% endfor %}
       </select>
+      <button style="padding: 6px; margin-left: 10px;" type="button" id="premissasButton" class="btn btn-sn btn-outline-primary open-button">Premissas</button>
     </div>
   </div>
+
 
   <div class="table-container">
     <table id="next_games">
@@ -187,6 +197,24 @@
       var selectedData = $(this).val();
       table.column(0).search(selectedData).draw(); // Assuming "Data" is the third column
     });
+  });
+
+
+  document.getElementById('premissasButton').addEventListener('click', function () {
+        const modal = document.querySelector('#modal');
+        modal.showModal();
+    });
+
+  const modal = document.querySelector('#modal');
+  const openModal = document.querySelector('.open-button');
+  const closeModal = document.querySelector('.close-button');
+
+  openModal.addEventListener("click", () => {
+    modal.showModal();
+  });
+
+  closeModal.addEventListener("click", () => {
+    modal.close();
   });
   </script>
 
