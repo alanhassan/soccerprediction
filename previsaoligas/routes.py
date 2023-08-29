@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, request, jsonify
+from flask import render_template, redirect, url_for, flash, request, jsonify, session
 from previsaoligas import app, database, bcrypt
 from previsaoligas.forms import FormLogin, FormCriarConta
 from previsaoligas.models import Usuario
@@ -7,6 +7,8 @@ from previsaoligas.database import df, homeData, awayData, last_results_text_hom
     df_odds, tips_original_result
 import json
 import stripe
+from uuid import uuid4
+
 
 @app.route('/', methods=['GET', 'POST'])
 #@login_required
@@ -82,7 +84,7 @@ def next_games():
     return render_template('next_games.html', dataframe=df_odds)
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login2', methods=['GET', 'POST'])
 def login():
     form_login = FormLogin()
     form_criarconta = FormCriarConta()
@@ -106,7 +108,34 @@ def login():
         database.session.commit()
         flash(f'Conta criada para o e-mail: {form_criarconta.email.data}', 'alert-success')
         return redirect(url_for('home'))
-    return render_template('login.html', form_login=form_login, form_criarconta=form_criarconta)
+    return render_template('login2.html', form_login=form_login, form_criarconta=form_criarconta)
+
+
+@app.route('/criar_conta', methods=['GET', 'POST'])
+def criar_conta():
+    form_criarconta = FormCriarConta()
+    if form_criarconta.validate_on_submit() and 'botao_submit_criarconta' in request.form:
+        # Store the user's information in the session for later use
+        session['user_info'] = {
+            'username': form_criarconta.username.data,
+            'email': form_criarconta.email.data,
+            'senha': form_criarconta.senha.data
+        }        
+
+
+        # Redirect to the payment page
+        return redirect(url_for('index'))
+    return render_template('criar_conta.html', form_criarconta=form_criarconta)   
+     
+        #senha_cript = bcrypt.generate_password_hash(form_criarconta.senha.data).decode("utf-8")
+        #usuario = Usuario(username=form_criarconta.username.data, email=form_criarconta.email.data
+        #                  , senha=senha_cript)
+        #database.session.add(usuario)
+        #database.session.commit()
+        #flash(f'Conta criada para o e-mail: {form_criarconta.email.data}', 'alert-success')
+        #return redirect(url_for('index'))
+    #return render_template('criar_conta.html', form_criarconta=form_criarconta)
+
 
 @app.route('/sair')
 #@login_required
@@ -196,8 +225,6 @@ def output3():
     return jsonify(response)
 
 
-
-
 @app.route('/performance')
 #@login_required
 def performance():
@@ -254,19 +281,69 @@ def output2():
     return jsonify(response)
 
 
-@app.route('/payment')
+@app.route('/payment_')
 def index():
-    return render_template('index.html', stripe_public_key='pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ')
+    return render_template('subscription.html', stripe_public_key='pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ')
+
+@app.route('/payment')
+def payment():
+    # Retrieve the stripe_session_id from the session
+    stripe_session_id = session.get('stripe_session_id')
+    
+    if not stripe_session_id:
+        flash('No payment session found.', 'alert-danger')
+        return redirect(url_for('index'))
+    
+    try:
+        # Retrieve the Checkout session from Stripe
+        session_data = stripe.checkout.Session.retrieve(stripe_session_id)
+        
+        if session_data.payment_status == 'paid':
+            # Retrieve user information from the session
+            user_info = session.get('user_info')
+
+            if user_info:
+                senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
+                usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
+                database.session.add(usuario)
+                database.session.commit()
+                flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
+                session.pop('user_info')  # Clear user information from the session
+        else:
+            flash('Payment was not successful.', 'alert-danger')
+    except Exception as e:
+        flash('An error occurred while processing payment: ' + str(e), 'alert-danger')
+
+    return render_template('subscription.html', stripe_public_key='pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ')
+
 
 stripe.api_key = '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'
 
-@app.route('/create-payment-intent', methods=['POST'])
-def create_payment_intent():
-    amount = request.json['amount']
+@app.route("/create_checkout_session", methods=["POST"])
+def create_checkout_session():
+    # Get the price ID from the request (you can pass it as a parameter)
+    price_id = request.json["price_id"]
 
-    payment_intent = stripe.PaymentIntent.create(
-        amount=amount,
-        currency='brl'
+    # Determine the cancel URL based on whether the app is running locally or on the live website
+    if request.host.startswith("127.0.0.1"):
+        cancel_url = "http://127.0.0.1:5000/criar_conta"
+    else:
+        cancel_url = "https://soccerpred.up.railway.app/criar_conta"
+
+    # Create a Checkout session
+    session = stripe.checkout.Session.create(
+        mode="subscription",
+        success_url="http://127.0.0.1:5000/",
+        cancel_url= cancel_url,
+        line_items=[{"price": price_id, "quantity": 1}],
+        subscription_data={
+            "trial_settings": {"end_behavior": {"missing_payment_method": "cancel"}},
+            "trial_period_days": 15,
+        },
+        payment_method_types=["card"],
     )
 
-    return jsonify({'client_secret': payment_intent.client_secret})
+    # Store the session ID in the user's session
+    session['stripe_session_id'] = session.id
+
+    return jsonify({"sessionId": session.id})

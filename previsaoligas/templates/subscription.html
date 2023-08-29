@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Checkout</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <script>
+        (async () => {
+            const response = await fetch("/create_checkout_session", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ price_id: "price_1NjudILvubjLVHJAS4XP6Agn" }), // Replace with actual price ID
+            });
+
+            const data = await response.json();
+
+            // Redirect to Checkout page
+            const stripe = Stripe("pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ"); // Replace with your publishable key
+            const result = await stripe.redirectToCheckout({ sessionId: data.sessionId });
+            if (result.error) {
+                console.error(result.error.message);
+            }
+        })();
+    </script>
+</body>
+</html>
