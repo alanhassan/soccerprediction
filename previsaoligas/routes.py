@@ -6,7 +6,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from previsaoligas.database import df, homeData, awayData, last_results_text_home, last_results_text_away, ml_pred,\
     df_odds, tips_original_result
 import json
-import stripe
+import stripe 
 from uuid import uuid4
 
 
