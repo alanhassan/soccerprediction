@@ -327,13 +327,15 @@ def create_checkout_session():
     # Determine the cancel URL based on whether the app is running locally or on the live website
     if request.host.startswith("127.0.0.1"):
         cancel_url = "http://127.0.0.1:5000/criar_conta"
+        success_url = "http://127.0.0.1:5000"
     else:
         cancel_url = "https://soccerpred.up.railway.app/criar_conta"
+        success_url = "https://soccerpred.up.railway.app/"
 
     # Create a Checkout session
     session = stripe.checkout.Session.create(
         mode="subscription",
-        success_url="http://127.0.0.1:5000/",
+        success_url=success_url,
         cancel_url= cancel_url,
         line_items=[{"price": price_id, "quantity": 1}],
         subscription_data={
