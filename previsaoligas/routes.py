@@ -330,7 +330,7 @@ def create_checkout_session():
         success_url = "http://127.0.0.1:5000/login"
     else:
         cancel_url = "https://soccerpred.up.railway.app/criar_conta"
-        success_url = "https://soccerpred.up.railway.app/login"
+        success_url = "https://soccerpred.up.railway.app/login2"
 
     # Create a Checkout session
     session = stripe.checkout.Session.create(
