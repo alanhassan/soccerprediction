@@ -300,7 +300,7 @@ def payment():
         
         if session_data.payment_status == 'paid':
             # Retrieve user information from the session
-            user_info = session.get('user_info')
+            user_info = session.get('user_info') 
 
             if user_info:
                 senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
