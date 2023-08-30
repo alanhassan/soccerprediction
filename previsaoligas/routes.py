@@ -124,7 +124,7 @@ def criar_conta():
 
 
         # Redirect to the payment page
-        return redirect(url_for('index'))
+        return redirect(url_for('payment'))
     return render_template('criar_conta.html', form_criarconta=form_criarconta)   
      
         #senha_cript = bcrypt.generate_password_hash(form_criarconta.senha.data).decode("utf-8")
@@ -281,42 +281,6 @@ def output2():
     return jsonify(response)
 
 
-@app.route('/payment_')
-def index():
-    return render_template('subscription.html', stripe_public_key='pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ')
-
-@app.route('/payment')
-def payment():
-    # Retrieve the stripe_session_id from the session
-    stripe_session_id = session.get('stripe_session_id')
-    
-    if not stripe_session_id:
-        flash('No payment session found.', 'alert-danger')
-        return redirect(url_for('index'))
-    
-    try:
-        # Retrieve the Checkout session from Stripe
-        session_data = stripe.checkout.Session.retrieve(stripe_session_id)
-        
-        if session_data.payment_status == 'paid':
-            # Retrieve user information from the session
-            user_info = session.get('user_info') 
-
-            if user_info:
-                senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
-                usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
-                database.session.add(usuario)
-                database.session.commit()
-                flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
-                session.pop('user_info')  # Clear user information from the session
-        else:
-            flash('Payment was not successful.', 'alert-danger')
-    except Exception as e:
-        flash('An error occurred while processing payment: ' + str(e), 'alert-danger')
-
-    return render_template('subscription.html', stripe_public_key='pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ')
-
-
 stripe.api_key = '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'
 
 @app.route("/create_checkout_session", methods=["POST"])
@@ -327,13 +291,13 @@ def create_checkout_session():
     # Determine the cancel URL based on whether the app is running locally or on the live website
     if request.host.startswith("127.0.0.1"):
         cancel_url = "http://127.0.0.1:5000/criar_conta"
-        success_url = "http://127.0.0.1:5000/login"
+        success_url = "http://127.0.0.1:5000/login2"
     else:
         cancel_url = "https://soccerpred.up.railway.app/criar_conta"
         success_url = "https://soccerpred.up.railway.app/login2"
 
     # Create a Checkout session
-    session = stripe.checkout.Session.create(
+    stripe_session = stripe.checkout.Session.create(
         mode="subscription",
         success_url=success_url,
         cancel_url= cancel_url,
@@ -346,6 +310,44 @@ def create_checkout_session():
     )
 
     # Store the session ID in the user's session
-    session['stripe_session_id'] = session.id
+    session['stripe_session_id'] = stripe_session.id
 
-    return jsonify({"sessionId": session.id})
+    print(stripe_session.id)
+
+    return jsonify({"sessionId": stripe_session.id})
+
+
+
+@app.route('/payment')
+def payment():
+    
+    # Retrieve the stripe_session_id from the session
+    stripe_session_id = session.get('stripe_session_id')
+
+    print("Stripe Session ID from session:", stripe_session_id)
+
+
+    try:
+        if stripe_session_id:
+            # Retrieve the Checkout session from Stripe
+            session_data = stripe.checkout.Session.retrieve(stripe_session_id)
+        
+            if session_data.payment_status == 'paid':
+                # Retrieve user information from the session
+                user_info = session.get('user_info') 
+
+                if user_info:
+                    senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
+                    usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
+                    database.session.add(usuario)
+                    database.session.commit()
+                    flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
+                    session.pop('user_info')  # Clear user information from the session
+                else:
+                    flash('Payment was not successful.', 'alert-danger')
+        else:
+            flash('Stripe Session ID is missing from the session.', 'alert-danger')
+    except stripe.error.StripeError as e:
+        flash('An error occurred while processing payment: ' + str(e), 'alert-danger')
+
+    return render_template('subscription.html', stripe_public_key='pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ')
