@@ -383,7 +383,7 @@ def payment():
 
                 user_info = session.get('user_info') 
 
-                flash('Payment successful.', 'alert-success')
+                flash('Payment successful man.', 'alert-success')
                 
                 senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
                 usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
