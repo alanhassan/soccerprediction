@@ -378,21 +378,7 @@ def payment():
             print(session_data.payment_status)
 
             if session_data.payment_status == 'paid':
-                # Retrieve user information from the session
-                user_info = session.get('user_info') 
-
-                print(user_info)
-                print(session_data.payment_status)
-
-                if user_info:
-                    senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
-                    usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
-                    database.session.add(usuario)
-                    database.session.commit()
-                    flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
-                    session.pop('user_info')  # Clear user information from the session
-                else:
-                    flash('Payment was not successfull.', 'alert-danger')
+                flash('Payment was not successfull.', 'alert-danger')
             else:
                 flash('Payment was not successful.', 'alert-danger')        
         else:
