@@ -378,7 +378,7 @@ def payment():
             print(session_data.payment_status)
 
             if session_data.payment_status == 'paid':
-                flash('Payment was not successfull.', 'alert-danger')
+                flash('Payment successful.', 'alert-success')
             else:
                 flash('Payment was not successful.', 'alert-danger')        
         else:
