@@ -8,6 +8,7 @@ from previsaoligas.database import df, homeData, awayData, last_results_text_hom
 import json
 import stripe 
 from uuid import uuid4
+import time
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -315,14 +316,15 @@ def stripe_webhook():
             if user_info:
                 senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
                 usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
+                print(usuario)
                 database.session.add(usuario)
                 database.session.commit()
                 flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
                 session.pop('user_info')  # Clear user information from the session
             else:
-                flash('Payment was not successfull.', 'alert-danger')
+                flash('Payment was not successful.', 'alert-danger')
         else:
-            flash('Payment was not successful.', 'alert-danger')        
+            flash('Payment was not successful.', 'alert-danger')
 
     return jsonify({'status': 'success'})
 
@@ -369,16 +371,26 @@ def payment():
     stripe_session_id = session.get('stripe_session_id')
 
     print("Stripe Session ID from session:", stripe_session_id)
-
+    time.sleep(2)
     try:
         if stripe_session_id:
             # Get the session data from Stripe
             session_data = stripe.checkout.Session.retrieve(stripe_session_id)
             
             print(session_data.payment_status)
-
+            time.sleep(2)
             if session_data.payment_status == 'paid':
+
+                user_info = session.get('user_info') 
+
                 flash('Payment successful.', 'alert-success')
+                
+                senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
+                usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
+                print(usuario)
+                database.session.add(usuario)
+                database.session.commit()
+                flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
             else:
                 flash('Payment was not successful.', 'alert-danger')        
         else:
