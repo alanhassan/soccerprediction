@@ -371,14 +371,14 @@ def payment():
     stripe_session_id = session.get('stripe_session_id')
 
     print("Stripe Session ID from session:", stripe_session_id)
-    time.sleep(2)
+    time.sleep(7)
     try:
         if stripe_session_id:
             # Get the session data from Stripe
             session_data = stripe.checkout.Session.retrieve(stripe_session_id)
             
             print(session_data.payment_status)
-            time.sleep(2)
+            time.sleep(7)
             if session_data.payment_status == 'paid':
 
                 user_info = session.get('user_info') 
