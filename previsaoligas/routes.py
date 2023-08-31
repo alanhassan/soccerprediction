@@ -371,16 +371,16 @@ def payment():
     stripe_session_id = session.get('stripe_session_id')
 
     print("Stripe Session ID from session:", stripe_session_id)
-    time.sleep(7)
+    time.sleep(2)
     try:
         if stripe_session_id:
             # Get the session data from Stripe
             session_data = stripe.checkout.Session.retrieve(stripe_session_id)
             
             print(session_data.payment_status)
-            time.sleep(7)
+            time.sleep(3)
             if session_data.payment_status == 'paid':
-
+                
                 user_info = session.get('user_info') 
 
                 flash('Payment successful man.', 'alert-success')
@@ -392,7 +392,7 @@ def payment():
                 database.session.commit()
                 flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
             else:
-                flash('Payment was not successful.', 'alert-danger')        
+                flash('Payment was not successful man.', 'alert-danger')        
         else:
             flash('Stripe Session ID is missing from the session.', 'alert-danger')
     except stripe.error.StripeError as e:
