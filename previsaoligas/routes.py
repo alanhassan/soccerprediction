@@ -283,6 +283,50 @@ def output2():
 
 stripe.api_key = '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'
 
+
+# Endpoint to handle webhook events
+@app.route('/stripe_webhook', methods=['POST'])
+def stripe_webhook():
+    payload = request.data
+    event = None
+
+    try:
+        event = stripe.Event.construct_from(
+            json.loads(payload), stripe.api_key
+        )
+    except ValueError as e:
+        # Invalid payload
+        return jsonify({'error': 'Invalid payload'}), 400
+
+    # Handle the specific event type
+    if event.type == 'checkout.session.completed':
+        session_id = event.data.object.id
+
+        # Retrieve session details from Stripe
+        session_data = stripe.checkout.Session.retrieve(session_id)
+        
+        if session_data.payment_status == 'paid':
+            # Retrieve user information from the session
+            user_info = session.get('user_info') 
+
+            print(user_info)
+            print(session_data.payment_status)
+
+            if user_info:
+                senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
+                usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
+                database.session.add(usuario)
+                database.session.commit()
+                flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
+                session.pop('user_info')  # Clear user information from the session
+            else:
+                flash('Payment was not successfull.', 'alert-danger')
+        else:
+            flash('Payment was not successful.', 'alert-danger')        
+
+    return jsonify({'status': 'success'})
+
+
 @app.route("/create_checkout_session", methods=["POST"])
 def create_checkout_session():
     # Get the price ID from the request (you can pass it as a parameter)
@@ -326,15 +370,19 @@ def payment():
 
     print("Stripe Session ID from session:", stripe_session_id)
 
-
     try:
         if stripe_session_id:
-            # Retrieve the Checkout session from Stripe
+            # Get the session data from Stripe
             session_data = stripe.checkout.Session.retrieve(stripe_session_id)
-        
+            
+            print(session_data.payment_status)
+
             if session_data.payment_status == 'paid':
                 # Retrieve user information from the session
                 user_info = session.get('user_info') 
+
+                print(user_info)
+                print(session_data.payment_status)
 
                 if user_info:
                     senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
@@ -344,10 +392,14 @@ def payment():
                     flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
                     session.pop('user_info')  # Clear user information from the session
                 else:
-                    flash('Payment was not successful.', 'alert-danger')
+                    flash('Payment was not successfull.', 'alert-danger')
+            else:
+                flash('Payment was not successful.', 'alert-danger')        
         else:
             flash('Stripe Session ID is missing from the session.', 'alert-danger')
     except stripe.error.StripeError as e:
         flash('An error occurred while processing payment: ' + str(e), 'alert-danger')
 
     return render_template('subscription.html', stripe_public_key='pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ')
+
+
