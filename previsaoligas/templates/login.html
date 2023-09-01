@@ -3,11 +3,10 @@
 {% block body %}
 
   <div class="container">
-      <h1 style="margin-top: 20px; margin-left: 60px;">Faça Login ou Crie sua Conta para Continuar</h1>
       <hr>
       <div class="row">
-        <div class="col">
-          <form method="POST" action="" class="border p-4 mt-2">
+        <div class="col-sm-8 offset-sm-2">
+          <form method="POST" action="" class="border p-3 mt-5">
             {{ form_login.csrf_token }}
             <legend>Login</legend>
               <fieldset>
@@ -49,72 +48,6 @@
               {{ form_login.botao_submit_login(class="btn btn-primary mt-2") }}
           </form>
         </div>
-        <div class="col">
-          <form method="POST" action="" class="border p-4 mt-2">
-            {{ form_criarconta.csrf_token }}
-            <legend>Criar Conta</legend>
-              <fieldset>
-                <div class="form-group">
-                  {{ form_criarconta.username.label(class="form-control-label") }}
-                  
-                  {% if form_criarconta.username.errors %}
-                    {{ form_criarconta.username(class="form-control is-invalid") }}
-                  <div class="invalid-feedback">
-                    {% for erro in form_criarconta.username.errors %}
-                        {{ erro }}
-                    {% endfor %}
-                  </div>
-                  {% else %}
-                    {{ form_criarconta.username(class="form-control") }}
-                  {% endif %}
-                </div>
-                <div class="form-group">
-                  {{ form_criarconta.email.label(class="form-control-label") }}
-
-                  {% if form_criarconta.email.errors %}
-                    {{ form_criarconta.email(class="form-control is-invalid") }}
-                  <div class="invalid-feedback">
-                    {% for erro in form_criarconta.email.errors %}
-                        {{ erro }}
-                    {% endfor %}
-                  </div>
-                  {% else %}
-                    {{ form_criarconta.email(class="form-control") }}
-                  {% endif %}
-                </div>
-                <div class="form-group">
-                  {{ form_criarconta.senha.label(class="form-control-label") }}
-                  
-                  {% if form_criarconta.senha.errors %}
-                    {{ form_criarconta.senha(class="form-control is-invalid") }}
-                  <div class="invalid-feedback">
-                    {% for erro in form_criarconta.senha.errors %}
-                        {{ erro }}
-                    {% endfor %}
-                  </div>
-                  {% else %}
-                    {{ form_criarconta.senha(class="form-control") }}
-                  {% endif %}
-                </div>
-                <div class="form-group">
-                  {{ form_criarconta.confirmacao_senha.label(class="form-control-label") }}
-                  
-                  {% if form_criarconta.confirmacao_senha.errors %}
-                    {{ form_criarconta.confirmacao_senha(class="form-control is-invalid") }}
-                  <div class="invalid-feedback">
-                    {% for erro in form_criarconta.confirmacao_senha.errors %}
-                        {{ erro }}
-                    {% endfor %}
-                  </div>
-                  {% else %}
-                    {{ form_criarconta.confirmacao_senha(class="form-control") }}
-                  {% endif %}
-                </div>
-              </fieldset>
-              {{ form_criarconta.botao_submit_criarconta(class="btn btn-primary mt-2") }}
-          </form>
-        </div>
-      </div>
   </div>
 
 {% endblock %}

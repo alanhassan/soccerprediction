@@ -1,8 +1,13 @@
 from previsaoligas import app
 import os
 import stripe
+from dotenv import load_dotenv
+import os
 
-stripe.api_key = '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'
+
+load_dotenv()
+
+stripe.api_key = os.getenv('stripe_api_key')
 
 if __name__ == '__main__':
     app.run(debug=True)

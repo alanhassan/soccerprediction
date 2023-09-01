@@ -8,10 +8,13 @@ from previsaoligas.database import df, homeData, awayData, last_results_text_hom
 import json
 import stripe 
 from uuid import uuid4
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 @app.route('/', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def home():
     # Create a dictionary to store the teams for each competition
     teams_dict = {}
@@ -37,7 +40,7 @@ def home():
     return render_template('home.html', teams_map_json=teams_map_json)
 
 @app.route('/output', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def output():
     team1_data = request.json['team1_input']
     team2_data = request.json['team2_input']
@@ -74,20 +77,18 @@ def output():
     return jsonify(response)
 
 @app.route('/about')
-#@login_required
 def about():
     return render_template('about.html')
 
 @app.route('/next_games')
-#@login_required
+@login_required
 def next_games():
     return render_template('next_games.html', dataframe=df_odds)
 
 
-@app.route('/login2', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form_login = FormLogin()
-    form_criarconta = FormCriarConta()
     if form_login.validate_on_submit() and 'botao_submit_login' in request.form:
         usuario = Usuario.query.filter_by(email=form_login.email.data).first()
         if usuario and bcrypt.check_password_hash(usuario.senha, form_login.senha.data):
@@ -100,16 +101,7 @@ def login():
                 return redirect(url_for('home'))
         else:
             flash(f'Falha no Login. E-mail ou Senha Incorretos', 'alert-danger')
-    if form_criarconta.validate_on_submit() and 'botao_submit_criarconta' in request.form:
-        senha_cript = bcrypt.generate_password_hash(form_criarconta.senha.data).decode("utf-8")
-        usuario = Usuario(username=form_criarconta.username.data, email=form_criarconta.email.data
-                          , senha=senha_cript)
-        database.session.add(usuario)
-        database.session.commit()
-        flash(f'Conta criada para o e-mail: {form_criarconta.email.data}', 'alert-success')
-        return redirect(url_for('home'))
-    return render_template('login2.html', form_login=form_login, form_criarconta=form_criarconta)
-
+    return render_template('login.html', form_login=form_login)        
 
 @app.route('/criar_conta', methods=['GET', 'POST'])
 def criar_conta():
@@ -125,20 +117,11 @@ def criar_conta():
 
         # Redirect to the payment page
         return redirect(url_for('payment'))
-    return render_template('criar_conta.html', form_criarconta=form_criarconta)   
-     
-        #senha_cript = bcrypt.generate_password_hash(form_criarconta.senha.data).decode("utf-8")
-        #usuario = Usuario(username=form_criarconta.username.data, email=form_criarconta.email.data
-        #                  , senha=senha_cript)
-        #database.session.add(usuario)
-        #database.session.commit()
-        #flash(f'Conta criada para o e-mail: {form_criarconta.email.data}', 'alert-success')
-        #return redirect(url_for('index'))
-    #return render_template('criar_conta.html', form_criarconta=form_criarconta)
+    return render_template('criar_conta.html', form_criarconta=form_criarconta)
 
 
 @app.route('/sair')
-#@login_required
+@login_required
 def sair():
     logout_user()
     flash(f'Logout Feito com Sucesso', 'alert-success')
@@ -146,13 +129,13 @@ def sair():
 
 
 @app.route('/evolution')
-#@login_required
+@login_required
 def evolution():
     return render_template('evolution.html', dataframe=tips_original_result)
 
 
 @app.route('/output3', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def output3():
     filter_choice = request.json['filter_choice']
     inicial = 100
@@ -226,13 +209,13 @@ def output3():
 
 
 @app.route('/performance')
-#@login_required
+@login_required
 def performance():
     return render_template('performance.html', dataframe=tips_original_result)
 
 
 @app.route('/output2', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def output2():
     filter_choice = request.json['filter_choice']
     if filter_choice == 'all':
@@ -280,8 +263,29 @@ def output2():
 
     return jsonify(response)
 
+stripe.api_key = os.getenv('stripe_api_key')
 
-stripe.api_key = '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'
+
+@app.route('/payment_success')
+def payment_success():
+    try:
+        # Retrieve user information from the session
+        user_info = session.get('user_info') 
+
+        if user_info:
+            senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
+            usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
+            database.session.add(usuario)
+            database.session.commit()
+            flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
+            session.pop('user_info')  # Clear user information from the session
+        else:
+            flash('Payment was successful, but user information is missing.', 'alert-danger')
+    except Exception as e:
+        flash('An error occurred while processing payment: ' + str(e), 'alert-danger')
+
+    return render_template('payment_success.html')
+
 
 @app.route("/create_checkout_session", methods=["POST"])
 def create_checkout_session():
@@ -291,10 +295,10 @@ def create_checkout_session():
     # Determine the cancel URL based on whether the app is running locally or on the live website
     if request.host.startswith("127.0.0.1"):
         cancel_url = "http://127.0.0.1:5000/criar_conta"
-        success_url = "http://127.0.0.1:5000/login2"
+        success_url = "http://127.0.0.1:5000/payment_success"
     else:
         cancel_url = "https://soccerpred.up.railway.app/criar_conta"
-        success_url = "https://soccerpred.up.railway.app/login2"
+        success_url = "https://soccerpred.up.railway.app/payment_success"
 
     # Create a Checkout session
     stripe_session = stripe.checkout.Session.create(
@@ -312,48 +316,10 @@ def create_checkout_session():
     # Store the session ID in the user's session
     session['stripe_session_id'] = stripe_session.id
 
-    print(stripe_session.id)
-
     return jsonify({"sessionId": stripe_session.id})
 
 
 
 @app.route('/payment')
 def payment():
-    
-    # Retrieve the stripe_session_id from the session
-    stripe_session_id = session.get('stripe_session_id')
-
-    print("Stripe Session ID from session:", stripe_session_id)
-
-    try:
-        if stripe_session_id:
-            # Get the session data from Stripe
-            session_data = stripe.checkout.Session.retrieve(stripe_session_id)
-            
-            print(session_data.payment_status)
-
-            if session_data.payment_status == 'paid':
-                # Retrieve user information from the session
-                user_info = session.get('user_info') 
-
-                print(user_info)
-                print(session_data.payment_status)
-
-                if user_info:
-                    senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
-                    usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
-                    database.session.add(usuario)
-                    database.session.commit()
-                    flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
-                    session.pop('user_info')  # Clear user information from the session
-                else:
-                    flash('Payment was not successfull.', 'alert-danger')
-            else:
-                flash('Payment was not successful.', 'alert-danger')        
-        else:
-            flash('Stripe Session ID is missing from the session.', 'alert-danger')
-    except stripe.error.StripeError as e:
-        flash('An error occurred while processing payment: ' + str(e), 'alert-danger')
-
-    return render_template('subscription.html', stripe_public_key='pk_live_51NhN89LvubjLVHJAYKT4DJiX6X83OSEyRbtagpUc0qN9TJR8Ibn4RF2bJDIc8USfwX2q6ZPc9h1Gap41MD4SWJ7Z00uXQd5tKZ')
+    return render_template('subscription.html', stripe_public_key=os.getenv('stripe_public_key'))
