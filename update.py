@@ -203,9 +203,104 @@ ligue_1 = match_df
 
 print('End of Ligue 1')
 
+# Primeira Liga - Portugal
+# trazendo informações mais atualizadas do site https://fbref.com/
+
+print('Start of Primeira Liga')
+
+all_matches = []
+standings_url = "https://fbref.com/en/comps/32/Primeira-Liga-Stats"
+
+data = requests.get(standings_url)
+soup = BeautifulSoup(data.text)
+standings_table = soup.select('table.stats_table')[0]
+links = [l.get("href") for l in standings_table.find_all('a')]
+links = [l for l in links if '/squads' in l]
+team_urls = [f"https://fbref.com{l}" for l in links]
+
+for team_url in team_urls:
+    team_name = team_url.split("/")[-1].replace("-Stats", "").replace("-", " ")
+        
+    data = requests.get(team_url)
+    matches = pd.read_html(data.text, match="Scores & Fixtures")[0]
+            
+    matches = matches[matches["Comp"] == "Primeira Liga"]
+    matches["Team"] = team_name
+    all_matches.append(matches)
+    time.sleep(8)
+    
+match_df = pd.concat(all_matches)
+match_df.columns = [c.lower() for c in match_df.columns]
+primeira_liga = match_df
+
+print('End of Primeira Liga')
+
+# Eredivisie - Holanda
+# trazendo informações mais atualizadas do site https://fbref.com/
+
+print('Start of Eredivisie')
+
+all_matches = []
+standings_url = "https://fbref.com/en/comps/23/Eredivisie-Stats"
+
+data = requests.get(standings_url)
+soup = BeautifulSoup(data.text)
+standings_table = soup.select('table.stats_table')[0]
+links = [l.get("href") for l in standings_table.find_all('a')]
+links = [l for l in links if '/squads' in l]
+team_urls = [f"https://fbref.com{l}" for l in links]
+
+for team_url in team_urls:
+    team_name = team_url.split("/")[-1].replace("-Stats", "").replace("-", " ")
+        
+    data = requests.get(team_url)
+    matches = pd.read_html(data.text, match="Scores & Fixtures")[0]
+            
+    matches = matches[matches["Comp"] == "Eredivisie"]
+    matches["Team"] = team_name
+    all_matches.append(matches)
+    time.sleep(8)
+    
+match_df = pd.concat(all_matches)
+match_df.columns = [c.lower() for c in match_df.columns]
+eredivisie = match_df
+
+print('End of Eredivisie')
+
+# Pro League A - Belgica
+# trazendo informações mais atualizadas do site https://fbref.com/
+
+print('Start of Pro League A')
+
+all_matches = []
+standings_url = "https://fbref.com/en/comps/37/Belgian-Pro-League-Stats"
+
+data = requests.get(standings_url)
+soup = BeautifulSoup(data.text)
+standings_table = soup.select('table.stats_table')[0]
+links = [l.get("href") for l in standings_table.find_all('a')]
+links = [l for l in links if '/squads' in l]
+team_urls = [f"https://fbref.com{l}" for l in links]
+
+for team_url in team_urls:
+    team_name = team_url.split("/")[-1].replace("-Stats", "").replace("-", " ")
+        
+    data = requests.get(team_url)
+    matches = pd.read_html(data.text, match="Scores & Fixtures")[0]
+            
+    matches = matches[matches["Comp"] == "Pro League A"]
+    matches["Team"] = team_name
+    all_matches.append(matches)
+    time.sleep(8)
+    
+match_df = pd.concat(all_matches)
+match_df.columns = [c.lower() for c in match_df.columns]
+pro_league = match_df
+
+print('End of Pro League A')
 
 # consolidando as 6 ligas
-match_df = pd.concat([serie_a, premier_league, la_liga, bundesliga, ligue_1, serie_a_br])
+match_df = pd.concat([serie_a, premier_league, la_liga, bundesliga, ligue_1, serie_a_br, primeira_liga, eredivisie, pro_league])
 
 # selecionando apenas as colunas necessárias para o modelo
 match_df = match_df[['date', 'comp', 'team', 'opponent', 'venue', 'gf', 'ga', 'result']]
@@ -262,7 +357,13 @@ match_df_final_all = match_df_final_all.replace({'opponent' : { 'Inter' : 'Inter
                                         'Paraná' : 'Parana',
                                         'América (MG)' : 'America MG',
                                         'Goiás' : 'Goias',
-                                        'Cuiabá' : 'Cuiaba'}})
+                                        'Cuiabá' : 'Cuiaba',
+                                        'Famalicão': 'Famalicao',
+                                        'Vitória': 'Vitoria Guimaraes',
+                                        'Go Ahead Eag': 'Go Ahead Eagles',
+                                        "Sparta R'dam": 'Sparta Rotterdam',
+                                        'Sint-Truiden': 'Sint Truiden',
+                                        'Standard Liège': 'Standard Liege'}})
 
 
 # último resultado do confronto entre os times

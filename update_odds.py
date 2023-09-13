@@ -207,9 +207,9 @@ df = df.rename(index=lambda x: x + 1)
 
 # filtrando o df
 
-df_filtered = df[(df['Country'].str.contains('ENGLAND|GERMANY|SPAIN|ITALY|FRANCE|BRAZIL'))]
-df_filtered = df_filtered[(df_filtered['League'].str.contains('PREMIER LEAGUE|BUNDESLIGA|LALIGA|LIGUE 1|SERIE A'))]
-df_filtered = df_filtered[~(df_filtered['League'].str.contains('LALIGA2|2. BUNDESLIGA|WOMEN|JUNIOREN|PLAY OFFS|RELEGATION|CUP'))]
+df_filtered = df[(df['Country'].str.contains('ENGLAND|GERMANY|SPAIN|ITALY|FRANCE|BRAZIL|PORTUGAL|NETHERLANDS|BELGIUM'))]
+df_filtered = df_filtered[(df_filtered['League'].str.contains('PREMIER LEAGUE|BUNDESLIGA|LALIGA|LIGUE 1|SERIE A|LIGA PORTUGAL|EREDIVISIE|JUPILER PRO LEAGUE'))]
+df_filtered = df_filtered[~(df_filtered['League'].str.contains('LALIGA2|2. BUNDESLIGA|WOMEN|JUNIOREN|PLAY OFFS|RELEGATION|CUP|LIGA PORTUGAL 2'))]
 df_filtered['Date'] = pd.to_datetime(df_filtered['Date'].str.replace('.', '/'), format='%d/%m/%Y').dt.date
 df_filtered = df_filtered.sort_values(by=['Date', 'Country'])
 
@@ -245,7 +245,25 @@ df_odds = df_odds.replace({'Home' : { 'Leeds' : 'Leeds United',
                                         'Atletico-MG' : 'Atletico Mineiro',
                                         'Flamengo RJ' : 'Flamengo',
                                         'Athletico-PR' : 'Atletico Paranaense',
-                                        'Vasco' : 'Vasco da Gama'
+                                        'Vasco' : 'Vasco da Gama',
+                                        'SC Farense': 'Farense',
+                                        'Gil Vicente': 'Gil Vicente FC',
+                                        'FC Porto': 'Porto',
+                                        'FC Volendam': 'Volendam',
+                                        'G.A. Eagles': 'Go Ahead Eagles',
+                                        'Heracles': 'Heracles Almelo',
+                                        'Nijmegen': 'NEC Nijmegen',
+                                        'PSV': 'PSV Eindhoven',
+                                        'Sittard': 'Fortuna Sittard',
+                                        'Waalwijk': 'RKC Waalwijk',
+                                        'Cercle Brugge KSV': 'Cercle Brugge',
+                                        'Club Brugge KV': 'Club Brugge',
+                                        'KV Mechelen': 'Mechelen',
+                                        'Leuven': 'OH Leuven',
+                                        'Royale Union SG': 'Union SG',
+                                        'RWDM': 'RWD Molenbeek',
+                                        'St. Liege': 'Standard Liege',
+                                        'St. Truiden': 'Sint Truiden'
                                         }})
 
 df_odds = df_odds.replace({'Away' : { 'Leeds' : 'Leeds United',
@@ -276,7 +294,26 @@ df_odds = df_odds.replace({'Away' : { 'Leeds' : 'Leeds United',
                                         'Atletico-MG' : 'Atletico Mineiro',
                                         'Flamengo RJ' : 'Flamengo',
                                         'Athletico-PR' : 'Atletico Paranaense',
-                                        'Vasco' : 'Vasco da Gama'}})
+                                        'Vasco' : 'Vasco da Gama',
+                                        'SC Farense': 'Farense',
+                                        'Gil Vicente': 'Gil Vicente FC',
+                                        'FC Porto': 'Porto',
+                                        'FC Volendam': 'Volendam',
+                                        'G.A. Eagles': 'Go Ahead Eagles',
+                                        'Heracles': 'Heracles Almelo',
+                                        'Nijmegen': 'NEC Nijmegen',
+                                        'PSV': 'PSV Eindhoven',
+                                        'Sittard': 'Fortuna Sittard',
+                                        'Waalwijk': 'RKC Waalwijk',
+                                        'Cercle Brugge KSV': 'Cercle Brugge',
+                                        'Club Brugge KV': 'Club Brugge',
+                                        'KV Mechelen': 'Mechelen',
+                                        'Leuven': 'OH Leuven',
+                                        'Royale Union SG': 'Union SG',
+                                        'RWDM': 'RWD Molenbeek',
+                                        'St. Liege': 'Standard Liege',
+                                        'St. Truiden': 'Sint Truiden'
+                                        }})
 
 df_odds = df_odds.reset_index()
 # previsões de ml
