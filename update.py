@@ -400,6 +400,12 @@ def rolling_sum(group, cols, new_cols, venue):
     group = group.dropna(subset=new_cols)
     return group
 
+# Filter rows that don't contain '(' in the specified column
+match_df_final = match_df_final[~match_df_final['gf'].str.contains('\(', na=False)]
+
+# Reset the index if needed
+match_df_final.reset_index(drop=True, inplace=True)
+
 # inserindo colunas rolling
 df_rolling_home = match_df_final.groupby('team').apply(lambda x: rolling_sum(x, ['gf', 'ga', 'pont'], ['gf_rolling', 'ga_rolling', 'pont_rolling'], 'Home'))
 df_rolling_home = df_rolling_home.droplevel('team')
