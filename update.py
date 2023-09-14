@@ -350,7 +350,7 @@ match_df_final_all = match_df_final_all.replace({'opponent' : { 'Inter' : 'Inter
                                         'São Paulo' : 'Sao Paulo',
                                         'Grêmio' : 'Gremio',
                                         'Botafogo (RJ)' : 'Botafogo RJ',
-                                        'Atl Paranaense' : 'Atletico Paranaense',
+                                        'Ath Paranaense' : 'Athletico Paranaense',
                                         'Avaí' : 'Avai',
                                         'Atlético Mineiro' : 'Atletico Mineiro',
                                         'Ceará' : 'Ceara',
