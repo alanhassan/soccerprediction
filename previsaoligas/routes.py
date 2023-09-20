@@ -14,7 +14,7 @@ import os
 load_dotenv()
 
 @app.route('/', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def home():
     # Create a dictionary to store the teams for each competition
     teams_dict = {}
@@ -40,7 +40,7 @@ def home():
     return render_template('home.html', teams_map_json=teams_map_json)
 
 @app.route('/output', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def output():
     team1_data = request.json['team1_input']
     team2_data = request.json['team2_input']
@@ -81,7 +81,7 @@ def about():
     return render_template('about.html')
 
 @app.route('/next_games')
-@login_required
+#@login_required
 def next_games():
     return render_template('next_games.html', dataframe=df_odds)
 
@@ -121,7 +121,7 @@ def criar_conta():
 
 
 @app.route('/sair')
-@login_required
+#@login_required
 def sair():
     logout_user()
     flash(f'Logout Feito com Sucesso', 'alert-success')
@@ -129,13 +129,13 @@ def sair():
 
 
 @app.route('/evolution')
-@login_required
+#@login_required
 def evolution():
     return render_template('evolution.html', dataframe=tips_original_result)
 
 
 @app.route('/output3', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def output3():
     filter_choice = request.json['filter_choice']
     inicial = 100
@@ -209,13 +209,13 @@ def output3():
 
 
 @app.route('/performance')
-@login_required
+#@login_required
 def performance():
     return render_template('performance.html', dataframe=tips_original_result)
 
 
 @app.route('/output2', methods=['GET', 'POST'])
-@login_required
+#@login_required
 def output2():
     filter_choice = request.json['filter_choice']
     if filter_choice == 'all':

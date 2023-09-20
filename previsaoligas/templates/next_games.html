@@ -115,9 +115,8 @@
     <h1 style="margin-top: 20px; margin-left: 60px;">Próximos Jogos</h1>
 
     <dialog id="modal">
-      <h2 style="text-align: center;">Premissas</h2>
+      <h2 style="text-align: center;">Legenda</h2>
       <p>Dica Segura ➜ Destacada em <b><span style= "color: white; background-color: green;">VERDE</span></b>.</p>
-      <p>Dica Média ➜ Descatacada em <b><span style="background-color: yellow;">AMARELO</span></b>.</p>
       <p>Não apostar ➜ Descatacada em <b><span style="color: white; background-color: gray;">CINZA</span></b>.</p>
       <button class="btn btn-sn btn-outline-primary w-100 close-button">Fechar</button>
     </dialog>
@@ -143,7 +142,7 @@
               <option value="{{ data }}">{{ data }}</option>
           {% endfor %}
       </select>
-      <button style="padding: 6px; margin-left: 10px;" type="button" id="premissasButton" class="btn btn-sn btn-outline-primary open-button">Premissas</button>
+      <button style="padding: 6px; margin-left: 10px;" type="button" id="premissasButton" class="btn btn-sn btn-outline-primary open-button">Legenda</button>
     </div>
   </div>
 
@@ -160,12 +159,10 @@
       <tbody>
         {% for index, row in dataframe.iterrows() %}
         {% set color = '#C0C0C0' %}
-          {% if (row['Previsão CASA'] > 0.80 and row['Odds CASA'] > 1.40) or (row['Previsão VISITANTE'] > 0.80 and row['Odds VISITANTE'] > 1.40) %}
-            {% set color = '#32CD32' %}
-        {% elif (row['Previsão CASA'] > 0.75 and row['Odds CASA'] > 1.60) or (row['Previsão VISITANTE'] > 0.75 and row['Odds VISITANTE'] > 1.60) %}
-          {% set color = '#7FFFD4' %}
-        {% elif (row['Previsão CASA'] > 0.70 and row['Odds CASA'] > 1.85) or (row['Previsão VISITANTE'] > 0.70 and row['Odds VISITANTE'] > 1.85) %}
-          {% set color = '#FFFF00' %}
+        {% if row['Previsão CASA'] >= 0.80 and (row['Odds CASA'] >= 1.20 and row['Odds CASA'] <= 1.90) %}
+          {% set color = '#32CD32' %}
+        {% elif row['Previsão VISITANTE'] >= 0.65 and (row['Odds VISITANTE'] >= 1.20 and row['Odds VISITANTE'] <= 1.65) %}
+          {% set color = '#32CD32' %}
         {% endif %}
         <tr style="background-color: {{ color }};">
           {% for value in row %}

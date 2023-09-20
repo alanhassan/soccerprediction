@@ -20,7 +20,7 @@ df_odds = df_odds[['Date', 'League', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A
 
 # Bets that pay more than 1.4, and have more than 80% prob of being right
 
-safest_bet = df_odds[((df_odds['Pred_H'] >= 0.80) & (df_odds['Odds_H'] >= 1.40)) | ((df_odds['Pred_A'] >= 0.80) & (df_odds['Odds_A'] >= 1.40))]
+safest_bet = df_odds[((df_odds['Pred_H'] >= 0.80) & ((df_odds['Odds_H'] >= 1.20) & (df_odds['Odds_H'] <= 1.90))) | ((df_odds['Pred_A'] >= 0.65) & ((df_odds['Odds_A'] >= 1.20) & (df_odds['Odds_A'] <= 1.65)))]
 if safest_bet.empty:
     print('Filtered dataframe is empty')
 else:
@@ -30,7 +30,7 @@ else:
     safest_bet['bet_type'] = 'safest_bet'
     safest_bet['bet_type_order'] = 3
 
-# Bets that pay more than 1.6, and have more than 75% prob of being right
+""" # Bets that pay more than 1.6, and have more than 75% prob of being right
 
 safe_bet = df_odds[((df_odds['Pred_H'] >= 0.75) & (df_odds['Odds_H'] >= 1.60)) | ((df_odds['Pred_A'] >= 0.75) & (df_odds['Odds_A'] >= 1.60))]
 if safe_bet.empty:
@@ -56,8 +56,9 @@ else:
 
 # concatenate the dataframes
 
-new_tips = pd.concat([safest_bet, safe_bet, risky_bet])
+new_tips = pd.concat([safest_bet, safe_bet, risky_bet]) """
 
+new_tips = safest_bet
 # drop duplicates, keeping the first occurrence of each row (according to the order of importance)
 if new_tips.empty:
     print('Filtered dataframe is empty')
