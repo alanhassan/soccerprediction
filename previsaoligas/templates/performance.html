@@ -10,7 +10,7 @@
 
 <h1 style="margin-top: 20px; margin-left: 60px;">Performance</h1>
 
-<!-- <form id="filterForm" class="filter-form">
+<form id="filterForm" class="filter-form">
     <label for="filter_choice" class="filter-label">Filtrar por:</label>
     <select name="filter_choice" id="filter_choice"  class="filter-select">
         <option value="all">All</option>
@@ -19,7 +19,7 @@
         <option value="risky_bet">Aposta Arriscada</option>
     </select>
     <button type="submit" class="btn btn-sn btn-outline-primary w-20">Aplicar Filtro</button>
-</form> -->
+</form>
 
 <div class="containerEvolution" id="metrics_card">
     <div class="cardEvolution">
@@ -172,8 +172,8 @@
         var indicatorsCard = document.getElementById('metrics_card');
         indicatorsCard.style.display = 'flex';
 
-/*         var filterChoice = document.getElementById('filter_choice').value;
- */        var params = {
+        var filterChoice = document.getElementById('filter_choice').value;
+        var params = {
             filter_choice: filterChoice, // Use the correct key 'filter_choice' to match the Python request.json['filter_choice']
         };
 
@@ -207,8 +207,8 @@
         xhr.send(JSON.stringify(params));
     }
     
-/*     document.getElementById('filterForm').addEventListener('submit', getData);
- */
+     document.getElementById('filterForm').addEventListener('submit', getData);
+
 </script>
 
 {% endblock %}
