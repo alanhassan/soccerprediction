@@ -299,8 +299,40 @@ pro_league = match_df
 
 print('End of Pro League A')
 
+# League A - Autralia
+# trazendo informações mais atualizadas do site https://fbref.com/
+
+print('Start of League - A')
+
+all_matches = []
+standings_url = "https://fbref.com/en/comps/65/A-League-Men-Stats"
+
+data = requests.get(standings_url)
+soup = BeautifulSoup(data.text)
+standings_table = soup.select('table.stats_table')[0]
+links = [l.get("href") for l in standings_table.find_all('a')]
+links = [l for l in links if '/squads' in l]
+team_urls = [f"https://fbref.com{l}" for l in links]
+
+for team_url in team_urls:
+    team_name = team_url.split("/")[-1].replace("-Stats", "").replace("-", " ")
+        
+    data = requests.get(team_url)
+    matches = pd.read_html(data.text, match="Scores & Fixtures")[0]
+            
+    matches = matches[matches["Comp"] == "A-League"]
+    matches["Team"] = team_name
+    all_matches.append(matches)
+    time.sleep(8)
+    
+match_df = pd.concat(all_matches)
+match_df.columns = [c.lower() for c in match_df.columns]
+league_a = match_df
+
+print('End of League - A')
+
 # consolidando as 6 ligas
-match_df = pd.concat([serie_a, premier_league, la_liga, bundesliga, ligue_1, serie_a_br, primeira_liga, eredivisie, pro_league])
+match_df = pd.concat([serie_a, premier_league, la_liga, bundesliga, ligue_1, serie_a_br, primeira_liga, eredivisie, pro_league, league_a])
 
 # selecionando apenas as colunas necessárias para o modelo
 match_df = match_df[['date', 'comp', 'team', 'opponent', 'venue', 'gf', 'ga', 'result']]
@@ -363,7 +395,15 @@ match_df_final_all = match_df_final_all.replace({'opponent' : { 'Inter' : 'Inter
                                         'Go Ahead Eag': 'Go Ahead Eagles',
                                         "Sparta R'dam": 'Sparta Rotterdam',
                                         'Sint-Truiden': 'Sint Truiden',
-                                        'Standard Liège': 'Standard Liege'}})
+                                        'Standard Liège': 'Standard Liege',
+                                        'Adelaide': 'Adelaide United',
+                                        'Brisbane': 'Brisbane Roar',
+                                        'Central Coast': 'Central Coast Mariners',
+                                        'Melb City': 'Melbourne City',
+                                        'Melb Victory': 'Melbourne Victory',
+                                        'Newcastle': 'Newcastle Jets',
+                                        'W Sydney': 'Western Sydney Wanderers',
+                                        'Wellington': 'Wellington Phoenix'}})
 
 
 # último resultado do confronto entre os times
@@ -374,7 +414,9 @@ match_df_final_all = match_df_final_all.sort_values(by='date').reset_index(drop=
 grouped = match_df_final_all.groupby(['team', 'opponent'])
 
 # create a new column that contains the sum of the last two results for each group
-match_df_final_all['last_2_results_sum'] = grouped['pont'].apply(lambda x: x.rolling(2, closed='right').sum())
+#match_df_final_all['last_2_results_sum'] = grouped['pont'].apply(lambda x: x.rolling(2, closed='right').sum())
+grouped_df = grouped['pont'].apply(lambda x: x.rolling(2, closed='right').sum()).reset_index(drop=True)
+match_df_final_all['last_2_results_sum'] = grouped_df
 
 
 # filtrando a data, para considerar apenas os jogos da temporada atual (temporada começa em agosto)

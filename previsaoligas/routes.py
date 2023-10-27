@@ -137,32 +137,23 @@ def evolution():
 @app.route('/output3', methods=['GET', 'POST'])
 #@login_required
 def output3():
-    filter_choice = request.json['filter_choice']
+    filter_choice = 'safest_bet'
     inicial = 100
     multiplier_map = {
-        'safest_bet': (20/100)*inicial,
+        'safest_bet': (7/100)*inicial,
         'safe_bet': (10/100)*inicial,
         'risky_bet': (5/100)*inicial
     }
-    if filter_choice == 'all':
-        atual = inicial + tips_original_result.apply(
-            lambda row: multiplier_map[row['bet_type']] * row['Winning_bet'] - multiplier_map[row['bet_type']] if row['bet_right'] == 1 else multiplier_map[row['bet_type']]*-1, axis=1).sum()
-        lucro = atual - inicial
-        lucro_perc = (lucro/inicial)*100
 
-    else:
-        atual = inicial + tips_original_result[tips_original_result['bet_type'] == filter_choice].apply(
-            lambda row: multiplier_map[row['bet_type']] * row['Winning_bet'] - multiplier_map[row['bet_type']] if row['bet_right'] == 1 else multiplier_map[row['bet_type']]*-1, axis=1).sum()
-        lucro = atual - inicial
-        lucro_perc = (lucro/inicial)*100
+    atual = inicial + tips_original_result.apply(
+        lambda row: multiplier_map[row['bet_type']] * row['Winning_bet'] - multiplier_map[row['bet_type']] if row['bet_right'] == 1 else multiplier_map[row['bet_type']]*-1, axis=1).sum()
+    lucro = atual - inicial
+    lucro_perc = (lucro/inicial)*100
 
 
     # Process the filter choice
 
-    if filter_choice == 'all':
-        filtered_data = tips_original_result
-    else:
-        filtered_data = tips_original_result[tips_original_result['bet_type'] == filter_choice]
+    filtered_data = tips_original_result
 
     def calculate_profit(group):
         profits = []
@@ -195,8 +186,6 @@ def output3():
                   'chart_profit': chart_profit,
                   }
 
-    print(chart_data)
-
     response = {
         'inicial': f'R$ {round(inicial, 1)}',
         'atual': f'R$ {round(atual, 1)}',
@@ -217,32 +206,19 @@ def performance():
 @app.route('/output2', methods=['GET', 'POST'])
 #@login_required
 def output2():
-    filter_choice = request.json['filter_choice']
-    if filter_choice == 'all':
-        corretas_all = len(tips_original_result[(tips_original_result["bet_right"] == 1)])
-        incorretas_all = len(tips_original_result[(tips_original_result["bet_right"] == 0)])
-        precision = f'{round((corretas_all / (corretas_all + incorretas_all)) * 100, 1)}%'
-        bet_media_all = round(tips_original_result['Winning_bet'].mean(), 2)
-        response = {'corretas': corretas_all,
-                    'incorretas': incorretas_all,
-                    'precision': str(precision),
-                    'bet_media': float(bet_media_all)}
-    else:
-        corretas = len(tips_original_result[(tips_original_result["bet_right"] == 1) & (tips_original_result["bet_type"] == filter_choice)])
-        incorretas = len(tips_original_result[(tips_original_result["bet_right"] == 0) & (tips_original_result["bet_type"] == filter_choice)])
-        precision = f'{round((corretas / (corretas + incorretas)) * 100, 1)}%'
-        bet_media = round(tips_original_result[tips_original_result["bet_type"] == filter_choice]['Winning_bet'].mean(),2)
-        response = {'corretas': corretas,
-                    'incorretas': incorretas,
-                    'precision': str(precision),
-                    'bet_media': float(bet_media)}
+    corretas_all = len(tips_original_result[(tips_original_result["bet_right"] == 1)])
+    incorretas_all = len(tips_original_result[(tips_original_result["bet_right"] == 0)])
+    precision = f'{round((corretas_all / (corretas_all + incorretas_all)) * 100, 1)}%'
+    bet_media_all = round(tips_original_result['Winning_bet'].mean(), 2)
+    response = {'corretas': corretas_all,
+                'incorretas': incorretas_all,
+                'precision': str(precision),
+                'bet_media': float(bet_media_all)
+    }
 
     # Process the filter choice
 
-    if filter_choice == 'all':
-        filtered_data = tips_original_result
-    else:
-        filtered_data = tips_original_result[tips_original_result['bet_type'] == filter_choice]
+    filtered_data = tips_original_result
 
     # Group data by date and calculate count of correct and incorrect bets
     grouped_data = filtered_data.groupby('Date')['bet_right'].value_counts().unstack(fill_value=0)

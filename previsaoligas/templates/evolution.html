@@ -11,25 +11,12 @@
 <h1 style="margin-top: 20px; margin-left: 60px;">Rentabilidade</h1>
 
 <dialog id="modal">
-    <h2 style="text-align: center;">Premissas</h2>
-    <p>Aposta Segura ➜ Apostar R$ 20.</p>
-    <p>Apostas Média ➜ Apostar R$ 15.</p>
-    <p>Apostas Arriscada ➜ Apostar R$ 10.</p>
+    <h2 style="text-align: center;">Premissa</h2>
+    <p>Aposta de R$ 7,00 (ou 7% da banca inicial) em cada dica sugerida</p>
     <button class="btn btn-sn btn-outline-primary w-100 close-button">Fechar</button>
 </dialog>
 
-<form id="filterForm" class="filter-form">
-    <label for="filter_choice" class="filter-label">Filtrar por:</label>
-    <select name="filter_choice" id="filter_choice"  class="filter-select">
-        <option value="all">All</option>
-        <option value="safest_bet">Aposta Segura</option>
-        <option value="safe_bet">Aposta Média</option>
-        <option value="risky_bet">Aposta Arriscada</option>
-    </select>
-    <button type="submit" id="applyFilterButton" class="btn btn-sn btn-outline-primary w-20">Aplicar Filtro</button>
-    <button type="button" id="premissasButton" class="btn btn-sn btn-outline-primary open-button">Premissas</button>
-</form>
-
+<button type="button" id="premissasButton" class="btn btn-sn btn-outline-primary open-button" style="margin-left: 60px;">Premissa</button>
 
 <div class="containerEvolution" id="metrics_card">
     <div class="cardEvolution">
@@ -81,21 +68,7 @@
 
 <script>
 
-    function getData(event) {
-        var targetButtonId = event.target.id;
-        if (targetButtonId !== 'applyFilterButton') {
-            return; // Do nothing if the button pressed is not 'Apply Filter'
-        }
-
-        event.preventDefault(); // Prevent form submission and page refresh
-
-        var indicatorsCard = document.getElementById('metrics_card');
-        indicatorsCard.style.display = 'flex';
-
-        var filterChoice = document.getElementById('filter_choice').value;
-        var params = {
-            filter_choice: filterChoice, // Use the correct key 'filter_choice' to match the Python request.json['filter_choice']
-        };
+    function getData() {
 
         var xhr = new XMLHttpRequest();
 
@@ -126,7 +99,7 @@
             updateChart(chartData);
         };
 
-        xhr.send(JSON.stringify(params));
+        xhr.send(JSON.stringify({}));
     }
 
     document.getElementById('premissasButton').addEventListener('click', function () {
@@ -134,7 +107,7 @@
         modal.showModal();
     });
 
-    document.getElementById('applyFilterButton').addEventListener('click', getData);
+    getData(); // Fetch data when the page loads
 
     function createLineChart(chartData) {
         var ctx = document.getElementById('myChart').getContext('2d');
