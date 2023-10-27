@@ -52,7 +52,17 @@ def get_df_odds():
     df_odds = df_odds.sort_values(by=['Date', 'Country'])
     df_odds['Date'] = df_odds['Date'].astype(str)
     # Update 'League' values based on 'Country'
-    df_odds.loc[df_odds['Country'] == 'BRAZIL', 'League'] = 'BR - SÉRIE A'
+    df_odds.loc[df_odds['Country'] == 'GERMANY', 'League'] = 'Alemanha - Bundesliga'
+    df_odds.loc[df_odds['Country'] == 'AUSTRALIA', 'League'] = 'Austrália - A-League'
+    df_odds.loc[df_odds['Country'] == 'BELGIUM', 'League'] = 'Bélgica - Pro League A'
+    df_odds.loc[df_odds['Country'] == 'BRAZIL', 'League'] = 'Brasil - Série A'
+    df_odds.loc[df_odds['Country'] == 'SPAIN', 'League'] = 'Espanha - La Liga'
+    df_odds.loc[df_odds['Country'] == 'FRANCE', 'League'] = 'França - Ligue 1'
+    df_odds.loc[df_odds['Country'] == 'NETHERLANDS', 'League'] = 'Holanda - Eredivisie'
+    df_odds.loc[df_odds['Country'] == 'ENGLAND', 'League'] = 'Inglaterra - Premier League'
+    df_odds.loc[df_odds['Country'] == 'ITALY', 'League'] = 'Itália - Serie A'
+    df_odds.loc[df_odds['Country'] == 'PORTUGAL', 'League'] = 'Portugal - Primeira Liga'
+    df_odds = df_odds.sort_values('League')
     df_odds = df_odds[['Date', 'League', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A', 'Pred_H', 'Pred_A']]
     df_odds = df_odds.rename(columns={"Date": "Data", "League": "Campeonato",
                                       "Home": "Time CASA", 'Away': "time VISITANTE",
