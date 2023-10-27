@@ -207,8 +207,8 @@ df = df.rename(index=lambda x: x + 1)
 
 # filtrando o df
 
-df_filtered = df[(df['Country'].str.contains('ENGLAND|GERMANY|SPAIN|ITALY|FRANCE|BRAZIL|PORTUGAL|NETHERLANDS|BELGIUM'))]
-df_filtered = df_filtered[(df_filtered['League'].str.contains('PREMIER LEAGUE|BUNDESLIGA|LALIGA|LIGUE 1|SERIE A|LIGA PORTUGAL|EREDIVISIE|JUPILER PRO LEAGUE'))]
+df_filtered = df[(df['Country'].str.contains('ENGLAND|GERMANY|SPAIN|ITALY|FRANCE|BRAZIL|PORTUGAL|NETHERLANDS|BELGIUM|AUSTRALIA'))]
+df_filtered = df_filtered[(df_filtered['League'].str.contains('PREMIER LEAGUE|BUNDESLIGA|LALIGA|LIGUE 1|SERIE A|LIGA PORTUGAL|EREDIVISIE|JUPILER PRO LEAGUE|A-LEAGUE'))]
 df_filtered = df_filtered[~(df_filtered['League'].str.contains('LALIGA2|2. BUNDESLIGA|WOMEN|JUNIOREN|PLAY OFFS|RELEGATION|CUP|LIGA PORTUGAL 2'))]
 df_filtered['Date'] = pd.to_datetime(df_filtered['Date'].str.replace('.', '/'), format='%d/%m/%Y').dt.date
 df_filtered = df_filtered.sort_values(by=['Date', 'Country'])
@@ -263,7 +263,8 @@ df_odds = df_odds.replace({'Home' : { 'Leeds' : 'Leeds United',
                                         'Royale Union SG': 'Union SG',
                                         'RWDM': 'RWD Molenbeek',
                                         'St. Liege': 'Standard Liege',
-                                        'St. Truiden': 'Sint Truiden'
+                                        'St. Truiden': 'Sint Truiden',
+                                        'WS Wanderers': 'Western Sydney Wanderers'
                                         }})
 
 df_odds = df_odds.replace({'Away' : { 'Leeds' : 'Leeds United',
@@ -312,7 +313,8 @@ df_odds = df_odds.replace({'Away' : { 'Leeds' : 'Leeds United',
                                         'Royale Union SG': 'Union SG',
                                         'RWDM': 'RWD Molenbeek',
                                         'St. Liege': 'Standard Liege',
-                                        'St. Truiden': 'Sint Truiden'
+                                        'St. Truiden': 'Sint Truiden',
+                                        'WS Wanderers': 'Western Sydney Wanderers'
                                         }})
 
 df_odds = df_odds.reset_index()
