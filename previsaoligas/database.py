@@ -50,7 +50,6 @@ def get_df_odds():
     df_odds['League'] = df_odds['League'].str.split("-").str[0]
     df_odds['Date'] = df_odds['Date'].dt.date
     df_odds = df_odds.sort_values(by=['Date', 'Country'])
-    df_odds['Date'] = df_odds['Date'].astype(str)
     # Update 'League' values based on 'Country'
     df_odds.loc[df_odds['Country'] == 'GERMANY', 'League'] = 'Alemanha - Bundesliga'
     df_odds.loc[df_odds['Country'] == 'AUSTRALIA', 'League'] = 'Austrália - A-League'
