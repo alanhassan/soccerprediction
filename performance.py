@@ -88,7 +88,7 @@ data = requests.get(url_tips_original).content
 tips_original = pd.read_excel(data)
 
 tips_original = tips_original[['Date', 'League', 'Home', 'Away',
-                                'Odds_H', 'Odds_A', 'Pred_H', 'Pred_A', 'Winning_team',
+                                'Odds_H', 'Odds_A', 'Odds_H_X', 'Odds_X_A', 'Pred_H', 'Pred_A', 'Winning_team',
                                 'Winning_prob', 'Winning_bet', 'Winning_bet_final', 'bet_type', 'bet_type_order']]
 
 
@@ -102,7 +102,7 @@ else:
 # remove duplicated rows
 
 tips_original = tips_original[['Date', 'League', 'Home', 'Away',
-                                'Odds_H', 'Odds_A', 'Pred_H', 'Pred_A', 'Winning_team',
+                                'Odds_H', 'Odds_A', 'Odds_H_X', 'Odds_X_A', 'Pred_H', 'Pred_A', 'Winning_team',
                                 'Winning_prob', 'Winning_bet', 'Winning_bet_final', 'bet_type', 'bet_type_order']].drop_duplicates()
 
 # save new df of tips_original
@@ -142,7 +142,7 @@ tips_original_result['Winning_team_actual'] = np.where(tips_original_result['res
 
 tips_original_result['bet_right'] = np.where(
     ((tips_original_result['Winning_team_actual'] == tips_original_result['Winning_team']) | 
-    ((tips_original_result['result'] == 'D') & (tips_original_result['Winning_bet'] >= 1.60))),
+    ((tips_original_result['result'] == 'D') & (tips_original_result['Winning_bet'] >= 1.60) & (tips_original_result['Winning_prob'] < 0.85))),
     1,
     0
 )
