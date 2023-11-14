@@ -414,9 +414,11 @@ match_df_final_all = match_df_final_all.sort_values(by='date').reset_index(drop=
 grouped = match_df_final_all.groupby(['team', 'opponent'])
 
 # create a new column that contains the sum of the last two results for each group
-#match_df_final_all['last_2_results_sum'] = grouped['pont'].apply(lambda x: x.rolling(2, closed='right').sum())
-grouped_df = grouped['pont'].apply(lambda x: x.rolling(2, closed='right').sum()).reset_index(drop=True)
-match_df_final_all['last_2_results_sum'] = grouped_df
+grouped_result = grouped['pont'].apply(lambda x: x.rolling(2, closed='right').sum())
+
+grouped_result = grouped_result.droplevel(['team', 'opponent']).sort_index()
+
+match_df_final_all['last_2_results_sum'] = grouped_result.values
 
 
 # filtrando a data, para considerar apenas os jogos da temporada atual (temporada começa em agosto)

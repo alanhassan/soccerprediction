@@ -159,9 +159,9 @@
       <tbody>
         {% for index, row in dataframe.iterrows() %}
         {% set color = '#C0C0C0' %}
-        {% if row['Previsão CASA'] >= 0.80 and (row['Odds CASA'] >= 1.20 and row['Odds CASA'] <= 1.90) %}
+        {% if row['Previsão 1'] >= 0.80 and (row['Odds 1'] >= 1.20 and row['Odds 1'] <= 1.90) %}
           {% set color = '#32CD32' %}
-        {% elif row['Previsão VISITANTE'] >= 0.65 and (row['Odds VISITANTE'] >= 1.20 and row['Odds VISITANTE'] <= 1.65) %}
+        {% elif row['Previsão 2'] >= 0.65 and (row['Odds 2'] >= 1.20 and row['Odds 2'] <= 1.65) %}
           {% set color = '#32CD32' %}
         {% endif %}
         <tr style="background-color: {{ color }};">

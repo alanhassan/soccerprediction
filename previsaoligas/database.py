@@ -44,7 +44,7 @@ df = get_df_rolling()
 # updated database with next matches and odds
 
 def get_df_odds():
-    url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds.xlsx?raw=true'
+    url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds_final.xlsx?raw=true'
     data_odds = requests.get(url_df_odds).content
     df_odds = pd.read_excel(data_odds)
     df_odds['League'] = df_odds['League'].str.split("-").str[0]
@@ -62,12 +62,14 @@ def get_df_odds():
     df_odds.loc[df_odds['Country'] == 'ITALY', 'League'] = 'Itália - Serie A'
     df_odds.loc[df_odds['Country'] == 'PORTUGAL', 'League'] = 'Portugal - Primeira Liga'
     df_odds = df_odds.sort_values('League')
-    df_odds = df_odds[['Date', 'League', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A', 'Pred_H', 'Pred_A']]
+    df_odds = df_odds[['Date', 'League', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A', 'Odds_H_X', 'Odds_H_A', 'Odds_X_A', 'Pred_H', 'Pred_A']]
     df_odds = df_odds.rename(columns={"Date": "Data", "League": "Campeonato",
                                       "Home": "Time CASA", 'Away': "time VISITANTE",
-                                      "Odds_H": "Odds CASA", "Odds_D": "Odds EMPATE",
-                                      "Odds_A": "Odds VISITANTE", "Pred_H": "Previsão CASA",
-                                      "Pred_A": "Previsão VISITANTE"})
+                                      "Odds_H": "Odds 1", "Odds_D": "Odds X",
+                                      "Odds_A": "Odds 2",
+                                      "Odds_H_X": "Odds 1X" ,"Odds_H_A": "Odds 12",
+                                      "Odds_X_A": "Odds X2", "Pred_H": "Previsão 1",
+                                      "Pred_A": "Previsão 2"})
     return df_odds
 
 df_odds = get_df_odds()
