@@ -7,14 +7,14 @@ from git import Repo
 warnings.filterwarnings("ignore")
 # get data
 
-url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds.xlsx?raw=true'
+url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds_final.xlsx?raw=true'
 data_odds = requests.get(url_df_odds).content
 df_odds = pd.read_excel(data_odds)
 df_odds['League'] = df_odds['League'].str.split("-").str[0]
 df_odds['Date'] = df_odds['Date'].dt.date
 df_odds = df_odds.sort_values(by=['Date', 'Country'])
 df_odds['Date'] = df_odds['Date'].astype(str)
-df_odds = df_odds[['Date', 'League', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A', 'Pred_H', 'Pred_A']]
+df_odds = df_odds[['Date', 'League', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A', 'Odds_H_X', 'Odds_H_A', 'Odds_X_A', 'Pred_H', 'Pred_A']]
 
 # Selecionando as partidas boas para apostar e adicionando colunas
 
@@ -27,6 +27,9 @@ else:
     safest_bet['Winning_team'] = safest_bet.apply(lambda x: x['Home'] if x['Pred_H'] > x['Pred_A'] else x['Away'], axis=1)
     safest_bet['Winning_prob'] = safest_bet.apply(lambda x: x['Pred_H'] if x['Pred_H'] > x['Pred_A'] else x['Pred_A'], axis=1)
     safest_bet['Winning_bet'] = safest_bet.apply(lambda x: x['Odds_H'] if x['Pred_H'] > x['Pred_A'] else x['Odds_A'], axis=1)
+    safest_bet['Winning_bet_final'] =  safest_bet.apply(lambda x: 'Odds_H_X' if (x['Winning_bet'] >= 1.60 and x['Pred_H'] > x['Pred_A']) else ('Odds_X_A' if (x['Winning_bet'] >= 1.60 and x['Pred_A'] > x['Pred_H']) else x['Winning_bet']),
+    axis=1
+)
     safest_bet['bet_type'] = 'safest_bet'
     safest_bet['bet_type_order'] = 3
 
@@ -86,7 +89,7 @@ tips_original = pd.read_excel(data)
 
 tips_original = tips_original[['Date', 'League', 'Home', 'Away',
                                 'Odds_H', 'Odds_A', 'Pred_H', 'Pred_A', 'Winning_team',
-                                'Winning_prob', 'Winning_bet', 'bet_type', 'bet_type_order']]
+                                'Winning_prob', 'Winning_bet', 'Winning_bet_final', 'bet_type', 'bet_type_order']]
 
 
 # append the new rows to tips_original dataframe
@@ -100,7 +103,7 @@ else:
 
 tips_original = tips_original[['Date', 'League', 'Home', 'Away',
                                 'Odds_H', 'Odds_A', 'Pred_H', 'Pred_A', 'Winning_team',
-                                'Winning_prob', 'Winning_bet', 'bet_type', 'bet_type_order']].drop_duplicates()
+                                'Winning_prob', 'Winning_bet', 'Winning_bet_final', 'bet_type', 'bet_type_order']].drop_duplicates()
 
 # save new df of tips_original
 
@@ -137,7 +140,12 @@ tips_original_result['Winning_team_actual'] = np.where(tips_original_result['res
 
 # Adding columns of bet is right 
 
-tips_original_result['bet_right'] = np.where(tips_original_result['Winning_team_actual'] == tips_original_result['Winning_team'], 1, 0)
+tips_original_result['bet_right'] = np.where(
+    ((tips_original_result['Winning_team_actual'] == tips_original_result['Winning_team']) | 
+    ((tips_original_result['Result'] == 'D') & (tips_original_result['Winning_bet'] >= 1.60))),
+    1,
+    0
+)
 
 # Adding columns of bet is right (win or draw)
 
