@@ -146,7 +146,7 @@ def output3():
     }
 
     atual = inicial + tips_original_result.apply(
-        lambda row: multiplier_map[row['bet_type']] * row['Winning_bet'] - multiplier_map[row['bet_type']] if row['bet_right'] == 1 else multiplier_map[row['bet_type']]*-1, axis=1).sum()
+        lambda row: multiplier_map[row['bet_type']] * row['Winning_bet_final'] - multiplier_map[row['bet_type']] if row['bet_right'] == 1 else multiplier_map[row['bet_type']]*-1, axis=1).sum()
     lucro = atual - inicial
     lucro_perc = (lucro/inicial)*100
 
@@ -161,7 +161,7 @@ def output3():
             bet_type = row['bet_type']
             multiplier = multiplier_map.get(bet_type, 0)
             if row['bet_right'] == 1:
-                profit = multiplier * row['Winning_bet'] - multiplier
+                profit = multiplier * row['Winning_bet_final'] - multiplier
             else:
                 profit = -1 * multiplier
             profits.append(profit)
