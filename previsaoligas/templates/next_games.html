@@ -118,6 +118,7 @@
       <h2 style="text-align: center;">Legenda</h2>
       <p>Dica Segura ➜ Destacada em <b><span style= "color: white; background-color: green;">VERDE</span></b>.</p>
       <p>Não apostar ➜ Descatacada em <b><span style="color: white; background-color: gray;">CINZA</span></b>.</p>
+      <p>OBS: Apostar nas dicas sugeridas no texto em <b><span style="color: yellow; background-color: green;">AMARELO</span></b>.</p>
       <button class="btn btn-sn btn-outline-primary w-100 close-button">Fechar</button>
     </dialog>
 
@@ -165,14 +166,26 @@
           {% set color = '#32CD32' %}
         {% endif %}
         <tr style="background-color: {{ color }};">
-          {% for value in row %}
-          <td>{{ value }}</td>
+          {% for column, value in row.items() %}
+          {% set text_color = '#000000' %}
+          {% if column == 'Odds 1X' and color == '#32CD32' and row['Previsão 1'] >= 0.80 and row['Previsão 1'] < 0.85 and row['Odds 1'] >= 1.60 %}
+            {% set text_color = '#faef16' %}
+          {% elif column == 'Odds X2' and color == '#32CD32' and row['Previsão 2'] >= 0.65 and row['Previsão 2'] < 0.85 and row['Odds 2'] >= 1.60 %}
+            {% set text_color = '#faef16' %}
+          {% elif column == 'Odds 1' and color == '#32CD32' and row['Previsão 1'] >= 0.80 and row['Odds 1'] < 1.60 %}
+            {% set text_color = '#faef16' %}
+          {% elif column == 'Odds 2' and color == '#32CD32' and row['Previsão 2'] >= 0.65 and row['Odds 2'] < 1.60 %}
+            {% set text_color = '#faef16' %}  
+          {% endif %}
+          <td style="color: {{ text_color }};">{{ value }}</td>
           {% endfor %}
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
+
+
   </body>
 
   <script>
