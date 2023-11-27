@@ -27,7 +27,7 @@ else:
     safest_bet['Winning_team'] = safest_bet.apply(lambda x: x['Home'] if x['Pred_H'] > x['Pred_A'] else x['Away'], axis=1)
     safest_bet['Winning_prob'] = safest_bet.apply(lambda x: x['Pred_H'] if x['Pred_H'] > x['Pred_A'] else x['Pred_A'], axis=1)
     safest_bet['Winning_bet'] = safest_bet.apply(lambda x: x['Odds_H'] if x['Pred_H'] > x['Pred_A'] else x['Odds_A'], axis=1)
-    safest_bet['Winning_bet_final'] =  safest_bet.apply(lambda x: x['Odds_H_X'] if (x['Winning_bet'] >= 1.60 and x['Pred_H'] > x['Pred_A'] and x['Winning_prob'] < 0.85) else ('Odds_X_A' if (x['Winning_bet'] >= 1.60 and x['Pred_A'] > x['Pred_H'] and x['Winning_prob'] < 0.85) else x['Winning_bet']),
+    safest_bet['Winning_bet_final'] =  safest_bet.apply(lambda x: x['Odds_H_X'] if (x['Winning_bet'] >= 1.60 and x['Pred_H'] > x['Pred_A'] and x['Winning_prob'] < 0.85) else (x['Odds_X_A'] if (x['Winning_bet'] >= 1.60 and x['Pred_A'] > x['Pred_H'] and x['Winning_prob'] < 0.85) else x['Winning_bet']),
     axis=1
 )
     safest_bet['bet_type'] = 'safest_bet'
