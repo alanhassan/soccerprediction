@@ -143,8 +143,19 @@
               <option value="{{ data }}">{{ data }}</option>
           {% endfor %}
       </select>
-      <button style="padding: 6px; margin-left: 10px;" type="button" id="premissasButton" class="btn btn-sn btn-outline-primary open-button">Legenda</button>
     </div>
+
+    <!-- Filter container for "Color" -->
+    <div class="filter-container second-filter">
+      <label for="DicaFilter" class="filter-label">Dica:</label>
+      <select id="DicaFilter" class="filter-select">
+        <option value="">Todas</option>
+        {% for dica in dataframe['Dica'].unique()|sort(reverse=true) %}
+          <option value="{{ dica }}">{{ dica }}</option>
+        {% endfor %}
+      </select>
+      <button style="padding: 6px; margin-left: 10px;" type="button" id="premissasButton" class="btn btn-sn btn-outline-primary open-button">Legenda</button>
+    </div>  
   </div>
 
 
@@ -207,6 +218,15 @@
       var selectedData = $(this).val();
       table.column(0).search(selectedData).draw(); // Assuming "Data" is the third column
     });
+
+    // Apply the custom filter when the "Dica" dropdown changes
+    $('#DicaFilter').on('change', function() {
+      var selectedDica = $(this).val();
+      table.column(12).search(selectedDica).draw(); // Assuming "Dica" is the last column
+    });
+
+    // Hide the "Dica" column
+    table.column(12).visible(false);
   });
 
 

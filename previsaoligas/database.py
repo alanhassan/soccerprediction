@@ -2,6 +2,7 @@ import joblib
 from io import BytesIO
 import requests
 import pandas as pd
+import numpy as np
 from github import Github
 import os
 import json
@@ -70,6 +71,12 @@ def get_df_odds():
                                       "Odds_H_X": "Odds 1X" ,"Odds_H_A": "Odds 12",
                                       "Odds_X_A": "Odds X2", "Pred_H": "Previsão 1",
                                       "Pred_A": "Previsão 2"})
+    df_odds['Dica'] = np.where(
+    ((df_odds['Previsão 1'] >= 0.80) & (df_odds['Odds 1'] >= 1.20) & (df_odds['Odds 1'] <= 1.90)) |
+    ((df_odds['Previsão 2'] >= 0.65) & (df_odds['Odds 2'] >= 1.20) & (df_odds['Odds 2'] <= 1.65)),
+    'Sim',  # Value if True
+    'Não'   # Value if False
+)
     return df_odds
 
 df_odds = get_df_odds()
