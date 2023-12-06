@@ -142,7 +142,7 @@ tips_original_result['Winning_team_actual'] = np.where(tips_original_result['res
 
 tips_original_result['bet_right'] = np.where(
     ((tips_original_result['Winning_team_actual'] == tips_original_result['Winning_team']) | 
-    ((tips_original_result['result'] == 'D') & (tips_original_result['Winning_bet'] >= 1.60) & (tips_original_result['Winning_prob'] < 0.85))),
+    ((tips_original_result['result'] == 'D') & (tips_original_result['Winning_bet'] >= 1.60) & (tips_original_result['Winning_prob'] <= 0.85))),
     1,
     0
 )
