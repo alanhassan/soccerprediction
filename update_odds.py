@@ -18,6 +18,8 @@ import base64
 import joblib
 from io import BytesIO
 from github import Github
+from io import StringIO
+import creds
 
 warnings.filterwarnings("ignore")
 
@@ -25,21 +27,21 @@ warnings.filterwarnings("ignore")
 
 #token
 
-key = os.environ.get('API_Key')
-g = Github(key)
+# key = os.environ.get('API_Key')
+# g = Github(key)
 
-#repositório
-repo = g.get_repo("alanhassan/soccerprediction")
+# #repositório
+# repo = g.get_repo("alanhassan/soccerprediction")
 
 # df_rolling
-url_df = 'https://github.com/alanhassan/soccerprediction/blob/main/df_rolling.xlsx?raw=true'
+url_df = 'https://github.com/alanhassan/soccerprediction/blob/main/df_rolling.csv?raw=true'
 data = requests.get(url_df).content
-df_rolling = pd.read_excel(data)
+df_rolling = pd.read_csv(BytesIO(data))
 
 # match_df_final
-url_df_l2r = 'https://github.com/alanhassan/soccerprediction/blob/main/match_df_final_all.xlsx?raw=true'
+url_df_l2r = 'https://github.com/alanhassan/soccerprediction/blob/main/match_df_final_all.csv?raw=true'
 data_l2r = requests.get(url_df_l2r).content
-match_df_final_all = pd.read_excel(data_l2r)
+match_df_final_all = pd.read_csv(BytesIO(data_l2r))
 
 #get ml model from github
 url_ml = 'https://github.com/alanhassan/soccerprediction/blob/main/best_lr.pkl?raw=true'
@@ -132,9 +134,7 @@ ids = []  # create an empty list to store IDs
 time.sleep(5)
 for i in range(6):
 
-    # Selecionando o dia de amanhã
-    wd_Chrome.find_element(By.CSS_SELECTOR,'button.calendar__navigation--tomorrow').click()
-    time.sleep(3)
+    # jogos de hoje
 
     # Pegando o ID dos Jogos
     id_jogos = []
@@ -147,6 +147,10 @@ for i in range(6):
     id_jogos = [i[4:] for i in id_jogos]
     
     ids.append(id_jogos)
+
+    # Selecionando o dia de amanhã
+    wd_Chrome.find_element(By.CSS_SELECTOR,'button.calendar__navigation--tomorrow').click()
+    time.sleep(3)
         
     i=+1
 
@@ -162,33 +166,37 @@ for link in tqdm(final_ids, total=len(final_ids)):
     wd_Chrome.get(f'https://www.flashscore.com/match/{link}/#/match-summary')
     
     try:
-        Date = wd_Chrome.find_element(By.CSS_SELECTOR,'div.duelParticipant__startTime').text.split(' ')[0]
-        Time = wd_Chrome.find_element(By.CSS_SELECTOR,'div.duelParticipant__startTime').text.split(' ')[1]
-        Country = wd_Chrome.find_element(By.CSS_SELECTOR,'span.tournamentHeader__country').text.split(':')[0]
-        League = wd_Chrome.find_element(By.CSS_SELECTOR,'span.tournamentHeader__country')
-        League = League.find_element(By.CSS_SELECTOR,'a').text
-        Home = wd_Chrome.find_element(By.CSS_SELECTOR,'div.duelParticipant__home')
-        Home = Home.find_element(By.CSS_SELECTOR,'div.participant__participantName').text
-        Away = wd_Chrome.find_element(By.CSS_SELECTOR,'div.duelParticipant__away')
-        Away = Away.find_element(By.CSS_SELECTOR,'div.participant__participantName').text
+        Date = wd_Chrome.find_element(By.CSS_SELECTOR, 'div.duelParticipant__startTime').text.split(' ')[0]
+        Time = wd_Chrome.find_element(By.CSS_SELECTOR, 'div.duelParticipant__startTime').text.split(' ')[1]
+        Country = wd_Chrome.find_element(By.CSS_SELECTOR, 'span.tournamentHeader__country').text.split(':')[0]
+        League = wd_Chrome.find_element(By.CSS_SELECTOR, 'span.tournamentHeader__country')
+        League = League.find_element(By.CSS_SELECTOR, 'a').text
+        Home = wd_Chrome.find_element(By.CSS_SELECTOR, 'div.duelParticipant__home')
+        Home = Home.find_element(By.CSS_SELECTOR, 'div.participant__participantName').text
+        Away = wd_Chrome.find_element(By.CSS_SELECTOR, 'div.duelParticipant__away')
+        Away = Away.find_element(By.CSS_SELECTOR, 'div.participant__participantName').text
     except:
-        pass
+        continue  # Skip to the next iteration if basic information retrieval fails
 
-# Match Odds
+    # Match Odds
     try:
         wd_Chrome.get(f'https://www.flashscore.com/match/{link}/#/odds-comparison/1x2-odds/full-time')
         time.sleep(2)
-        
-        linhas = wd_Chrome.find_elements(By.CSS_SELECTOR,'div.ui-table__row')
-        
-        for linha in linhas:
-                Odds_H = linha.find_elements(By.CSS_SELECTOR,'a.oddsCell__odd')[0].text
-                Odds_D = linha.find_elements(By.CSS_SELECTOR,'a.oddsCell__odd')[1].text 
-                Odds_A = linha.find_elements(By.CSS_SELECTOR,'a.oddsCell__odd')[2].text
-    except:
-        pass
 
-    print(Date,Time,Country,League,Home,Away,Odds_H,Odds_D,Odds_A) 
+        # Check if redirected to match summary page
+        if 'match-summary' in wd_Chrome.current_url:
+            continue  # Skip to the next iteration if redirected to match summary page
+
+        linhas = wd_Chrome.find_elements(By.CSS_SELECTOR, 'div.ui-table__row')
+
+        for linha in linhas:
+            Odds_H = linha.find_elements(By.CSS_SELECTOR, 'a.oddsCell__odd')[0].text
+            Odds_D = linha.find_elements(By.CSS_SELECTOR, 'a.oddsCell__odd')[1].text
+            Odds_A = linha.find_elements(By.CSS_SELECTOR, 'a.oddsCell__odd')[2].text
+    except:
+        continue  # Skip to the next iteration if odds information retrieval fails
+
+    print(Date, Time, Country, League, Home, Away, Odds_H, Odds_D, Odds_A)
     
     jogo['Date'].append(Date)
     jogo['Time'].append(Time)
@@ -344,8 +352,57 @@ df_odds['Pred_H'] = df_odds['Pred_H'].round(2)
 df_odds['Pred_A'] = df_odds['Pred_A'].round(2)
 
 
-# Gerando os dados para excel
-df_odds.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/df_odds.xlsx')
+# Function to push DataFrame to GitHub
+def push_dataframe_to_github(dataframe, file_name, repository):
+    # Convert DataFrame to CSV in-memory
+    csv_data = StringIO()
+    dataframe.to_csv(csv_data, index=False)
+    csv_content = csv_data.getvalue()
+
+    # Encode content to Base64
+    encoded_content = base64.b64encode(csv_content.encode()).decode()
+
+    # Check if the file exists
+    url_get = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
+    headers_get = {'Authorization': f'token {creds.token}'}
+
+    response_get = requests.get(url_get, headers=headers_get)
+    response_get_json = response_get.json()
+
+    # Extract the SHA from the response
+    current_sha = response_get_json.get('sha')
+
+    # Push data directly to GitHub using GitHub API
+    url_put = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
+    headers_put = {
+        'Authorization': f'token {creds.token}',
+        'Content-Type': 'application/json'
+    }
+
+    data_put = {
+        'message': f'Update {file_name}',
+        'content': encoded_content
+    }
+
+    # If the file exists, update it; otherwise, create it
+    if current_sha is not None:
+        data_put['sha'] = current_sha
+
+    response_put = requests.put(url_put, headers=headers_put, json=data_put)
+
+    if response_put.status_code == 200:
+        print(f'Data pushed to {file_name} on GitHub successfully!')
+    elif response_put.status_code == 201:
+        print(f'{file_name} created on GitHub successfully!')
+    else:
+        print(f'Error: {response_put.status_code}, {response_put.text}')
+
+# GitHub repository details
+username = 'alanhassan'
+repository = 'soccerprediction'
+
+# Push each DataFrame to GitHub
+push_dataframe_to_github(df_odds, 'df_odds.csv', repository)
 
 
 ####################################################### update_odds_double ##################################
@@ -366,10 +423,6 @@ ids = []  # create an empty list to store IDs
 time.sleep(5)
 for i in range(6):
 
-    # Selecionando o dia de amanhã
-    wd_Chrome.find_element(By.CSS_SELECTOR,'button.calendar__navigation--tomorrow').click()
-    time.sleep(3)
-
     # Pegando o ID dos Jogos
     id_jogos = []
     jogos = wd_Chrome.find_elements(By.CSS_SELECTOR,'div.event__match--scheduled')
@@ -381,6 +434,10 @@ for i in range(6):
     id_jogos = [i[4:] for i in id_jogos]
     
     ids.append(id_jogos)
+
+    # Selecionando o dia de amanhã
+    wd_Chrome.find_element(By.CSS_SELECTOR,'button.calendar__navigation--tomorrow').click()
+    time.sleep(3)
         
     i=+1
 
@@ -396,33 +453,37 @@ for link in tqdm(final_ids, total=len(final_ids)):
     wd_Chrome.get(f'https://www.flashscore.com/match/{link}/#/match-summary')
     
     try:
-        Date = wd_Chrome.find_element(By.CSS_SELECTOR,'div.duelParticipant__startTime').text.split(' ')[0]
-        Time = wd_Chrome.find_element(By.CSS_SELECTOR,'div.duelParticipant__startTime').text.split(' ')[1]
-        Country = wd_Chrome.find_element(By.CSS_SELECTOR,'span.tournamentHeader__country').text.split(':')[0]
-        League = wd_Chrome.find_element(By.CSS_SELECTOR,'span.tournamentHeader__country')
-        League = League.find_element(By.CSS_SELECTOR,'a').text
-        Home = wd_Chrome.find_element(By.CSS_SELECTOR,'div.duelParticipant__home')
-        Home = Home.find_element(By.CSS_SELECTOR,'div.participant__participantName').text
-        Away = wd_Chrome.find_element(By.CSS_SELECTOR,'div.duelParticipant__away')
-        Away = Away.find_element(By.CSS_SELECTOR,'div.participant__participantName').text
+        Date = wd_Chrome.find_element(By.CSS_SELECTOR, 'div.duelParticipant__startTime').text.split(' ')[0]
+        Time = wd_Chrome.find_element(By.CSS_SELECTOR, 'div.duelParticipant__startTime').text.split(' ')[1]
+        Country = wd_Chrome.find_element(By.CSS_SELECTOR, 'span.tournamentHeader__country').text.split(':')[0]
+        League = wd_Chrome.find_element(By.CSS_SELECTOR, 'span.tournamentHeader__country')
+        League = League.find_element(By.CSS_SELECTOR, 'a').text
+        Home = wd_Chrome.find_element(By.CSS_SELECTOR, 'div.duelParticipant__home')
+        Home = Home.find_element(By.CSS_SELECTOR, 'div.participant__participantName').text
+        Away = wd_Chrome.find_element(By.CSS_SELECTOR, 'div.duelParticipant__away')
+        Away = Away.find_element(By.CSS_SELECTOR, 'div.participant__participantName').text
     except:
-        pass
+        continue  # Skip to the next iteration if basic information retrieval fails
 
-# Match Odds
+    # Match Odds
     try:
         wd_Chrome.get(f'https://www.flashscore.com/match/{link}/#/odds-comparison/double-chance/full-time')
         time.sleep(2)
-        
-        linhas = wd_Chrome.find_elements(By.CSS_SELECTOR,'div.ui-table__row')
-        
-        for linha in linhas:
-                Odds_H_X = linha.find_elements(By.CSS_SELECTOR,'a.oddsCell__odd')[0].text
-                Odds_H_A = linha.find_elements(By.CSS_SELECTOR,'a.oddsCell__odd')[1].text 
-                Odds_X_A = linha.find_elements(By.CSS_SELECTOR,'a.oddsCell__odd')[2].text
-    except:
-        pass
 
-    print(Date,Time,Country,League,Home,Away,Odds_H_X,Odds_H_A,Odds_X_A) 
+        # Check if redirected to match summary page
+        if 'match-summary' in wd_Chrome.current_url:
+            continue  # Skip to the next iteration if redirected to match summary page
+
+        linhas = wd_Chrome.find_elements(By.CSS_SELECTOR, 'div.ui-table__row')
+
+        for linha in linhas:
+            Odds_H_X = linha.find_elements(By.CSS_SELECTOR, 'a.oddsCell__odd')[0].text
+            Odds_H_A = linha.find_elements(By.CSS_SELECTOR, 'a.oddsCell__odd')[1].text
+            Odds_X_A = linha.find_elements(By.CSS_SELECTOR, 'a.oddsCell__odd')[2].text
+    except:
+        continue  # Skip to the next iteration if odds information retrieval fails
+
+    print(Date, Time, Country, League, Home, Away, Odds_H, Odds_D, Odds_A)
     
     jogo['Date'].append(Date)
     jogo['Time'].append(Time)
@@ -594,16 +655,6 @@ df_odds_final = pd.merge(df_odds, df_odds_double, on=['Date', 'Home', 'Away'])[[
 new_column_names = {'Time_x': 'Time', 'Country_x': 'Country', 'League_x': 'League', 'Pred_H_x': 'Pred_H', 'Pred_A_x': 'Pred_A'}
 df_odds_final.rename(columns=new_column_names, inplace=True)
 
-# Gerando os dados para excel
-df_odds_final.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/df_odds_final.xlsx')
+#push df_odds_final to github
+push_dataframe_to_github(df_odds_final, 'df_odds_final.csv', repository)
 
-# update no Github
-repo = Repo('C:/Users/alan.hassan/Desktop/github/soccerprediction')  # if repo is CWD just do '.'
-origin = repo.remote('origin')
-
-assert origin.exists()
-origin.fetch()
-repo.git.pull('origin','main')
-repo.index.add('df_odds_final.xlsx')
-repo.index.commit("your commit message")
-repo.git.push("--set-upstream", origin, repo.head.ref)

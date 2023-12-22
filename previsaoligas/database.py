@@ -34,9 +34,9 @@ ml.fitted_ = True
 # updated database with recent matches from github
 
 def get_df_rolling():
-    url_df = 'https://github.com/alanhassan/soccerprediction/blob/main/df_rolling.xlsx?raw=true'
+    url_df = 'https://github.com/alanhassan/soccerprediction/blob/main/df_rolling.csv?raw=true'
     data = requests.get(url_df).content
-    df = pd.read_excel(data)
+    df = pd.read_csv(BytesIO(data))
 
     return df
 
@@ -45,11 +45,11 @@ df = get_df_rolling()
 # updated database with next matches and odds
 
 def get_df_odds():
-    url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds_final.xlsx?raw=true'
+    url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds_final.csv?raw=true'
     data_odds = requests.get(url_df_odds).content
-    df_odds = pd.read_excel(data_odds)
+    df_odds = pd.read_csv(BytesIO(data_odds))
     df_odds['League'] = df_odds['League'].str.split("-").str[0]
-    df_odds['Date'] = df_odds['Date'].dt.date
+    #df_odds['Date'] = df_odds['Date'].dt.date
     df_odds = df_odds.sort_values(by=['Date', 'Country'])
     # Update 'League' values based on 'Country'
     df_odds.loc[df_odds['Country'] == 'GERMANY', 'League'] = 'Alemanha - Bundesliga'
@@ -84,18 +84,19 @@ df_odds = get_df_odds()
 # get information for 'last_2_results_sum'
 
 def get_match_df_final_all():
-    url_df_l2r = 'https://github.com/alanhassan/soccerprediction/blob/main/match_df_final_all.xlsx?raw=true'
-    data_l2r = requests.get(url_df_l2r).content
-    match_df_final_all = pd.read_excel(data_l2r)
+    url_match_df_final_all = 'https://github.com/alanhassan/soccerprediction/blob/main/match_df_final_all.csv?raw=true'
+    df_match_df_final_all = requests.get(url_match_df_final_all).content
+    match_df_final_all = pd.read_csv(BytesIO(df_match_df_final_all))
+    
     return match_df_final_all
 
 match_df_final_all = get_match_df_final_all()
 
 # get information for 'tips_original_result'
 
-tips_original_result = 'https://github.com/alanhassan/soccerprediction/blob/main/tips_original_result.xlsx?raw=true'
+tips_original_result = 'https://github.com/alanhassan/soccerprediction/blob/main/tips_original_result.csv?raw=true'
 tips_original_result = requests.get(tips_original_result).content
-tips_original_result = pd.read_excel(tips_original_result)
+tips_original_result = pd.read_csv(BytesIO(tips_original_result))
 
 # func home
 def homeData(df, team):
