@@ -3,15 +3,23 @@ import pandas as pd
 import numpy as np
 import warnings
 from git import Repo
+from io import StringIO
+import creds
+import base64
+from io import BytesIO
+
 
 warnings.filterwarnings("ignore")
+
+
+
 # get data
 
-url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds_final.xlsx?raw=true'
+url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds_final.csv?raw=true'
 data_odds = requests.get(url_df_odds).content
-df_odds = pd.read_excel(data_odds)
+df_odds = pd.read_csv(BytesIO(data_odds))
 df_odds['League'] = df_odds['League'].str.split("-").str[0]
-df_odds['Date'] = df_odds['Date'].dt.date
+#df_odds['Date'] = df_odds['Date'].dt.date
 df_odds = df_odds.sort_values(by=['Date', 'Country'])
 df_odds['Date'] = df_odds['Date'].astype(str)
 df_odds = df_odds[['Date', 'League', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A', 'Odds_H_X', 'Odds_H_A', 'Odds_X_A', 'Pred_H', 'Pred_A']]
@@ -33,33 +41,6 @@ else:
     safest_bet['bet_type'] = 'safest_bet'
     safest_bet['bet_type_order'] = 3
 
-""" # Bets that pay more than 1.6, and have more than 75% prob of being right
-
-safe_bet = df_odds[((df_odds['Pred_H'] >= 0.75) & (df_odds['Odds_H'] >= 1.60)) | ((df_odds['Pred_A'] >= 0.75) & (df_odds['Odds_A'] >= 1.60))]
-if safe_bet.empty:
-    print('Filtered dataframe is empty')
-else:
-    safe_bet['Winning_team'] = safe_bet.apply(lambda x: x['Home'] if x['Pred_H'] > x['Pred_A'] else x['Away'], axis=1)
-    safe_bet['Winning_prob'] = safe_bet.apply(lambda x: x['Pred_H'] if x['Pred_H'] > x['Pred_A'] else x['Pred_A'], axis=1)
-    safe_bet['Winning_bet'] = safe_bet.apply(lambda x: x['Odds_H'] if x['Pred_H'] > x['Pred_A'] else x['Odds_A'], axis=1)
-    safe_bet['bet_type'] = 'safe_bet'
-    safe_bet['bet_type_order'] = 2
-
-# Bets that pay more than 1.85, and have more than 70% prob of being right
-
-risky_bet = df_odds[((df_odds['Pred_H'] >= 0.70) & (df_odds['Odds_H'] >= 1.85)) | ((df_odds['Pred_A'] >= 0.70) & (df_odds['Odds_A'] >= 1.85))]
-if risky_bet.empty:
-    print('Filtered dataframe is empty')
-else:
-    risky_bet['Winning_team'] = risky_bet.apply(lambda x: x['Home'] if x['Pred_H'] > x['Pred_A'] else x['Away'], axis=1)
-    risky_bet['Winning_prob'] = risky_bet.apply(lambda x: x['Pred_H'] if x['Pred_H'] > x['Pred_A'] else x['Pred_A'], axis=1)
-    risky_bet['Winning_bet'] = risky_bet.apply(lambda x: x['Odds_H'] if x['Pred_H'] > x['Pred_A'] else x['Odds_A'], axis=1)
-    risky_bet['bet_type'] = 'risky_bet'
-    risky_bet['bet_type_order'] = 1
-
-# concatenate the dataframes
-
-new_tips = pd.concat([safest_bet, safe_bet, risky_bet]) """
 
 new_tips = safest_bet
 # drop duplicates, keeping the first occurrence of each row (according to the order of importance)
@@ -68,24 +49,65 @@ if new_tips.empty:
 else:
     new_tips = new_tips.sort_values("bet_type_order", ascending=False).drop_duplicates(subset=new_tips.columns[:-2], keep="first")
 
-new_tips.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/new_tips.xlsx')
+#new_tips.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/new_tips.xlsx')
 
-# update no Github
+# Function to push DataFrame to GitHub
+def push_dataframe_to_github(dataframe, file_name, repository):
+    # Convert DataFrame to CSV in-memory
+    csv_data = StringIO()
+    dataframe.to_csv(csv_data, index=False)
+    csv_content = csv_data.getvalue()
 
-repo = Repo('C:/Users/alan.hassan/Desktop/github/soccerprediction')  # if repo is CWD just do '.'
-origin = repo.remote('origin')
-assert origin.exists()
-origin.fetch()
-repo.git.pull('origin','main')
-repo.index.add('new_tips.xlsx')
-repo.index.commit("your commit message")
-repo.git.push("--set-upstream", origin, repo.head.ref)
+    # Encode content to Base64
+    encoded_content = base64.b64encode(csv_content.encode()).decode()
+
+    # Check if the file exists
+    url_get = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
+    headers_get = {'Authorization': f'token {creds.token}'}
+
+    response_get = requests.get(url_get, headers=headers_get)
+    response_get_json = response_get.json()
+
+    # Extract the SHA from the response
+    current_sha = response_get_json.get('sha')
+
+    # Push data directly to GitHub using GitHub API
+    url_put = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
+    headers_put = {
+        'Authorization': f'token {creds.token}',
+        'Content-Type': 'application/json'
+    }
+
+    data_put = {
+        'message': f'Update {file_name}',
+        'content': encoded_content
+    }
+
+    # If the file exists, update it; otherwise, create it
+    if current_sha is not None:
+        data_put['sha'] = current_sha
+
+    response_put = requests.put(url_put, headers=headers_put, json=data_put)
+
+    if response_put.status_code == 200:
+        print(f'Data pushed to {file_name} on GitHub successfully!')
+    elif response_put.status_code == 201:
+        print(f'{file_name} created on GitHub successfully!')
+    else:
+        print(f'Error: {response_put.status_code}, {response_put.text}')
+
+# GitHub repository details
+username = 'alanhassan'
+repository = 'soccerprediction'
+
+# Push each DataFrame to GitHub
+push_dataframe_to_github(new_tips, 'new_tips.csv', repository)
 
 # load tips_original.xlsx
 
-url_tips_original = 'https://github.com/alanhassan/soccerprediction/blob/main/tips_original.xlsx?raw=true'
+url_tips_original = 'https://github.com/alanhassan/soccerprediction/blob/main/tips_original.csv?raw=true'
 data = requests.get(url_tips_original).content
-tips_original = pd.read_excel(data)
+tips_original = pd.read_csv(BytesIO(data))
 
 tips_original = tips_original[['Date', 'League', 'Home', 'Away',
                                 'Odds_H', 'Odds_A', 'Odds_H_X', 'Odds_X_A', 'Pred_H', 'Pred_A', 'Winning_team',
@@ -105,26 +127,18 @@ tips_original = tips_original[['Date', 'League', 'Home', 'Away',
                                 'Odds_H', 'Odds_A', 'Odds_H_X', 'Odds_X_A', 'Pred_H', 'Pred_A', 'Winning_team',
                                 'Winning_prob', 'Winning_bet', 'Winning_bet_final', 'bet_type', 'bet_type_order']].drop_duplicates()
 
-# save new df of tips_original
+# # save new df of tips_original
 
-tips_original.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/tips_original.xlsx')
+# tips_original.to_sql('tips_original', engine, if_exists='replace', index=False)
 
 # update no Github
-
-repo = Repo('C:/Users/alan.hassan/Desktop/github/soccerprediction')  # if repo is CWD just do '.'
-origin = repo.remote('origin')
-assert origin.exists()
-origin.fetch()
-repo.git.pull('origin','main')
-repo.index.add('tips_original.xlsx')
-repo.index.commit("your commit message")
-repo.git.push("--set-upstream", origin, repo.head.ref)
+push_dataframe_to_github(tips_original, 'tips_original.csv', repository)
 
 # Get the results of the matches that have already happened
 
-match_df_final_all = 'https://github.com/alanhassan/soccerprediction/blob/main/match_df_final_all.xlsx?raw=true'
+match_df_final_all = 'https://github.com/alanhassan/soccerprediction/blob/main/match_df_final_all.csv?raw=true'
 data = requests.get(match_df_final_all).content
-match_df_final_all = pd.read_excel(data)
+match_df_final_all = pd.read_csv(BytesIO(data))
 
 # convert the 'date' column to object type
 match_df_final_all['date'] = match_df_final_all['date'].astype(str)
@@ -155,16 +169,8 @@ tips_original_result['bet_right_win_draw'] = np.where(tips_original_result['Winn
 # Removing duplicated rows
 tips_original_result = tips_original_result.drop_duplicates(subset=['Date', 'League', 'Home', 'Away'], keep='first')
 
-#saving file
-tips_original_result.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/tips_original_result.xlsx')
+# #saving file
+# tips_original_result.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/tips_original_result.xlsx')
 
 # update no Github
-
-repo = Repo('C:/Users/alan.hassan/Desktop/github/soccerprediction')  # if repo is CWD just do '.'
-origin = repo.remote('origin')
-assert origin.exists()
-origin.fetch()
-repo.git.pull('origin','main')
-repo.index.add('tips_original_result.xlsx')
-repo.index.commit("your commit message")
-repo.git.push("--set-upstream", origin, repo.head.ref)
+push_dataframe_to_github(tips_original_result, 'tips_original_result.csv', repository)
