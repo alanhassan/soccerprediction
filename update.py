@@ -1,4 +1,6 @@
 # imports
+import pandas as pd
+# imports
 import base64
 from pickle import TRUE
 import requests
@@ -8,9 +10,10 @@ import time
 from bs4 import BeautifulSoup
 import warnings
 from git import Repo
+from io import StringIO
+import creds
 
 warnings.filterwarnings("ignore")
-
 
 # serie-A
 # trazendo informações mais atualizadas do site https://fbref.com/
@@ -341,14 +344,18 @@ match_df = match_df[['date', 'comp', 'team', 'opponent', 'venue', 'gf', 'ga', 'r
 match_df = match_df[~pd.isna(match_df['gf'])]
 
 # inserindo a base de histórico (antes de '2023-08-01'), para conseguir pegar os resultados dos últimos confrontos entre os times
+# url_leagues = 'https://github.com/alanhassan/soccerprediction/blob/main/leagues.xlsx?raw=true'
+# data = requests.get(url_leagues).content
+# leagues = pd.read_excel(data)
+
 url_leagues = 'https://github.com/alanhassan/soccerprediction/blob/main/leagues.xlsx?raw=true'
-data = requests.get(url_leagues).content
-leagues = pd.read_excel(data)
+data_leagues = requests.get(url_leagues).content
+leagues = pd.read_excel(data_leagues)
+
 leagues = leagues[['date', 'comp', 'team', 'opponent', 'venue', 'gf', 'ga', 'result']]
-
 leagues['date'] = pd.to_datetime(leagues['date'])
-
 leagues = leagues[leagues['date'] < pd.to_datetime('2023-08-01')]
+
 
 # adicionando a base 'leagues' com a 'match_df'
 match_df_final_all = pd.concat([leagues, match_df])
@@ -405,7 +412,6 @@ match_df_final_all = match_df_final_all.replace({'opponent' : { 'Inter' : 'Inter
                                         'W Sydney': 'Western Sydney Wanderers',
                                         'Wellington': 'Wellington Phoenix'}})
 
-
 # último resultado do confronto entre os times
 # sort the DataFrame by date
 match_df_final_all = match_df_final_all.sort_values(by='date').reset_index(drop=True)
@@ -419,7 +425,6 @@ grouped_result = grouped['pont'].apply(lambda x: x.rolling(2, closed='right').su
 grouped_result = grouped_result.droplevel(['team', 'opponent']).sort_index()
 
 match_df_final_all['last_2_results_sum'] = grouped_result.values
-
 
 # filtrando a data, para considerar apenas os jogos da temporada atual (temporada começa em agosto)
 match_df_final = match_df_final_all[match_df_final_all['date'] >= pd.to_datetime('2022-08-01')]
@@ -460,10 +465,11 @@ df_rolling_away = df_rolling_away.droplevel('team')
 # incluindo variáveis rolling do time jogando fora de casa
 df_rolling = df_rolling_home.merge(df_rolling_away, left_on=['date', 'opponent'], right_on=['date', 'team'], suffixes=('_home','_away'), how='inner')
 
-
 # inserindo as informações de "Points last season"
-#url_add = 'https://github.com/alanhassan/soccerprediction/blob/main/additional.xlsx?raw=true'
-additional = pd.read_excel(r'C:\Users\alan.hassan\Desktop\github\soccerprediction\additional.xlsx')
+
+url_additional = 'https://github.com/alanhassan/soccerprediction/blob/main/additional.xlsx?raw=true'
+data_additional = requests.get(url_additional).content
+additional = pd.read_excel(data_additional)
 
 df_rolling = df_rolling.merge(additional, how = 'left', left_on='team_home', right_on='team')
 df_rolling.rename(columns={"Points last season_": "Points last season_home"}, inplace=True)
@@ -488,18 +494,56 @@ df_rolling = df_rolling[['date', 'comp', 'home', 'gf_rolling_home',
 df_rolling.rename(columns={"last_2_results_sum_home": "last_2_results"}, inplace=True)
 
 
-df_rolling.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/df_rolling.xlsx')
-match_df_final_all.to_excel('C:/Users/alan.hassan/Desktop/github/soccerprediction/match_df_final_all.xlsx')
+# Function to push DataFrame to GitHub
+def push_dataframe_to_github(dataframe, file_name, repository):
+    # Convert DataFrame to CSV in-memory
+    csv_data = StringIO()
+    dataframe.to_csv(csv_data, index=False)
+    csv_content = csv_data.getvalue()
 
-# update no Github
+    # Encode content to Base64
+    encoded_content = base64.b64encode(csv_content.encode()).decode()
 
-repo = Repo('C:/Users/alan.hassan/Desktop/github/soccerprediction')  # if repo is CWD just do '.'
-origin = repo.remote('origin')
-assert origin.exists()
-origin.fetch()
-repo.git.pull('origin','main')
-repo.index.add('df_rolling.xlsx')
-repo.index.add('match_df_final_all.xlsx')
-repo.index.commit("your commit message")
-repo.git.push("--set-upstream", origin, repo.head.ref)
+    # Check if the file exists
+    url_get = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
+    headers_get = {'Authorization': f'token {creds.token}'}
+
+    response_get = requests.get(url_get, headers=headers_get)
+    response_get_json = response_get.json()
+
+    # Extract the SHA from the response
+    current_sha = response_get_json.get('sha')
+
+    # Push data directly to GitHub using GitHub API
+    url_put = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
+    headers_put = {
+        'Authorization': f'token {creds.token}',
+        'Content-Type': 'application/json'
+    }
+
+    data_put = {
+        'message': f'Update {file_name}',
+        'content': encoded_content
+    }
+
+    # If the file exists, update it; otherwise, create it
+    if current_sha is not None:
+        data_put['sha'] = current_sha
+
+    response_put = requests.put(url_put, headers=headers_put, json=data_put)
+
+    if response_put.status_code == 200:
+        print(f'Data pushed to {file_name} on GitHub successfully!')
+    elif response_put.status_code == 201:
+        print(f'{file_name} created on GitHub successfully!')
+    else:
+        print(f'Error: {response_put.status_code}, {response_put.text}')
+
+# GitHub repository details
+username = 'alanhassan'
+repository = 'soccerprediction'
+
+# Push each DataFrame to GitHub
+push_dataframe_to_github(df_rolling, 'df_rolling.csv', repository)
+push_dataframe_to_github(match_df_final_all, 'match_df_final_all.csv', repository)
 
