@@ -113,3 +113,6 @@ Date,League,Home,Away,Odds_H,Odds_A,Odds_H_X,Odds_X_A,Pred_H,Pred_A,Winning_team
 2023-12-17,EREDIVISIE ,Heracles Almelo,Feyenoord,12.5,1.23,4.2,1.03,0.28,0.72,Feyenoord,0.72,1.23,1.23,safest_bet,3,2023-12-17,Heracles Almelo,Feyenoord,L,Feyenoord,1,1
 2023-12-17,EREDIVISIE ,Ajax,Zwolle,1.28,9.7,1.03,3.6,0.87,0.13,Ajax,0.87,1.28,1.28,safest_bet,3,2023-12-17,Ajax,Zwolle,D,Draw,0,1
 2023-12-19,LALIGA ,Atletico Madrid,Getafe,1.44,8.0,1.07,2.85,0.83,0.17,Atletico Madrid,0.83,1.44,1.44,safest_bet,3,2023-12-19,Atletico Madrid,Getafe,D,Draw,0,1
+2023-12-20,JUPILER PRO LEAGUE ,Cercle Brugge,Kortrijk,1.36,8.0,1.06,3.25,0.8,0.2,Cercle Brugge,0.8,1.36,1.36,safest_bet,3,2023-12-20,Cercle Brugge,Kortrijk,W,Cercle Brugge,1,1
+2023-12-20,LIGUE 1 ,Lyon,Nantes,1.65,4.9,1.18,2.25,0.83,0.17,Lyon,0.83,1.65,1.18,safest_bet,3,2023-12-20,Lyon,Nantes,W,Lyon,1,1
+2023-12-21,LALIGA ,Alaves,Real Madrid,5.5,1.6,2.45,1.14,0.33,0.67,Real Madrid,0.67,1.6,1.14,safest_bet,3,2023-12-21,Alaves,Real Madrid,L,Real Madrid,1,1
