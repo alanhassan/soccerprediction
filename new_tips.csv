@@ -1,3 +1,5 @@
 Date,League,Home,Away,Odds_H,Odds_D,Odds_A,Odds_H_X,Odds_H_A,Odds_X_A,Pred_H,Pred_A,Winning_team,Winning_prob,Winning_bet,Winning_bet_final,bet_type,bet_type_order
-2023-12-23,JUPILER PRO LEAGUE ,Eupen,Union SG,11.0,6.0,1.25,3.75,1.09,1.01,0.25,0.75,Union SG,0.75,1.25,1.25,safest_bet,3
-2023-12-23,PREMIER LEAGUE ,Fulham,Burnley,1.7,4.0,5.25,1.17,1.25,2.27,0.85,0.15,Fulham,0.85,1.7,1.7,safest_bet,3
+2023-12-26,JUPILER PRO LEAGUE ,Kortrijk,Gent,8.0,5.0,1.36,3.25,1.12,1.07,0.33,0.67,Gent,0.67,1.36,1.36,safest_bet,3
+2023-12-26,PREMIER LEAGUE ,Newcastle United,Nottingham Forest,1.48,4.7,7.1,1.1,1.2,2.73,0.89,0.11,Newcastle United,0.89,1.48,1.48,safest_bet,3
+2023-12-26,PREMIER LEAGUE ,Burnley,Liverpool,8.2,5.4,1.38,3.1,1.16,1.08,0.33,0.67,Liverpool,0.67,1.38,1.38,safest_bet,3
+2023-12-27,PREMIER LEAGUE ,Everton,Manchester City,5.9,4.3,1.58,2.49,1.22,1.14,0.34,0.66,Manchester City,0.66,1.58,1.58,safest_bet,3
