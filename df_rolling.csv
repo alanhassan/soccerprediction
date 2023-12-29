@@ -258,6 +258,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-11-11,Premier League,Arsenal,9.0,1.0,9.0,84.0,4.0,Burnley,2.0,8.0,0.0,35.0
 2023-12-02,Premier League,Arsenal,10.0,2.0,9.0,84.0,6.0,Wolverhampton Wanderers,4.0,7.0,0.0,41.0
 2023-12-17,Premier League,Arsenal,7.0,2.0,9.0,84.0,3.0,Brighton and Hove Albion,5.0,7.0,3.0,62.0
+2023-12-28,Premier League,Arsenal,4.0,3.0,6.0,84.0,1.0,West Ham United,4.0,6.0,6.0,40.0
 2022-09-03,Premier League,Aston Villa,3.0,3.0,4.0,61.0,1.0,Manchester City,6.0,4.0,5.0,89.0
 2022-09-16,Premier League,Aston Villa,2.0,2.0,4.0,61.0,6.0,Southampton,2.0,3.0,3.0,25.0
 2022-10-16,Premier League,Aston Villa,2.0,3.0,4.0,61.0,0.0,Chelsea,5.0,3.0,6.0,44.0
@@ -814,6 +815,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-10-29,Premier League,Brighton and Hove Albion,6.0,4.0,5.0,62.0,1.0,Fulham,1.0,3.0,2.0,52.0
 2023-12-06,Premier League,Brighton and Hove Albion,4.0,3.0,5.0,62.0,4.0,Brentford,3.0,5.0,3.0,59.0
 2023-12-09,Premier League,Brighton and Hove Albion,4.0,3.0,5.0,62.0,1.0,Burnley,2.0,5.0,1.0,35.0
+2023-12-28,Premier League,Brighton and Hove Albion,7.0,4.0,7.0,62.0,3.0,Tottenham Hotspur,7.0,7.0,4.0,60.0
 2022-11-06,A-League,Brisbane Roar,3.0,3.0,4.0,30.0,6.0,Sydney FC,7.0,6.0,6.0,38.0
 2022-12-09,A-League,Brisbane Roar,4.0,2.0,5.0,30.0,1.0,Adelaide United,7.0,5.0,5.0,42.0
 2022-12-23,A-League,Brisbane Roar,5.0,3.0,5.0,30.0,2.0,Western Sydney Wanderers,2.0,3.0,2.0,41.0
@@ -1380,6 +1382,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-10-29,Primeira Liga,Estrela,3.0,5.0,3.0,35.0,,Famalicao,3.0,4.0,2.0,44.0
 2023-11-11,Primeira Liga,Estrela,3.0,5.0,3.0,35.0,,Moreirense,6.0,0.0,9.0,35.0
 2023-12-10,Primeira Liga,Estrela,4.0,2.0,6.0,35.0,,Boavista,2.0,6.0,1.0,44.0
+2023-12-28,Primeira Liga,Estrela,4.0,6.0,3.0,35.0,,Arouca,8.0,3.0,6.0,54.0
 2022-09-03,Pro League A,Eupen,1.0,5.0,0.0,28.0,1.0,Kortrijk,3.0,4.0,3.0,31.0
 2022-09-18,Pro League A,Eupen,2.0,6.0,0.0,28.0,1.0,Union SG,7.0,6.0,6.0,75.0
 2022-10-09,Pro League A,Eupen,1.0,7.0,0.0,28.0,0.0,Gent,5.0,3.0,3.0,56.0
@@ -2547,6 +2550,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-11-12,A-League,Melbourne City,6.0,5.0,4.0,55.0,2.0,Macarthur FC,6.0,6.0,4.0,26.0
 2023-12-17,A-League,Melbourne City,8.0,6.0,5.0,55.0,1.0,Central Coast Mariners,3.0,8.0,1.0,44.0
 2023-12-23,A-League,Melbourne City,6.0,6.0,3.0,55.0,4.0,Melbourne Victory,6.0,5.0,5.0,28.0
+2023-12-28,A-League,Melbourne City,11.0,4.0,5.0,55.0,6.0,Brisbane Roar,4.0,10.0,3.0,30.0
 2023-01-06,A-League,Melbourne Victory,4.0,3.0,3.0,28.0,1.0,Brisbane Roar,3.0,1.0,7.0,30.0
 2023-01-26,A-League,Melbourne Victory,5.0,3.0,3.0,28.0,3.0,Sydney FC,4.0,4.0,4.0,38.0
 2023-02-03,A-League,Melbourne Victory,4.0,4.0,3.0,28.0,6.0,Wellington Phoenix,3.0,3.0,6.0,35.0
@@ -3712,6 +3716,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-02,A-League,Sydney FC,3.0,5.0,3.0,38.0,6.0,Perth Glory,3.0,7.0,0.0,29.0
 2023-12-09,A-League,Sydney FC,3.0,5.0,3.0,38.0,0.0,Macarthur FC,7.0,4.0,7.0,26.0
 2023-12-23,A-League,Sydney FC,7.0,6.0,6.0,38.0,4.0,Western United,2.0,9.0,0.0,32.0
+2023-12-29,A-League,Sydney FC,7.0,5.0,6.0,38.0,3.0,Wellington Phoenix,5.0,3.0,6.0,35.0
 2022-09-17,Serie A,Torino,1.0,1.0,4.0,53.0,1.0,Sassuolo,3.0,2.0,5.0,45.0
 2022-10-09,Serie A,Torino,2.0,2.0,4.0,53.0,4.0,Empoli,4.0,3.0,5.0,43.0
 2022-10-15,Serie A,Torino,1.0,3.0,1.0,53.0,1.0,Juventus,1.0,3.0,3.0,62.0
