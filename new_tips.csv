@@ -1,4 +1,3 @@
 Date,League,Home,Away,Odds_H,Odds_D,Odds_A,Odds_H_X,Odds_H_A,Odds_X_A,Pred_H,Pred_A,Winning_team,Winning_prob,Winning_bet,Winning_bet_final,bet_type,bet_type_order
-2023-12-28,PREMIER LEAGUE ,Arsenal,West Ham United,1.33,5.8,9.4,1.06,1.14,3.4,0.89,0.11,Arsenal,0.89,1.33,1.33,safest_bet,3
-2023-12-29,SERIE A ,Genoa,Internazionale,5.85,3.9,1.6,2.4,1.22,1.13,0.31,0.69,Internazionale,0.69,1.6,1.13,safest_bet,3
-2023-12-29,SERIE A ,Lazio,Frosinone,1.7,3.9,4.85,1.17,1.22,2.2,0.89,0.11,Lazio,0.89,1.7,1.7,safest_bet,3
+2023-12-30,PREMIER LEAGUE ,Aston Villa,Burnley,1.39,5.35,8.1,1.08,1.16,3.1,0.82,0.18,Aston Villa,0.82,1.39,1.39,safest_bet,3
+2023-12-30,SERIE A ,Atalanta,Lecce,1.41,4.65,7.8,1.07,1.17,2.95,0.83,0.17,Atalanta,0.83,1.41,1.41,safest_bet,3
