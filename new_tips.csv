@@ -1,3 +1,1 @@
-Date,League,Home,Away,Odds_H,Odds_D,Odds_A,Odds_H_X,Odds_H_A,Odds_X_A,Pred_H,Pred_A,Winning_team,Winning_prob,Winning_bet,Winning_bet_final,bet_type,bet_type_order
-2023-12-30,PREMIER LEAGUE ,Aston Villa,Burnley,1.39,5.35,8.1,1.08,1.16,3.1,0.82,0.18,Aston Villa,0.82,1.39,1.39,safest_bet,3
-2023-12-30,SERIE A ,Atalanta,Lecce,1.41,4.65,7.8,1.07,1.17,2.95,0.83,0.17,Atalanta,0.83,1.41,1.41,safest_bet,3
+Date,League,Home,Away,Odds_H,Odds_D,Odds_A,Odds_H_X,Odds_H_A,Odds_X_A,Pred_H,Pred_A
