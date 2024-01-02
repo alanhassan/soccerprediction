@@ -132,7 +132,7 @@ except:
 ids = []  # create an empty list to store IDs
 
 time.sleep(5)
-for i in range(3):
+for i in range(4):
 
     # jogos de hoje
 
@@ -425,7 +425,7 @@ except:
 ids = []  # create an empty list to store IDs
 
 time.sleep(5)
-for i in range(3):
+for i in range(4):
 
     # Pegando o ID dos Jogos
     id_jogos = []

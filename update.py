@@ -378,6 +378,7 @@ match_df_final_all = match_df_final_all.replace({'opponent' : { 'Inter' : 'Inter
                                         'Almería' : 'Almeria',
                                         'Betis' : 'Real Betis',
                                         'Atlético Madrid' : 'Atletico Madrid',
+                                        'Alavés': 'Alaves',
                                         'Cádiz' : 'Cadiz',
                                         'Köln' : 'Koln',
                                         'Eint Frankfurt' : 'Eintracht Frankfurt',
