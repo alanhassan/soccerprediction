@@ -143,3 +143,6 @@ Date,League,Home,Away,Odds_H,Odds_A,Odds_H_X,Odds_X_A,Pred_H,Pred_A,Winning_team
 2023-12-29,SERIE A ,Lazio,Frosinone,1.7,4.85,1.17,2.2,0.89,0.11,Lazio,0.89,1.7,1.7,safest_bet,3
 2023-12-30,PREMIER LEAGUE ,Aston Villa,Burnley,1.39,8.1,1.08,3.1,0.82,0.18,Aston Villa,0.82,1.39,1.39,safest_bet,3
 2023-12-30,SERIE A ,Atalanta,Lecce,1.41,7.8,1.07,2.95,0.83,0.17,Atalanta,0.83,1.41,1.41,safest_bet,3
+2024-01-02,LALIGA ,Real Sociedad,Alaves,1.58,7.0,1.1,2.45,0.89,0.11,Real Sociedad,0.89,1.58,1.58,safest_bet,3
+2024-01-04,LALIGA ,Las Palmas,Barcelona,5.5,1.58,2.45,1.14,0.34,0.66,Barcelona,0.66,1.58,1.58,safest_bet,3
+2024-01-05,LIGA PORTUGAL ,Boavista,Porto,7.5,1.42,2.95,1.08,0.29,0.71,Porto,0.71,1.42,1.42,safest_bet,3
