@@ -1,1 +1,4 @@
-Date,League,Home,Away,Odds_H,Odds_D,Odds_A,Odds_H_X,Odds_H_A,Odds_X_A,Pred_H,Pred_A
+Date,League,Home,Away,Odds_H,Odds_D,Odds_A,Odds_H_X,Odds_H_A,Odds_X_A,Pred_H,Pred_A,Winning_team,Winning_prob,Winning_bet,Winning_bet_final,bet_type,bet_type_order
+2024-01-02,LALIGA ,Real Sociedad,Alaves,1.58,3.75,7.0,1.1,1.22,2.45,0.89,0.11,Real Sociedad,0.89,1.58,1.58,safest_bet,3
+2024-01-04,LALIGA ,Las Palmas,Barcelona,5.5,4.5,1.58,2.45,1.19,1.14,0.34,0.66,Barcelona,0.66,1.58,1.58,safest_bet,3
+2024-01-05,LIGA PORTUGAL ,Boavista,Porto,7.5,4.5,1.42,2.95,1.16,1.08,0.29,0.71,Porto,0.71,1.42,1.42,safest_bet,3
