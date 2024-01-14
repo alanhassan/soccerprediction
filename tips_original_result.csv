@@ -129,3 +129,10 @@ Date,League,Home,Away,Odds_H,Odds_A,Odds_H_X,Odds_X_A,Pred_H,Pred_A,Winning_team
 2023-12-29,SERIE A ,Lazio,Frosinone,1.7,4.85,1.17,2.2,0.89,0.11,Lazio,0.89,1.7,1.7,safest_bet,3,2023-12-29,Lazio,Frosinone,W,Lazio,1,1
 2023-12-30,PREMIER LEAGUE ,Aston Villa,Burnley,1.39,8.1,1.08,3.1,0.82,0.18,Aston Villa,0.82,1.39,1.39,safest_bet,3,2023-12-30,Aston Villa,Burnley,W,Aston Villa,1,1
 2023-12-30,SERIE A ,Atalanta,Lecce,1.41,7.8,1.07,2.95,0.83,0.17,Atalanta,0.83,1.41,1.41,safest_bet,3,2023-12-30,Atalanta,Lecce,W,Atalanta,1,1
+2024-01-02,LALIGA ,Real Sociedad,Alaves,1.58,7.0,1.1,2.45,0.89,0.11,Real Sociedad,0.89,1.58,1.58,safest_bet,3,2024-01-02,Real Sociedad,Alaves,D,Draw,0,1
+2024-01-04,LALIGA ,Las Palmas,Barcelona,5.5,1.58,2.45,1.14,0.34,0.66,Barcelona,0.66,1.58,1.58,safest_bet,3,2024-01-04,Las Palmas,Barcelona,L,Barcelona,1,1
+2024-01-05,LIGA PORTUGAL ,Boavista,Porto,7.5,1.42,2.95,1.08,0.29,0.71,Porto,0.71,1.42,1.42,safest_bet,3,2024-01-05,Boavista,Porto,D,Draw,0,1
+2024-01-06,LIGA PORTUGAL ,Arouca,Benfica,6.5,1.45,2.8,1.09,0.34,0.66,Benfica,0.66,1.45,1.45,safest_bet,3,2024-01-06,Arouca,Benfica,L,Benfica,1,1
+2024-01-12,LIGUE 1 ,Marseille,Strasbourg,1.55,5.9,1.13,2.55,0.84,0.16,Marseille,0.84,1.55,1.55,safest_bet,3,2024-01-12,Marseille,Strasbourg,D,Draw,0,1
+2024-01-13,SERIE A ,Napoli,Salernitana,1.32,9.2,1.06,3.3,0.88,0.12,Napoli,0.88,1.32,1.32,safest_bet,3,2024-01-13,Napoli,Salernitana,W,Napoli,1,1
+2024-01-13,SERIE A ,Monza,Internazionale,6.4,1.5,2.65,1.11,0.35,0.65,Internazionale,0.65,1.5,1.5,safest_bet,3,2024-01-13,Monza,Internazionale,L,Internazionale,1,1
