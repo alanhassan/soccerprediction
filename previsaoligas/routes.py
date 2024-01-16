@@ -241,82 +241,82 @@ def output2():
 
 stripe.api_key = os.getenv('stripe_api_key')
 
-# Generate a secure token (you can use a library like secrets or uuid)
-def generate_secure_token():
-    # Implement your secure token generation logic here
-    import secrets
-    return secrets.token_hex(16)
+# # Generate a secure token (you can use a library like secrets or uuid)
+# def generate_secure_token():
+#     # Implement your secure token generation logic here
+#     import secrets
+#     return secrets.token_hex(16)
 
 
-@app.route('/payment_success/<token>')
-def payment_success(token):
-    try:
-        # Retrieve the stored token from the session
-        stored_token = session.get('payment_token')
+# @app.route('/payment_success/<token>')
+# def payment_success(token):
+#     try:
+#         # Retrieve the stored token from the session
+#         stored_token = session.get('payment_token')
 
-        if token != stored_token:
-            # Token does not match, deny access
-            flash('Access denied. Invalid token.', 'alert-danger')
-            return redirect(url_for('index'))  # Redirect to another page or handle as needed
+#         if token != stored_token:
+#             # Token does not match, deny access
+#             flash('Access denied. Invalid token.', 'alert-danger')
+#             return redirect(url_for('index'))  # Redirect to another page or handle as needed
 
-        # Token is valid, proceed with creating the account
-        user_info = session.get('user_info')
+#         # Token is valid, proceed with creating the account
+#         user_info = session.get('user_info')
 
-        if user_info:
-            senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
-            usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
-            database.session.add(usuario)
-            database.session.commit()
-            flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
-            session.pop('user_info')  # Clear user information from the session
-        else:
-            flash('Payment was successful, but user information is missing.', 'alert-danger')
-    except Exception as e:
-        flash('An error occurred while processing payment: ' + str(e), 'alert-danger')
+#         if user_info:
+#             senha_cript = bcrypt.generate_password_hash(user_info['senha']).decode("utf-8")
+#             usuario = Usuario(username=user_info['username'], email=user_info['email'], senha=senha_cript)
+#             database.session.add(usuario)
+#             database.session.commit()
+#             flash(f'Conta criada para o e-mail: {user_info["email"]}', 'alert-success')
+#             session.pop('user_info')  # Clear user information from the session
+#         else:
+#             flash('Payment was successful, but user information is missing.', 'alert-danger')
+#     except Exception as e:
+#         flash('An error occurred while processing payment: ' + str(e), 'alert-danger')
 
-    return render_template('payment_success.html')
-
-
-@app.route("/create_checkout_session", methods=["POST"])
-def create_checkout_session():
-    try:
-        # Generate a secure token
-        token = generate_secure_token()
-
-        # Store the token in the session
-        session['payment_token'] = token
-
-        # Get the price ID from the request (you can pass it as a parameter)
-        price_id = request.json["price_id"]
-
-        # Determine the cancel URL based on whether the app is running locally or on the live website
-        if request.host.startswith("127.0.0.1"):
-            cancel_url = "http://127.0.0.1:5000/criar_conta"
-            success_url = "http://127.0.0.1:5000/payment_success"
-        else:
-            cancel_url = "https://soccerpred.up.railway.app/criar_conta"
-            success_url = "https://soccerpred.up.railway.app/payment_success"
-
-        # Create a Checkout session
-        stripe_session = stripe.checkout.Session.create(
-            mode="subscription",
-            success_url=success_url + '/' + token,  # Append the token to the success URL
-            cancel_url=cancel_url,
-            line_items=[{"price": price_id, "quantity": 1}],
-            subscription_data={
-                "trial_settings": {"end_behavior": {"missing_payment_method": "cancel"}},
-                "trial_period_days": 15,
-            },
-            payment_method_types=["card"],
-        )
-
-        return jsonify({"sessionId": stripe_session.id, "token": token})
-    except Exception as e:
-        # Handle errors
-        return jsonify({"error": str(e)}), 500
+#     return render_template('payment_success.html')
 
 
-@app.route('/payment')
-def payment():
-    return render_template('subscription.html', stripe_public_key=os.getenv('stripe_public_key'))
+# @app.route("/create_checkout_session", methods=["POST"])
+# def create_checkout_session():
+#     try:
+#         # Generate a secure token
+#         token = generate_secure_token()
+
+#         # Store the token in the session
+#         session['payment_token'] = token
+
+#         # Get the price ID from the request (you can pass it as a parameter)
+#         price_id = request.json["price_id"]
+
+#         # Determine the cancel URL based on whether the app is running locally or on the live website
+#         if request.host.startswith("127.0.0.1"):
+#             cancel_url = "http://127.0.0.1:5000/criar_conta"
+#             success_url = "http://127.0.0.1:5000/payment_success"
+#         else:
+#             cancel_url = "https://soccerpred.up.railway.app/criar_conta"
+#             success_url = "https://soccerpred.up.railway.app/payment_success"
+
+#         # Create a Checkout session
+#         stripe_session = stripe.checkout.Session.create(
+#             mode="subscription",
+#             success_url=success_url + '/' + token,  # Append the token to the success URL
+#             cancel_url=cancel_url,
+#             line_items=[{"price": price_id, "quantity": 1}],
+#             subscription_data={
+#                 "trial_settings": {"end_behavior": {"missing_payment_method": "cancel"}},
+#                 "trial_period_days": 15,
+#             },
+#             payment_method_types=["card"],
+#         )
+
+#         return jsonify({"sessionId": stripe_session.id, "token": token})
+#     except Exception as e:
+#         # Handle errors
+#         return jsonify({"error": str(e)}), 500
+
+
+# @app.route('/payment')
+# def payment():
+#     return render_template('subscription.html', stripe_public_key=os.getenv('stripe_public_key'))
 
