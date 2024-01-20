@@ -132,7 +132,7 @@ except:
 ids = []  # create an empty list to store IDs
 
 time.sleep(5)
-for i in range(4):
+for i in range(1):
 
     # jogos de hoje
 
@@ -425,7 +425,7 @@ except:
 ids = []  # create an empty list to store IDs
 
 time.sleep(5)
-for i in range(4):
+for i in range(1):
 
     # Pegando o ID dos Jogos
     id_jogos = []
@@ -441,7 +441,7 @@ for i in range(4):
 
     # Selecionando o dia de amanhã
     wd_Chrome.find_element(By.CSS_SELECTOR,'button.calendar__navigation--tomorrow').click()
-    time.sleep(3)
+    time.sleep(6)
         
     i=+1
 

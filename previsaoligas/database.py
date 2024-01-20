@@ -3,21 +3,6 @@ from io import BytesIO
 import requests
 import pandas as pd
 import numpy as np
-from github import Github
-import os
-import json
-
-#token
-
-key = os.environ.get('API_Key')
-g = Github(key)
-
-#repositório
-
-def get_repo():
-    repo = g.get_repo("alanhassan/soccerprediction")
-    return repo
-repo = get_repo()
 
 #get ml model from github
 
