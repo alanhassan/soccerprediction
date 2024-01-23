@@ -52,6 +52,7 @@ ml = joblib.load(file)
 
 ml.fitted_ = True
 
+
 # funções 
 # func home
 def home(df, team):
@@ -106,6 +107,53 @@ def last_2_results(df, team1, team2):
     return last_2_results_sum
 
 
+# Function to push DataFrame to GitHub
+def push_dataframe_to_github(dataframe, file_name, repository):
+    # Convert DataFrame to CSV in-memory
+    csv_data = StringIO()
+    dataframe.to_csv(csv_data, index=False)
+    csv_content = csv_data.getvalue()
+
+    # Encode content to Base64
+    encoded_content = base64.b64encode(csv_content.encode()).decode()
+
+    # Check if the file exists
+    url_get = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
+    headers_get = {'Authorization': f'token {creds.token}'}
+
+    response_get = requests.get(url_get, headers=headers_get)
+    response_get_json = response_get.json()
+
+    # Extract the SHA from the response
+    current_sha = response_get_json.get('sha')
+
+    # Push data directly to GitHub using GitHub API
+    url_put = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
+    headers_put = {
+        'Authorization': f'token {creds.token}',
+        'Content-Type': 'application/json'
+    }
+
+    data_put = {
+        'message': f'Update {file_name}',
+        'content': encoded_content
+    }
+
+    # If the file exists, update it; otherwise, create it
+    if current_sha is not None:
+        data_put['sha'] = current_sha
+
+    response_put = requests.put(url_put, headers=headers_put, json=data_put)
+
+    if response_put.status_code == 200:
+        print(f'Data pushed to {file_name} on GitHub successfully!')
+    elif response_put.status_code == 201:
+        print(f'{file_name} created on GitHub successfully!')
+    else:
+        print(f'Error: {response_put.status_code}, {response_put.text}')
+
+
+
 service=Service(ChromeDriverManager().install())
 
 # Instanciando o Objeto ChromeOptions
@@ -115,6 +163,12 @@ options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
+
+
+# GitHub repository details
+username = 'alanhassan'
+repository = 'soccerprediction'
+
 
 # Criação do WebDriver do Chrome
 wd_Chrome = webdriver.Chrome(service=service, options=options)
@@ -132,7 +186,7 @@ except:
 ids = []  # create an empty list to store IDs
 
 time.sleep(5)
-for i in range(1):
+for i in range(5):
 
     # jogos de hoje
 
@@ -196,7 +250,7 @@ for link in tqdm(final_ids, total=len(final_ids)):
     except:
         continue  # Skip to the next iteration if odds information retrieval fails
 
-    print(Date, Time, Country, League, Home, Away, Odds_H, Odds_D, Odds_A)
+    #print(Date, Time, Country, League, Home, Away, Odds_H, Odds_D, Odds_A)
     
     jogo['Date'].append(Date)
     jogo['Time'].append(Time)
@@ -356,60 +410,18 @@ df_odds['Pred_H'] = df_odds['Pred_H'].round(2)
 df_odds['Pred_A'] = df_odds['Pred_A'].round(2)
 
 
-# Function to push DataFrame to GitHub
-def push_dataframe_to_github(dataframe, file_name, repository):
-    # Convert DataFrame to CSV in-memory
-    csv_data = StringIO()
-    dataframe.to_csv(csv_data, index=False)
-    csv_content = csv_data.getvalue()
-
-    # Encode content to Base64
-    encoded_content = base64.b64encode(csv_content.encode()).decode()
-
-    # Check if the file exists
-    url_get = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
-    headers_get = {'Authorization': f'token {creds.token}'}
-
-    response_get = requests.get(url_get, headers=headers_get)
-    response_get_json = response_get.json()
-
-    # Extract the SHA from the response
-    current_sha = response_get_json.get('sha')
-
-    # Push data directly to GitHub using GitHub API
-    url_put = f'https://api.github.com/repos/{username}/{repository}/contents/{file_name}'
-    headers_put = {
-        'Authorization': f'token {creds.token}',
-        'Content-Type': 'application/json'
-    }
-
-    data_put = {
-        'message': f'Update {file_name}',
-        'content': encoded_content
-    }
-
-    # If the file exists, update it; otherwise, create it
-    if current_sha is not None:
-        data_put['sha'] = current_sha
-
-    response_put = requests.put(url_put, headers=headers_put, json=data_put)
-
-    if response_put.status_code == 200:
-        print(f'Data pushed to {file_name} on GitHub successfully!')
-    elif response_put.status_code == 201:
-        print(f'{file_name} created on GitHub successfully!')
-    else:
-        print(f'Error: {response_put.status_code}, {response_put.text}')
-
-# GitHub repository details
-username = 'alanhassan'
-repository = 'soccerprediction'
-
 # Push each DataFrame to GitHub
 push_dataframe_to_github(df_odds, 'df_odds.csv', repository)
 
+# get data
 
-####################################################### update_odds_double ##################################
+url_df_odds = 'https://github.com/alanhassan/soccerprediction/blob/main/df_odds.csv?raw=true'
+data_odds = requests.get(url_df_odds).content
+df_odds = pd.read_csv(BytesIO(data_odds))
+
+
+# Criação do WebDriver do Chrome
+wd_Chrome = webdriver.Chrome(service=service, options=options)
 
 
 # Com o WebDrive a gente consegue a pedir a página (URL)
@@ -425,7 +437,7 @@ except:
 ids = []  # create an empty list to store IDs
 
 time.sleep(5)
-for i in range(1):
+for i in range(5):
 
     # Pegando o ID dos Jogos
     id_jogos = []
@@ -441,7 +453,7 @@ for i in range(1):
 
     # Selecionando o dia de amanhã
     wd_Chrome.find_element(By.CSS_SELECTOR,'button.calendar__navigation--tomorrow').click()
-    time.sleep(6)
+    time.sleep(3)
         
     i=+1
 
@@ -487,7 +499,6 @@ for link in tqdm(final_ids, total=len(final_ids)):
     except:
         continue  # Skip to the next iteration if odds information retrieval fails
 
-    print(Date, Time, Country, League, Home, Away, Odds_H, Odds_D, Odds_A)
     
     jogo['Date'].append(Date)
     jogo['Time'].append(Time)
@@ -498,6 +509,7 @@ for link in tqdm(final_ids, total=len(final_ids)):
     jogo['Odds_H_X'].append(Odds_H_X)
     jogo['Odds_H_A'].append(Odds_H_A)
     jogo['Odds_X_A'].append(Odds_X_A)
+    time.sleep(2)
 
 df = pd.DataFrame(jogo)
 df.reset_index(inplace=True, drop=True)
@@ -656,13 +668,13 @@ df_odds_double['Pred_A'] = 1 - df_odds_double['Pred_H']
 df_odds_double['Pred_H'] = df_odds_double['Pred_H'].round(2)
 df_odds_double['Pred_A'] = df_odds_double['Pred_A'].round(2)
 
+push_dataframe_to_github(df_odds_double, 'df_odds_double.csv', repository)
 
-df_odds_final = pd.merge(df_odds, df_odds_double, on=['Date', 'Home', 'Away'])[['Date', 'Time_x', 'Country_x', 'League_x', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A', 'Odds_H_X', 'Odds_H_A', 'Odds_X_A', 'Pred_H_x', 'Pred_A_x']]
+df_odds_final = pd.merge(df_odds, df_odds_double, on=['Home', 'Away'])[['Date_x', 'Time_x', 'Country_x', 'League_x', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A', 'Odds_H_X', 'Odds_H_A', 'Odds_X_A', 'Pred_H_x', 'Pred_A_x']]
 
 # Rename columns
-new_column_names = {'Time_x': 'Time', 'Country_x': 'Country', 'League_x': 'League', 'Pred_H_x': 'Pred_H', 'Pred_A_x': 'Pred_A'}
+new_column_names = {'Date_x': 'Date', 'Time_x': 'Time', 'Country_x': 'Country', 'League_x': 'League', 'Pred_H_x': 'Pred_H', 'Pred_A_x': 'Pred_A'}
 df_odds_final.rename(columns=new_column_names, inplace=True)
 
 #push df_odds_final to github
 push_dataframe_to_github(df_odds_final, 'df_odds_final.csv', repository)
-
