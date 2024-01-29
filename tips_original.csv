@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Date;League;Home;Away;Odds_H;Odds_A;Odds_H_X;Odds_X_A;Pred_H;Pred_A;Winning_team;Winning_prob;Winning_bet;Winning_bet_final;bet_type;bet_type_order
 01/10/2023;BUNDESLIGA ;Freiburg;Augsburg;1.72;4.5;1.17;1.17;0.89;0.11;Freiburg;0.89;1.72;1.72;safest_bet;3
 20/09/2023;SERIE A ;Fluminense;Cruzeiro;1.78;4.5;1.17;1.17;0.88;0.12;Fluminense;0.88;1.78;1.78;safest_bet;3
@@ -166,3 +167,169 @@ Date;League;Home;Away;Odds_H;Odds_A;Odds_H_X;Odds_X_A;Pred_H;Pred_A;Winning_team
 28/01/2024;EREDIVISIE ;Eupen;Antwerp;3;1.41;2;2;0.25;0.75;Antwerp;0.75;1.41;1.41;safest_bet;3
 28/01/2024;BUNDESLIGA ;Dortmund;Bochum;1.4;3;2;2;0.75;0.25;Dortmund;0.75;1.4;1.4;safest_bet;3
 28/01/2024;LIGA PORTUGAL ;Farense;Porto;3;1.37;2;2;0.25;0.75;Porto;0.75;1.37;1.37;safest_bet;3
+=======
+Date,League,Home,Away,Odds_H,Odds_A,Odds_H_X,Odds_X_A,Pred_H,Pred_A,Winning_team,Winning_prob,Winning_bet,Winning_bet_final,bet_type,bet_type_order
+2023-10-01,BUNDESLIGA ,Freiburg,Augsburg,1.72,4.5,1.17,1.17,0.89,0.11,Freiburg,0.89,1.72,1.72,safest_bet,3
+2023-09-20,SERIE A ,Fluminense,Cruzeiro,1.78,4.5,1.17,1.17,0.88,0.12,Fluminense,0.88,1.78,1.78,safest_bet,3
+2023-09-24,LIGUE 1 ,Lens,Toulouse,1.65,4.65,1.17,1.17,0.85,0.15,Lens,0.85,1.65,1.65,safest_bet,3
+2023-10-29,LIGUE 1 ,Rennes,Strasbourg,1.6,5.4,1.17,1.17,0.84,0.16,Rennes,0.84,1.6,1.17,safest_bet,3
+2023-10-29,A,Central Coast Mariners,Macarthur FC,1.62,4.75,1.17,1.17,0.84,0.16,Central Coast Mariners,0.84,1.62,1.17,safest_bet,3
+2023-11-04,BUNDESLIGA ,Mainz 05,RB Leipzig,5.0,1.62,1.17,1.17,0.16,0.84,RB Leipzig,0.84,1.62,1.17,safest_bet,3
+2023-09-23,SERIE A ,Lazio,Monza,1.85,4.1,1.17,1.17,0.81,0.19,Lazio,0.81,1.85,1.17,safest_bet,3
+2023-10-01,JUPILER PRO LEAGUE ,Union SG,Charleroi,1.66,4.75,1.17,1.17,0.81,0.19,Union SG,0.81,1.66,1.17,safest_bet,3
+2023-11-02,SERIE A ,Sao Paulo,Cruzeiro,1.75,4.75,1.17,1.17,0.81,0.19,Sao Paulo,0.81,1.75,1.17,safest_bet,3
+2023-11-05,JUPILER PRO LEAGUE ,Standard Liege,Mechelen,1.78,4.2,1.17,1.17,0.81,0.19,Standard Liege,0.81,1.78,1.17,safest_bet,3
+2023-09-24,JUPILER PRO LEAGUE ,Genk,Sint Truiden,1.63,4.75,1.17,1.17,0.8,0.2,Genk,0.8,1.63,1.17,safest_bet,3
+2023-11-05,LIGUE 1 ,Lyon,Metz,1.68,4.7,1.17,1.17,0.8,0.2,Lyon,0.8,1.68,1.17,safest_bet,3
+2023-10-01,JUPILER PRO LEAGUE ,RWD Molenbeek,Gent,5.0,1.63,1.17,1.17,0.32,0.68,Gent,0.68,1.63,1.17,safest_bet,3
+2023-10-29,JUPILER PRO LEAGUE ,Westerlo,Union SG,4.75,1.6,1.17,1.17,0.33,0.67,Union SG,0.67,1.6,1.17,safest_bet,3
+2023-11-03,LALIGA ,Las Palmas,Atletico Madrid,5.5,1.65,1.17,1.17,0.34,0.66,Atletico Madrid,0.66,1.65,1.17,safest_bet,3
+2023-09-25,LIGA PORTUGAL ,Sporting CP,Rio Ave,1.2,15.0,1.17,1.17,0.9,0.1,Sporting CP,0.9,1.2,1.2,safest_bet,3
+2023-10-28,LIGA PORTUGAL ,Benfica,Casa Pia,1.2,15.0,1.17,1.17,0.91,0.09,Benfica,0.91,1.2,1.2,safest_bet,3
+2023-11-04,EREDIVISIE ,Heracles Almelo,PSV Eindhoven,11.5,1.21,1.17,1.17,0.18,0.82,PSV Eindhoven,0.82,1.21,1.21,safest_bet,3
+2023-09-17,LIGA PORTUGAL ,Sporting CP,Moreirense,1.22,13.0,1.17,1.17,0.87,0.13,Sporting CP,0.87,1.22,1.22,safest_bet,3
+2023-09-27,LALIGA ,Real Madrid,Las Palmas,1.22,13.0,1.17,1.17,0.94,0.06,Real Madrid,0.94,1.22,1.22,safest_bet,3
+2023-11-05,LIGA PORTUGAL ,Sporting CP,Estrela,1.22,12.0,1.17,1.17,0.89,0.11,Sporting CP,0.89,1.22,1.22,safest_bet,3
+2023-09-23,EREDIVISIE ,Almere City,PSV Eindhoven,12.0,1.23,1.17,1.17,0.24,0.76,PSV Eindhoven,0.76,1.23,1.23,safest_bet,3
+2023-09-16,BUNDESLIGA ,RB Leipzig,Augsburg,1.24,12.0,1.17,1.17,0.9,0.1,RB Leipzig,0.9,1.24,1.24,safest_bet,3
+2023-09-16,EREDIVISIE ,Feyenoord,Heerenveen,1.24,11.5,1.17,1.17,0.84,0.16,Feyenoord,0.84,1.24,1.24,safest_bet,3
+2023-09-24,LIGA PORTUGAL ,Portimonense,Benfica,11.0,1.25,1.17,1.17,0.26,0.74,Benfica,0.74,1.25,1.25,safest_bet,3
+2023-09-23,LIGA PORTUGAL ,Porto,Gil Vicente FC,1.25,11.0,1.17,1.17,0.95,0.05,Porto,0.95,1.25,1.25,safest_bet,3
+2023-10-01,EREDIVISIE ,AZ Alkmaar,Fortuna Sittard,1.25,10.5,1.17,1.17,0.89,0.11,AZ Alkmaar,0.89,1.25,1.25,safest_bet,3
+2023-11-04,LIGA PORTUGAL ,Chaves,Benfica,10.0,1.25,1.17,1.17,0.3,0.7,Benfica,0.7,1.25,1.25,safest_bet,3
+2023-11-04,LIGA PORTUGAL ,Braga,Portimonense,1.25,11.0,1.17,1.17,0.91,0.09,Braga,0.91,1.25,1.25,safest_bet,3
+2023-11-03,LIGUE 1 ,Paris Saint Germain,Montpellier,1.26,9.6,1.17,1.17,0.8,0.2,Paris Saint Germain,0.8,1.26,1.26,safest_bet,3
+2023-09-28,EREDIVISIE ,AZ Alkmaar,Heracles Almelo,1.27,10.5,1.17,1.17,0.87,0.13,AZ Alkmaar,0.87,1.27,1.27,safest_bet,3
+2023-10-29,PREMIER LEAGUE ,Liverpool,Nottingham Forest,1.27,10.5,1.17,1.17,0.89,0.11,Liverpool,0.89,1.27,1.27,safest_bet,3
+2023-10-29,EREDIVISIE ,AZ Alkmaar,NEC Nijmegen,1.27,10.5,1.17,1.17,0.85,0.15,AZ Alkmaar,0.85,1.27,1.27,safest_bet,3
+2023-09-24,JUPILER PRO LEAGUE ,Gent,Eupen,1.28,10.0,1.17,1.17,0.86,0.14,Gent,0.86,1.28,1.28,safest_bet,3
+2023-10-29,PREMIER LEAGUE ,Liverpool,Nottingham Forest,1.29,9.9,1.17,1.17,0.92,0.08,Liverpool,0.92,1.29,1.29,safest_bet,3
+2023-10-01,LALIGA ,Atletico Madrid,Cadiz,1.3,9.5,1.17,1.17,0.92,0.08,Atletico Madrid,0.92,1.3,1.3,safest_bet,3
+2023-11-05,LALIGA ,Real Madrid,Rayo Vallecano,1.3,10.0,1.17,1.17,0.8,0.2,Real Madrid,0.8,1.3,1.3,safest_bet,3
+2023-09-30,PREMIER LEAGUE ,Newcastle United,Burnley,1.31,10.5,1.17,1.17,0.92,0.08,Newcastle United,0.92,1.31,1.31,safest_bet,3
+2023-09-27,SERIE A ,Internazionale,Sassuolo,1.32,8.9,1.17,1.17,0.85,0.15,Internazionale,0.85,1.32,1.32,safest_bet,3
+2023-10-29,EREDIVISIE ,AZ Alkmaar,NEC Nijmegen,1.32,9.2,1.17,1.17,0.85,0.15,AZ Alkmaar,0.85,1.32,1.32,safest_bet,3
+2023-09-16,LIGA PORTUGAL ,Vizela,Benfica,8.0,1.33,1.17,1.17,0.31,0.69,Benfica,0.69,1.33,1.33,safest_bet,3
+2023-09-24,SERIE A ,Atalanta,Cagliari,1.33,8.7,1.17,1.17,0.93,0.07,Atalanta,0.93,1.33,1.33,safest_bet,3
+2023-10-29,SERIE A ,Internacional,Coritiba,1.33,9.5,1.17,1.17,0.81,0.19,Internacional,0.81,1.33,1.33,safest_bet,3
+2023-09-24,SERIE A ,Empoli,Internazionale,8.3,1.34,1.17,1.17,0.35,0.65,Internazionale,0.65,1.34,1.34,safest_bet,3
+2023-09-15,SERIE A ,Palmeiras,Goias,1.35,9.0,1.17,1.17,0.84,0.16,Palmeiras,0.84,1.35,1.35,safest_bet,3
+2023-09-23,JUPILER PRO LEAGUE ,Antwerp,RWD Molenbeek,1.35,8.5,1.17,1.17,0.88,0.12,Antwerp,0.88,1.35,1.35,safest_bet,3
+2023-09-23,LALIGA ,Barcelona,Celta Vigo,1.35,8.5,1.17,1.17,0.9,0.1,Barcelona,0.9,1.35,1.35,safest_bet,3
+2023-09-30,PREMIER LEAGUE ,Wolverhampton Wanderers,Manchester City,8.8,1.35,1.17,1.17,0.21,0.79,Manchester City,0.79,1.35,1.35,safest_bet,3
+2023-10-28,SERIE A ,Juventus,Hellas Verona,1.35,9.3,1.17,1.17,0.93,0.07,Juventus,0.93,1.35,1.35,safest_bet,3
+2023-09-15,LIGA PORTUGAL ,Estrela,Porto,8.0,1.36,1.17,1.17,0.3,0.7,Porto,0.7,1.36,1.36,safest_bet,3
+2023-09-24,PREMIER LEAGUE ,Brighton and Hove Albion,Bournemouth,1.36,8.1,1.17,1.17,0.83,0.17,Brighton and Hove Albion,0.83,1.36,1.36,safest_bet,3
+2023-09-29,LALIGA ,Barcelona,Sevilla,1.36,8.5,1.17,1.17,0.88,0.12,Barcelona,0.88,1.36,1.36,safest_bet,3
+2023-10-28,SERIE A ,Juventus,Hellas Verona,1.36,8.7,1.17,1.17,0.91,0.09,Juventus,0.91,1.36,1.36,safest_bet,3
+2023-09-23,SERIE A ,Milan,Hellas Verona,1.37,8.3,1.17,1.17,0.93,0.07,Milan,0.93,1.37,1.37,safest_bet,3
+2023-09-27,SERIE A ,Napoli,Udinese,1.38,8.5,1.17,1.17,0.87,0.13,Napoli,0.87,1.38,1.38,safest_bet,3
+2023-09-27,EREDIVISIE ,Twente,Vitesse,1.39,7.8,1.17,1.17,0.8,0.2,Twente,0.8,1.39,1.39,safest_bet,3
+2023-09-30,LIGA PORTUGAL ,Farense,Sporting CP,7.5,1.4,1.17,1.17,0.31,0.69,Sporting CP,0.69,1.4,1.4,safest_bet,3
+2023-11-04,EREDIVISIE ,Excelsior,AZ Alkmaar,7.3,1.4,1.17,1.17,0.22,0.78,AZ Alkmaar,0.78,1.4,1.4,safest_bet,3
+2023-10-28,BUNDESLIGA ,RB Leipzig,Koln,1.42,7.5,1.17,1.17,0.81,0.19,RB Leipzig,0.81,1.42,1.42,safest_bet,3
+2023-09-24,PREMIER LEAGUE ,Liverpool,West Ham United,1.43,7.1,1.17,1.17,0.82,0.18,Liverpool,0.82,1.43,1.43,safest_bet,3
+2023-10-01,SERIE A ,Roma,Frosinone,1.43,7.8,1.17,1.17,0.9,0.1,Roma,0.9,1.43,1.43,safest_bet,3
+2023-09-30,SERIE A ,Salernitana,Internazionale,6.9,1.44,1.17,1.17,0.23,0.77,Internazionale,0.77,1.44,1.44,safest_bet,3
+2023-11-04,SERIE A ,Salernitana,Napoli,6.9,1.44,1.17,1.17,0.16,0.84,Napoli,0.84,1.44,1.44,safest_bet,3
+2023-10-29,SERIE A ,Internacional,Coritiba,1.45,7.0,1.17,1.17,0.81,0.19,Internacional,0.81,1.45,1.45,safest_bet,3
+2023-10-29,LIGA PORTUGAL ,Vizela,Porto,7.0,1.45,1.17,1.17,0.3,0.7,Porto,0.7,1.45,1.45,safest_bet,3
+2023-10-28,SERIE A ,Palmeiras,Bahia,1.47,6.5,1.17,1.17,0.91,0.09,Palmeiras,0.91,1.47,1.47,safest_bet,3
+2023-09-16,PREMIER LEAGUE ,West Ham United,Manchester City,6.7,1.48,1.17,1.17,0.32,0.68,Manchester City,0.68,1.48,1.48,safest_bet,3
+2023-11-05,EREDIVISIE ,Ajax,Heerenveen,1.48,5.85,1.17,1.17,0.81,0.19,Ajax,0.81,1.48,1.48,safest_bet,3
+2023-09-24,LIGA PORTUGAL ,Braga,Boavista,1.5,6.0,1.17,1.17,0.81,0.19,Braga,0.81,1.5,1.5,safest_bet,3
+2023-10-29,JUPILER PRO LEAGUE ,Kortrijk,Genk,5.5,1.5,1.17,1.17,0.33,0.67,Genk,0.67,1.5,1.5,safest_bet,3
+2023-10-29,JUPILER PRO LEAGUE ,Kortrijk,Genk,6.0,1.5,1.17,1.17,0.32,0.68,Genk,0.68,1.5,1.5,safest_bet,3
+2023-09-16,LIGUE 1 ,Lens,Metz,1.52,5.9,1.17,1.17,0.94,0.06,Lens,0.94,1.52,1.52,safest_bet,3
+2023-09-17,PREMIER LEAGUE ,Everton,Arsenal,6.3,1.52,1.17,1.17,0.29,0.71,Arsenal,0.71,1.52,1.52,safest_bet,3
+2023-09-24,EREDIVISIE ,RKC Waalwijk,Twente,5.4,1.52,1.17,1.17,0.2,0.8,Twente,0.8,1.52,1.52,safest_bet,3
+2023-09-26,SERIE A ,Juventus,Lecce,1.52,6.3,1.17,1.17,0.82,0.18,Juventus,0.82,1.52,1.52,safest_bet,3
+2023-10-01,LIGUE 1 ,Rennes,Nantes,1.52,5.9,1.17,1.17,0.89,0.11,Rennes,0.89,1.52,1.52,safest_bet,3
+2023-09-30,PREMIER LEAGUE ,Bournemouth,Arsenal,6.1,1.52,1.17,1.17,0.24,0.76,Arsenal,0.76,1.52,1.52,safest_bet,3
+2023-10-28,SERIE A ,Palmeiras,Bahia,1.52,6.5,1.17,1.17,0.91,0.09,Palmeiras,0.91,1.52,1.52,safest_bet,3
+2023-09-17,LIGA PORTUGAL ,Vitoria Guimaraes,Portimonense,1.53,6.0,1.17,1.17,0.85,0.15,Vitoria Guimaraes,0.85,1.53,1.53,safest_bet,3
+2023-09-30,SERIE A ,Flamengo,Bahia,1.55,5.5,1.17,1.17,0.83,0.17,Flamengo,0.83,1.55,1.55,safest_bet,3
+2023-10-28,LIGUE 1 ,Lens,Nantes,1.55,5.4,1.17,1.17,0.92,0.08,Lens,0.92,1.55,1.55,safest_bet,3
+2023-10-29,LIGUE 1 ,Brest,Paris Saint Germain,5.4,1.55,1.17,1.17,0.34,0.66,Paris Saint Germain,0.66,1.55,1.55,safest_bet,3
+2023-09-23,SERIE A ,Atletico Mineiro,Cuiaba,1.57,6.5,1.17,1.17,0.83,0.17,Atletico Mineiro,0.83,1.57,1.57,safest_bet,3
+2023-09-24,LALIGA ,Real Sociedad,Getafe,1.58,7.0,1.17,1.17,0.88,0.12,Real Sociedad,0.88,1.58,1.58,safest_bet,3
+2023-09-30,EREDIVISIE ,RKC Waalwijk,Ajax,4.7,1.58,1.17,1.17,0.33,0.67,Ajax,0.67,1.58,1.58,safest_bet,3
+2023-09-30,PREMIER LEAGUE ,Manchester United,Crystal Palace,1.58,5.9,1.17,1.17,0.8,0.2,Manchester United,0.8,1.58,1.58,safest_bet,3
+2023-10-28,LIGUE 1 ,Lens,Nantes,1.58,5.4,1.17,1.17,0.9,0.1,Lens,0.9,1.58,1.58,safest_bet,3
+2023-10-29,LIGUE 1 ,Rennes,Strasbourg,1.58,5.4,1.17,1.17,0.85,0.15,Rennes,0.85,1.58,1.58,safest_bet,3
+2023-11-05,SERIE A ,Roma,Lecce,1.58,5.9,1.17,1.17,0.88,0.12,Roma,0.88,1.58,1.58,safest_bet,3
+2023-11-25,JUPILER PRO LEAGUE ,Cercle Brugge,Eupen,1.4,7.0,1.08,3.0,0.84,0.16,Cercle Brugge,0.84,1.4,1.4,safest_bet,3
+2023-11-25,EREDIVISIE ,Ajax,Vitesse,1.32,8.9,1.05,3.4,0.82,0.18,Ajax,0.82,1.32,1.32,safest_bet,3
+2023-11-25,LALIGA ,Atletico Madrid,Mallorca,1.38,9.0,1.05,3.0,0.83,0.17,Atletico Madrid,0.83,1.38,1.38,safest_bet,3
+2023-11-26,LALIGA ,Cadiz,Real Madrid,6.5,1.5,2.7,1.11,0.33,0.67,Real Madrid,0.67,1.5,1.5,safest_bet,3
+2023-11-26,LALIGA ,Real Betis,Las Palmas,1.72,5.0,1.17,2.2,0.82,0.18,Real Betis,0.82,1.72,1.17,safest_bet,3
+2023-12-02,JUPILER PRO LEAGUE ,Antwerp,OH Leuven,1.36,8.0,1.08,3.1,0.82,0.18,Antwerp,0.82,1.36,1.36,safest_bet,3
+2023-12-02,PREMIER LEAGUE ,Arsenal,Wolverhampton Wanderers,1.29,11.5,1.04,3.8,0.89,0.11,Arsenal,0.89,1.29,1.29,safest_bet,3
+2023-12-02,BUNDESLIGA ,RB Leipzig,Heidenheim,1.25,12.0,1.01,4.2,0.89,0.11,RB Leipzig,0.89,1.25,1.25,safest_bet,3
+2023-12-02,SERIE A ,Lazio,Cagliari,1.58,5.9,1.14,2.4,0.9,0.1,Lazio,0.9,1.58,1.58,safest_bet,3
+2023-12-02,SERIE A ,Milan,Frosinone,1.36,8.7,1.07,3.1,0.86,0.14,Milan,0.86,1.36,1.36,safest_bet,3
+2023-12-02,LIGA PORTUGAL ,Famalicao,Porto,5.5,1.6,2.4,1.14,0.33,0.67,Porto,0.67,1.6,1.14,safest_bet,3
+2023-12-03,LIGUE 1 ,Lille,Metz,1.37,8.3,1.07,3.1,0.85,0.15,Lille,0.85,1.37,1.37,safest_bet,3
+2023-12-03,LIGA PORTUGAL ,Braga,Estoril,1.33,8.0,1.06,3.3,0.92,0.08,Braga,0.92,1.33,1.33,safest_bet,3
+2023-12-03,LIGA PORTUGAL ,Moreirense,Benfica,6.0,1.5,2.65,1.12,0.31,0.69,Benfica,0.69,1.5,1.5,safest_bet,3
+2023-12-08,EREDIVISIE ,Twente,Excelsior,1.23,12.0,1.01,4.2,0.85,0.15,Twente,0.85,1.23,1.23,safest_bet,3
+2023-12-08,LIGA PORTUGAL ,Vizela,Braga,5.0,1.6,2.35,1.16,0.34,0.66,Braga,0.66,1.6,1.16,safest_bet,3
+2023-12-09,PREMIER LEAGUE ,Brighton and Hove Albion,Burnley,1.52,6.1,1.13,2.69,0.85,0.15,Brighton and Hove Albion,0.85,1.52,1.52,safest_bet,3
+2023-12-09,PREMIER LEAGUE ,Manchester United,Bournemouth,1.62,5.25,1.18,2.4,0.85,0.15,Manchester United,0.85,1.62,1.62,safest_bet,3
+2023-12-09,BUNDESLIGA ,Eintracht Frankfurt,Bayern Munich,8.0,1.36,3.25,1.06,0.28,0.72,Bayern Munich,0.72,1.36,1.36,safest_bet,3
+2023-12-09,LIGA PORTUGAL ,Porto,Casa Pia,1.25,13.0,1.1,3.75,0.91,0.09,Porto,0.91,1.25,1.25,safest_bet,3
+2023-12-10,JUPILER PRO LEAGUE ,Eupen,Genk,7.5,1.38,3.1,1.08,0.32,0.68,Genk,0.68,1.38,1.38,safest_bet,3
+2023-12-10,JUPILER PRO LEAGUE ,Charleroi,Union SG,5.0,1.63,2.25,1.18,0.31,0.69,Union SG,0.69,1.63,1.18,safest_bet,3
+2023-12-10,LALIGA ,Atletico Madrid,Almeria,1.22,13.0,1.08,4.5,0.88,0.12,Atletico Madrid,0.88,1.22,1.22,safest_bet,3
+2023-12-10,LALIGA ,Barcelona,Girona,1.52,6.0,1.14,2.65,0.8,0.2,Barcelona,0.8,1.52,1.52,safest_bet,3
+2023-12-15,JUPILER PRO LEAGUE ,Westerlo,Eupen,1.85,4.0,1.25,2.0,0.82,0.18,Westerlo,0.82,1.85,1.25,safest_bet,3
+2023-12-16,LIGUE 1 ,Lens,Reims,1.85,3.9,1.26,1.98,0.82,0.18,Lens,0.82,1.85,1.26,safest_bet,3
+2023-12-16,BUNDESLIGA ,RB Leipzig,Hoffenheim,1.47,6.5,1.12,2.8,0.85,0.15,RB Leipzig,0.85,1.47,1.47,safest_bet,3
+2023-12-16,SERIE A ,Napoli,Cagliari,1.32,9.2,1.05,3.4,0.93,0.07,Napoli,0.93,1.32,1.32,safest_bet,3
+2023-12-17,JUPILER PRO LEAGUE ,Union SG,Mechelen,1.33,9.5,1.05,3.4,0.85,0.15,Union SG,0.85,1.33,1.33,safest_bet,3
+2023-12-17,JUPILER PRO LEAGUE ,Genk,Kortrijk,1.22,12.0,1.08,4.5,0.94,0.06,Genk,0.94,1.22,1.22,safest_bet,3
+2023-12-17,BUNDESLIGA ,Bayern Munich,Stuttgart,1.42,7.0,1.1,3.0,0.9,0.1,Bayern Munich,0.9,1.42,1.42,safest_bet,3
+2023-12-17,SERIE A ,Fiorentina,Hellas Verona,1.47,6.9,1.1,2.7,0.85,0.15,Fiorentina,0.85,1.47,1.47,safest_bet,3
+2023-12-17,EREDIVISIE ,Heracles Almelo,Feyenoord,12.5,1.23,4.2,1.03,0.28,0.72,Feyenoord,0.72,1.23,1.23,safest_bet,3
+2023-12-17,EREDIVISIE ,Ajax,Zwolle,1.28,9.7,1.03,3.6,0.87,0.13,Ajax,0.87,1.28,1.28,safest_bet,3
+2023-12-19,LALIGA ,Atletico Madrid,Getafe,1.44,8.0,1.07,2.85,0.83,0.17,Atletico Madrid,0.83,1.44,1.44,safest_bet,3
+2023-12-20,JUPILER PRO LEAGUE ,Cercle Brugge,Kortrijk,1.36,8.0,1.06,3.25,0.8,0.2,Cercle Brugge,0.8,1.36,1.36,safest_bet,3
+2023-12-20,LIGUE 1 ,Lyon,Nantes,1.65,4.9,1.18,2.25,0.83,0.17,Lyon,0.83,1.65,1.18,safest_bet,3
+2023-12-21,LALIGA ,Alaves,Real Madrid,5.5,1.6,2.45,1.14,0.33,0.67,Real Madrid,0.67,1.6,1.14,safest_bet,3
+2023-12-23,JUPILER PRO LEAGUE ,Eupen,Union SG,10.0,1.25,3.75,1.01,0.25,0.75,Union SG,0.75,1.25,1.25,safest_bet,3
+2023-12-23,PREMIER LEAGUE ,Fulham,Burnley,1.7,5.05,1.18,2.27,0.85,0.15,Fulham,0.85,1.7,1.7,safest_bet,3
+2023-12-23,SERIE A ,Internazionale,Lecce,1.21,14.5,1.09,4.5,0.89,0.11,Internazionale,0.89,1.21,1.21,safest_bet,3
+2023-12-23,LALIGA ,Atletico Madrid,Sevilla,1.45,7.0,1.1,2.75,0.83,0.17,Atletico Madrid,0.83,1.45,1.45,safest_bet,3
+2023-12-19,LALIGA ,Atletico Madrid,Getafe,1.47,7.5,1.09,2.8,0.83,0.17,Atletico Madrid,0.83,1.47,1.47,safest_bet,3
+2023-12-20,JUPILER PRO LEAGUE ,Cercle Brugge,Kortrijk,1.35,8.5,1.06,3.3,0.8,0.2,Cercle Brugge,0.8,1.35,1.35,safest_bet,3
+2023-12-23,JUPILER PRO LEAGUE ,Eupen,Union SG,11.0,1.25,3.75,1.01,0.25,0.75,Union SG,0.75,1.25,1.25,safest_bet,3
+2023-12-23,PREMIER LEAGUE ,Fulham,Burnley,1.7,5.25,1.17,2.27,0.85,0.15,Fulham,0.85,1.7,1.7,safest_bet,3
+2023-12-26,JUPILER PRO LEAGUE ,Kortrijk,Gent,8.0,1.36,3.25,1.07,0.33,0.67,Gent,0.67,1.36,1.36,safest_bet,3
+2023-12-26,PREMIER LEAGUE ,Newcastle United,Nottingham Forest,1.48,7.1,1.1,2.73,0.89,0.11,Newcastle United,0.89,1.48,1.48,safest_bet,3
+2023-12-26,PREMIER LEAGUE ,Burnley,Liverpool,8.2,1.38,3.1,1.08,0.33,0.67,Liverpool,0.67,1.38,1.38,safest_bet,3
+2023-12-27,PREMIER LEAGUE ,Everton,Manchester City,5.9,1.58,2.49,1.14,0.34,0.66,Manchester City,0.66,1.58,1.58,safest_bet,3
+2023-12-28,PREMIER LEAGUE ,Arsenal,West Ham United,1.33,9.4,1.06,3.4,0.89,0.11,Arsenal,0.89,1.33,1.33,safest_bet,3
+2023-12-29,SERIE A ,Genoa,Internazionale,5.85,1.6,2.4,1.13,0.31,0.69,Internazionale,0.69,1.6,1.13,safest_bet,3
+2023-12-29,SERIE A ,Lazio,Frosinone,1.7,4.85,1.17,2.2,0.89,0.11,Lazio,0.89,1.7,1.7,safest_bet,3
+2023-12-30,PREMIER LEAGUE ,Aston Villa,Burnley,1.39,8.1,1.08,3.1,0.82,0.18,Aston Villa,0.82,1.39,1.39,safest_bet,3
+2023-12-30,SERIE A ,Atalanta,Lecce,1.41,7.8,1.07,2.95,0.83,0.17,Atalanta,0.83,1.41,1.41,safest_bet,3
+2024-01-02,LALIGA ,Real Sociedad,Alaves,1.58,7.0,1.1,2.45,0.89,0.11,Real Sociedad,0.89,1.58,1.58,safest_bet,3
+2024-01-04,LALIGA ,Las Palmas,Barcelona,5.5,1.58,2.45,1.14,0.34,0.66,Barcelona,0.66,1.58,1.58,safest_bet,3
+2024-01-05,LIGA PORTUGAL ,Boavista,Porto,7.5,1.42,2.95,1.08,0.29,0.71,Porto,0.71,1.42,1.42,safest_bet,3
+2024-01-06,LIGA PORTUGAL ,Arouca,Benfica,6.5,1.45,2.8,1.09,0.34,0.66,Benfica,0.66,1.45,1.45,safest_bet,3
+2024-01-12,LIGUE 1 ,Marseille,Strasbourg,1.55,5.9,1.13,2.55,0.84,0.16,Marseille,0.84,1.55,1.55,safest_bet,3
+2024-01-13,SERIE A ,Napoli,Salernitana,1.32,9.2,1.06,3.3,0.88,0.12,Napoli,0.88,1.32,1.32,safest_bet,3
+2024-01-13,SERIE A ,Monza,Internazionale,6.4,1.5,2.65,1.11,0.35,0.65,Internazionale,0.65,1.5,1.5,safest_bet,3
+2024-01-14,SERIE A ,Lazio,Lecce,1.72,4.9,1.17,2.15,0.91,0.09,Lazio,0.91,1.72,1.72,safest_bet,3
+2024-01-15,SERIE A ,Atalanta,Frosinone,1.44,6.9,1.09,2.85,0.88,0.12,Atalanta,0.88,1.44,1.44,safest_bet,3
+2024-01-18,LIGA PORTUGAL ,Vizela,Sporting CP,8.0,1.36,3.2,1.06,0.32,0.68,Sporting CP,0.68,1.36,1.36,safest_bet,3
+2024-01-20,EREDIVISIE ,AZ Alkmaar,Zwolle,1.33,8.7,1.05,3.4,0.82,0.18,AZ Alkmaar,0.82,1.33,1.33,safest_bet,3
+2024-01-20,LIGA PORTUGAL ,Porto,Moreirense,1.38,8.0,1.07,3.0,0.93,0.07,Porto,0.93,1.38,1.38,safest_bet,3
+2024-01-21,JUPILER PRO LEAGUE ,Union SG,Sint Truiden,1.36,8.0,1.07,3.1,0.84,0.16,Union SG,0.84,1.36,1.36,safest_bet,3
+2024-01-21,EREDIVISIE ,Utrecht,PSV Eindhoven,8.9,1.32,3.5,1.04,0.31,0.69,PSV Eindhoven,0.69,1.32,1.32,safest_bet,3
+2024-01-21,EREDIVISIE ,Ajax,RKC Waalwijk,1.25,10.5,1.01,4.0,0.81,0.19,Ajax,0.81,1.25,1.25,safest_bet,3
+2024-01-31,JUPILER PRO LEAGUE ,Charleroi,Eupen,1.57,5.5,1.14,2.38,0.86,0.14,Charleroi,0.86,1.57,1.57,safest_bet,3
+2024-01-31,LIGA PORTUGAL ,Braga,Chaves,1.28,10.0,1.02,3.75,0.83,0.17,Braga,0.83,1.28,1.28,safest_bet,3
+2024-01-31,LALIGA ,Barcelona,Osasuna,1.32,10.0,1.03,3.5,0.81,0.19,Barcelona,0.81,1.32,1.32,safest_bet,3
+2024-02-01,LALIGA ,Getafe,Real Madrid,6.0,1.55,2.55,1.12,0.29,0.71,Real Madrid,0.71,1.55,1.55,safest_bet,3
+>>>>>>> 36a554a3a260ef729afe92f1e7f16bc5be7d3810
