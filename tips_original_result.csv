@@ -145,3 +145,7 @@ Date,League,Home,Away,Odds_H,Odds_A,Odds_H_X,Odds_X_A,Pred_H,Pred_A,Winning_team
 2024-01-21,EREDIVISIE ,Utrecht,PSV Eindhoven,8.9,1.32,3.5,1.04,0.31,0.69,PSV Eindhoven,0.69,1.32,1.32,safest_bet,3,2024-01-21,Utrecht,PSV Eindhoven,D,Draw,0,1
 2024-01-21,EREDIVISIE ,Ajax,RKC Waalwijk,1.25,10.5,1.01,4.0,0.81,0.19,Ajax,0.81,1.25,1.25,safest_bet,3,2024-01-21,Ajax,RKC Waalwijk,W,Ajax,1,1
 2024-01-27,LALIGA ,Las Palmas,Real Madrid,1.25,10.5,1.01,4.0,0.81,0.19,Ajax,0.81,1.46,1.46,safest_bet,3,2024-01-27,Las Palmas,Real Madrid,L,Real Madrid,0,0
+2024-01-31,JUPILER PRO LEAGUE ,Charleroi,Eupen,1.57,5.5,1.14,2.38,0.86,0.14,Charleroi,0.86,1.57,1.57,safest_bet,3,2024-01-31,Charleroi,Eupen,W,Charleroi,1,1
+2024-01-31,LIGA PORTUGAL ,Braga,Chaves,1.28,10.0,1.02,3.75,0.83,0.17,Braga,0.83,1.28,1.28,safest_bet,3,2024-01-31,Braga,Chaves,D,Draw,0,1
+2024-01-31,LALIGA ,Barcelona,Osasuna,1.32,10.0,1.03,3.5,0.81,0.19,Barcelona,0.81,1.32,1.32,safest_bet,3,2024-01-31,Barcelona,Osasuna,W,Barcelona,1,1
+2024-02-01,LALIGA ,Getafe,Real Madrid,6.0,1.55,2.55,1.12,0.29,0.71,Real Madrid,0.71,1.55,1.55,safest_bet,3,2024-02-01,Getafe,Real Madrid,L,Real Madrid,1,1
