@@ -28,7 +28,7 @@ df_odds = df_odds[['Date', 'League', 'Home', 'Away', 'Odds_H', 'Odds_D', 'Odds_A
 
 # Bets that pay more than 1.4, and have more than 80% prob of being right
 
-safest_bet = df_odds[((df_odds['Pred_H'] >= 0.80) & ((df_odds['Odds_H'] >= 1.20) & (df_odds['Odds_H'] <= 1.90))) | ((df_odds['Pred_A'] >= 0.65) & ((df_odds['Odds_A'] >= 1.20) & (df_odds['Odds_A'] <= 1.65)))]
+safest_bet = df_odds[((df_odds['Pred_H'] >= 0.80) & ((df_odds['Odds_H'] >= 1.20) & (df_odds['Odds_H'] <= 1.90))) | ((df_odds['Pred_A'] >= 0.65) & ((df_odds['Odds_A'] >= 1.20) & (df_odds['Odds_A'] <= 1.75)))]
 if safest_bet.empty:
     print('Filtered dataframe is empty')
 else:

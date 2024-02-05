@@ -173,7 +173,7 @@
         {% set color = '#C0C0C0' %}
         {% if row['Previsão 1'] >= 0.80 and (row['Odds 1'] >= 1.20 and row['Odds 1'] <= 1.90) %}
           {% set color = '#32CD32' %}
-        {% elif row['Previsão 2'] >= 0.65 and (row['Odds 2'] >= 1.20 and row['Odds 2'] <= 1.65) %}
+        {% elif row['Previsão 2'] >= 0.65 and (row['Odds 2'] >= 1.20 and row['Odds 2'] <= 1.75) %}
           {% set color = '#32CD32' %}
         {% endif %}
         <tr style="background-color: {{ color }};">
