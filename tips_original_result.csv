@@ -149,3 +149,15 @@ Date,League,Home,Away,Odds_H,Odds_A,Odds_H_X,Odds_X_A,Pred_H,Pred_A,Winning_team
 2024-01-31,LIGA PORTUGAL ,Braga,Chaves,1.28,10.0,1.02,3.75,0.83,0.17,Braga,0.83,1.28,1.28,safest_bet,3,2024-01-31,Braga,Chaves,D,Draw,0,1
 2024-01-31,LALIGA ,Barcelona,Osasuna,1.32,10.0,1.03,3.5,0.81,0.19,Barcelona,0.81,1.32,1.32,safest_bet,3,2024-01-31,Barcelona,Osasuna,W,Barcelona,1,1
 2024-02-01,LALIGA ,Getafe,Real Madrid,6.0,1.55,2.55,1.12,0.29,0.71,Real Madrid,0.71,1.55,1.55,safest_bet,3,2024-02-01,Getafe,Real Madrid,L,Real Madrid,1,1
+2024-02-03,EREDIVISIE ,Twente,RKC Waalwijk,1.27,10.5,1.02,3.6,0.8,0.2,Twente,0.8,1.27,1.27,safest_bet,3,2024-02-03,Twente,RKC Waalwijk,W,Twente,1,1
+2024-02-04,LIGA PORTUGAL ,Braga,Moreirense,1.5,6.0,1.12,2.6,0.92,0.08,Braga,0.92,1.5,1.5,safest_bet,3,2024-02-04,Braga,Moreirense,W,Braga,1,1
+2024-02-04,SERIE A ,Napoli,Hellas Verona,1.45,7.3,1.09,2.75,0.97,0.03,Napoli,0.97,1.45,1.45,safest_bet,3,2024-02-04,Napoli,Hellas Verona,W,Napoli,1,1
+2024-02-04,LIGUE 1 ,Monaco,Le Havre,1.47,6.9,1.1,2.75,0.81,0.19,Monaco,0.81,1.47,1.47,safest_bet,3,2024-02-04,Monaco,Le Havre,D,Draw,0,1
+2024-02-04,PREMIER LEAGUE ,Manchester United,West Ham United,1.8,4.25,1.23,2.13,0.8,0.2,Manchester United,0.8,1.8,1.23,safest_bet,3,2024-02-04,Manchester United,West Ham United,W,Manchester United,1,1
+2024-02-03,LALIGA ,Alaves,Barcelona,4.75,1.72,2.0,1.22,0.29,0.71,Barcelona,0.71,1.72,1.22,safest_bet,3,2024-02-03,Alaves,Barcelona,L,Barcelona,1,1
+2024-02-03,SERIE A ,Frosinone,Milan,4.65,1.68,2.3,1.18,0.3,0.7,Milan,0.7,1.68,1.18,safest_bet,3,2024-02-03,Frosinone,Milan,L,Milan,1,1
+2024-02-03,BUNDESLIGA ,Darmstadt 98,Bayer Leverkusen,9.5,1.3,3.6,1.03,0.35,0.65,Bayer Leverkusen,0.65,1.3,1.3,safest_bet,3,2024-02-03,Darmstadt 98,Bayer Leverkusen,L,Bayer Leverkusen,1,1
+2024-02-03,PREMIER LEAGUE ,Newcastle United,Luton Town,1.42,7.5,1.09,2.94,0.87,0.13,Newcastle United,0.87,1.42,1.42,safest_bet,3,2024-02-03,Newcastle United,Luton Town,D,Draw,0,1
+2024-02-02,BUNDESLIGA ,Heidenheim,Dortmund,4.2,1.75,2.15,1.24,0.23,0.77,Dortmund,0.77,1.75,1.24,safest_bet,3,2024-02-02,Heidenheim,Dortmund,D,Draw,1,1
+2024-02-02,LIGUE 1 ,Strasbourg,Paris Saint Germain,5.85,1.5,2.65,1.12,0.27,0.73,Paris Saint Germain,0.73,1.5,1.5,safest_bet,3,2024-02-02,Strasbourg,Paris Saint Germain,L,Paris Saint Germain,1,1
+2024-02-05,SERIE A ,Roma,Cagliari,1.47,6.9,1.1,2.7,0.88,0.12,Roma,0.88,1.47,1.47,safest_bet,3,2024-02-05,Roma,Cagliari,W,Roma,1,1
