@@ -24,6 +24,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,Eredivisie,AZ Alkmaar,8.0,3.0,6.0,67.0,,Almere City,3.0,8.0,3.0,35.0
 2023-12-17,Eredivisie,AZ Alkmaar,5.0,7.0,3.0,67.0,0.0,PSV Eindhoven,9.0,1.0,9.0,75.0
 2024-01-20,Eredivisie,AZ Alkmaar,6.0,7.0,4.0,67.0,4.0,Zwolle,9.0,4.0,5.0,35.0
+2024-02-04,Eredivisie,AZ Alkmaar,2.0,7.0,1.0,67.0,0.0,Feyenoord,7.0,1.0,9.0,82.0
 2022-12-27,A-League,Adelaide United,5.0,2.0,6.0,42.0,3.0,Newcastle Jets,3.0,4.0,6.0,29.0
 2023-01-02,A-League,Adelaide United,5.0,1.0,6.0,42.0,6.0,Perth Glory,0.0,7.0,0.0,29.0
 2023-01-14,A-League,Adelaide United,3.0,2.0,4.0,42.0,4.0,Melbourne Victory,2.0,4.0,1.0,28.0
@@ -45,6 +46,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2024-01-04,A-League,Adelaide United,5.0,5.0,4.0,42.0,4.0,Wellington Phoenix,6.0,5.0,4.0,35.0
 2024-01-08,A-League,Adelaide United,6.0,4.0,5.0,42.0,1.0,Macarthur FC,4.0,7.0,1.0,26.0
 2024-01-13,A-League,Adelaide United,7.0,6.0,5.0,42.0,3.0,Sydney FC,5.0,8.0,3.0,38.0
+2024-02-03,A-League,Adelaide United,5.0,8.0,4.0,42.0,3.0,Central Coast Mariners,8.0,0.0,9.0,44.0
 2022-09-04,Ligue 1,Ajaccio,1.0,4.0,1.0,26.0,,Lorient,5.0,7.0,4.0,55.0
 2022-09-11,Ligue 1,Ajaccio,1.0,5.0,0.0,26.0,,Nice,3.0,2.0,6.0,58.0
 2022-10-02,Ligue 1,Ajaccio,1.0,5.0,0.0,26.0,,Clermont Foot,3.0,2.0,4.0,59.0
@@ -85,6 +87,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,Eredivisie,Ajax,11.0,2.0,9.0,69.0,6.0,Sparta Rotterdam,6.0,3.0,6.0,59.0
 2023-12-17,Eredivisie,Ajax,9.0,3.0,7.0,69.0,4.0,Zwolle,7.0,6.0,4.0,35.0
 2024-01-21,Eredivisie,Ajax,8.0,4.0,7.0,69.0,6.0,RKC Waalwijk,2.0,6.0,1.0,41.0
+2024-02-03,Eredivisie,Ajax,7.0,4.0,5.0,69.0,1.0,PSV Eindhoven,6.0,2.0,5.0,75.0
 2023-09-22,La Liga,Alaves,5.0,5.0,6.0,35.0,1.0,Athletic Club,4.0,0.0,7.0,51.0
 2023-10-01,La Liga,Alaves,1.0,4.0,3.0,35.0,0.0,Osasuna,6.0,4.0,6.0,53.0
 2023-10-08,La Liga,Alaves,1.0,5.0,1.0,35.0,1.0,Real Betis,2.0,7.0,2.0,60.0
@@ -93,6 +96,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,La Liga,Alaves,4.0,2.0,6.0,35.0,3.0,Las Palmas,2.0,2.0,4.0,35.0
 2023-12-21,La Liga,Alaves,3.0,3.0,3.0,35.0,0.0,Real Madrid,5.0,1.0,7.0,78.0
 2024-01-19,La Liga,Alaves,1.0,2.0,3.0,35.0,3.0,Cadiz,1.0,4.0,1.0,42.0
+2024-02-03,La Liga,Alaves,2.0,4.0,3.0,35.0,0.0,Barcelona,9.0,4.0,9.0,88.0
 2023-09-23,Eredivisie,Almere City,2.0,10.0,0.0,35.0,,PSV Eindhoven,11.0,1.0,9.0,75.0
 2023-10-07,Eredivisie,Almere City,2.0,6.0,3.0,35.0,,RKC Waalwijk,2.0,4.0,3.0,41.0
 2023-10-28,Eredivisie,Almere City,1.0,4.0,4.0,35.0,,Go Ahead Eagles,1.0,6.0,1.0,40.0
@@ -100,6 +104,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-11-26,Eredivisie,Almere City,2.0,7.0,2.0,35.0,,Heracles Almelo,6.0,7.0,3.0,35.0
 2023-12-17,Eredivisie,Almere City,7.0,7.0,4.0,35.0,,Vitesse,1.0,13.0,0.0,40.0
 2024-01-24,Eredivisie,Almere City,5.0,5.0,4.0,35.0,1.0,Fortuna Sittard,1.0,7.0,1.0,36.0
+2024-02-02,Eredivisie,Almere City,7.0,1.0,7.0,35.0,4.0,Excelsior,4.0,9.0,0.0,32.0
 2022-10-08,La Liga,Almeria,5.0,3.0,6.0,41.0,,Rayo Vallecano,4.0,8.0,0.0,49.0
 2022-10-20,La Liga,Almeria,6.0,4.0,6.0,41.0,,Girona,4.0,7.0,0.0,49.0
 2022-10-29,La Liga,Almeria,9.0,4.0,9.0,41.0,,Celta Vigo,2.0,8.0,0.0,43.0
@@ -182,6 +187,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-23,Pro League A,Anderlecht,6.0,4.0,7.0,46.0,4.0,Genk,4.0,4.0,3.0,75.0
 2023-12-27,Pro League A,Anderlecht,6.0,3.0,7.0,46.0,6.0,Cercle Brugge,3.0,5.0,3.0,50.0
 2024-01-28,Pro League A,Anderlecht,6.0,3.0,7.0,46.0,1.0,Union SG,5.0,4.0,5.0,75.0
+2024-02-04,Pro League A,Anderlecht,5.0,2.0,7.0,46.0,4.0,Gent,3.0,5.0,3.0,56.0
 2022-08-31,Ligue 1,Angers,3.0,7.0,1.0,18.0,0.0,Reims,6.0,7.0,4.0,51.0
 2022-09-11,Ligue 1,Angers,5.0,8.0,3.0,18.0,6.0,Montpellier,10.0,7.0,3.0,50.0
 2022-09-30,Ligue 1,Angers,4.0,8.0,3.0,18.0,0.0,Marseille,8.0,0.0,9.0,73.0
@@ -230,6 +236,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-17,Pro League A,Antwerp,8.0,1.0,7.0,72.0,1.0,Anderlecht,5.0,3.0,5.0,46.0
 2023-12-23,Pro League A,Antwerp,4.0,3.0,5.0,72.0,4.0,Westerlo,6.0,6.0,4.0,51.0
 2024-01-21,Pro League A,Antwerp,7.0,4.0,5.0,72.0,3.0,Charleroi,1.0,5.0,1.0,48.0
+2024-02-04,Pro League A,Antwerp,8.0,4.0,7.0,72.0,3.0,Club Brugge,11.0,4.0,6.0,59.0
 2022-09-11,Primeira Liga,Arouca,2.0,8.0,3.0,54.0,0.0,Boavista,3.0,3.0,6.0,44.0
 2022-09-18,Primeira Liga,Arouca,3.0,10.0,1.0,54.0,4.0,Vitoria Guimaraes,3.0,5.0,1.0,53.0
 2022-10-10,Primeira Liga,Arouca,7.0,5.0,4.0,54.0,4.0,Famalicao,1.0,6.0,0.0,44.0
@@ -282,6 +289,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-17,Premier League,Arsenal,7.0,2.0,9.0,84.0,3.0,Brighton and Hove Albion,5.0,7.0,3.0,62.0
 2023-12-28,Premier League,Arsenal,4.0,3.0,6.0,84.0,1.0,West Ham United,4.0,6.0,6.0,40.0
 2024-01-20,Premier League,Arsenal,7.0,2.0,6.0,84.0,6.0,Crystal Palace,3.0,9.0,1.0,45.0
+2024-02-04,Premier League,Arsenal,8.0,3.0,6.0,84.0,4.0,Liverpool,7.0,3.0,6.0,67.0
 2022-09-03,Premier League,Aston Villa,3.0,3.0,4.0,61.0,1.0,Manchester City,6.0,4.0,5.0,89.0
 2022-09-16,Premier League,Aston Villa,2.0,2.0,4.0,61.0,6.0,Southampton,2.0,3.0,3.0,25.0
 2022-10-16,Premier League,Aston Villa,2.0,3.0,4.0,61.0,0.0,Chelsea,5.0,3.0,6.0,44.0
@@ -337,6 +345,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-30,Serie A,Atalanta,8.0,3.0,9.0,64.0,3.0,Lecce,1.0,4.0,1.0,36.0
 2024-01-15,Serie A,Atalanta,10.0,1.0,9.0,64.0,3.0,Frosinone,2.0,10.0,0.0,35.0
 2024-01-27,Serie A,Atalanta,8.0,0.0,9.0,64.0,4.0,Udinese,3.0,5.0,2.0,46.0
+2024-02-04,Serie A,Atalanta,10.0,1.0,9.0,64.0,3.0,Lazio,5.0,4.0,6.0,74.0
 2022-09-17,La Liga,Athletic Club,4.0,3.0,6.0,51.0,6.0,Rayo Vallecano,5.0,5.0,3.0,49.0
 2022-09-30,La Liga,Athletic Club,7.0,3.0,6.0,51.0,,Almeria,0.0,6.0,0.0,41.0
 2022-10-30,La Liga,Athletic Club,5.0,1.0,6.0,51.0,4.0,Villarreal,0.0,5.0,0.0,64.0
@@ -363,6 +372,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,La Liga,Athletic Club,10.0,3.0,9.0,51.0,6.0,Atletico Madrid,1.0,5.0,0.0,77.0
 2023-12-20,La Liga,Athletic Club,7.0,0.0,9.0,51.0,4.0,Las Palmas,1.0,2.0,3.0,35.0
 2024-01-13,La Liga,Athletic Club,5.0,1.0,9.0,51.0,3.0,Real Sociedad,4.0,2.0,4.0,71.0
+2024-02-02,La Liga,Athletic Club,7.0,1.0,9.0,51.0,4.0,Mallorca,1.0,6.0,1.0,50.0
 2022-09-18,Série A,Athletico Paranaense,4.0,3.0,5.0,35.0,4.0,Cuiaba,3.0,4.0,2.0,41.0
 2022-10-01,Série A,Athletico Paranaense,5.0,2.0,7.0,35.0,6.0,Juventude,1.0,8.0,0.0,22.0
 2022-10-05,Série A,Athletico Paranaense,5.0,3.0,5.0,35.0,2.0,Fortaleza,3.0,2.0,5.0,55.0
@@ -623,6 +633,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2024-01-12,Bundesliga,Bayern Munich,10.0,2.0,9.0,71.0,4.0,Hoffenheim,2.0,8.0,0.0,36.0
 2024-01-21,Bundesliga,Bayern Munich,6.0,1.0,6.0,71.0,3.0,Werder Bremen,4.0,3.0,5.0,36.0
 2024-01-24,Bundesliga,Bayern Munich,4.0,1.0,6.0,71.0,6.0,Union Berlin,0.0,4.0,1.0,62.0
+2024-02-03,Bundesliga,Bayern Munich,4.0,2.0,6.0,71.0,6.0,Monchengladbach,2.0,5.0,1.0,43.0
 2022-09-02,Primeira Liga,Benfica,9.0,3.0,9.0,87.0,4.0,Vizela,3.0,3.0,4.0,40.0
 2022-09-18,Primeira Liga,Benfica,10.0,3.0,9.0,87.0,6.0,Maritimo,1.0,12.0,0.0,26.0
 2022-10-08,Primeira Liga,Benfica,11.0,3.0,9.0,87.0,6.0,Rio Ave,5.0,7.0,2.0,40.0
@@ -646,6 +657,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-29,Primeira Liga,Benfica,6.0,2.0,7.0,87.0,6.0,Famalicao,1.0,4.0,2.0,44.0
 2024-01-14,Primeira Liga,Benfica,8.0,2.0,7.0,87.0,6.0,Rio Ave,3.0,7.0,1.0,40.0
 2024-01-19,Primeira Liga,Benfica,9.0,1.0,9.0,87.0,3.0,Boavista,4.0,4.0,3.0,44.0
+2024-02-04,Primeira Liga,Benfica,9.0,1.0,9.0,87.0,6.0,Gil Vicente FC,2.0,4.0,3.0,37.0
 2022-09-05,Primeira Liga,Boavista,3.0,4.0,6.0,44.0,4.0,Pacos de Ferreira,2.0,5.0,0.0,23.0
 2022-09-17,Primeira Liga,Boavista,3.0,4.0,6.0,44.0,3.0,Sporting CP,3.0,5.0,3.0,74.0
 2022-10-09,Primeira Liga,Boavista,4.0,2.0,7.0,44.0,1.0,Maritimo,2.0,8.0,1.0,26.0
@@ -695,6 +707,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,Bundesliga,Bochum,7.0,2.0,7.0,35.0,4.0,Union Berlin,0.0,9.0,0.0,62.0
 2024-01-14,Bundesliga,Bochum,7.0,2.0,7.0,35.0,1.0,Werder Bremen,3.0,5.0,2.0,36.0
 2024-01-20,Bundesliga,Bochum,5.0,1.0,7.0,35.0,3.0,Stuttgart,1.0,7.0,0.0,33.0
+2024-02-03,Bundesliga,Bochum,3.0,2.0,5.0,35.0,2.0,Augsburg,3.0,5.0,4.0,34.0
 2022-09-11,Serie A,Bologna,4.0,3.0,5.0,54.0,3.0,Fiorentina,1.0,3.0,1.0,56.0
 2022-09-17,Serie A,Bologna,3.0,3.0,4.0,54.0,1.0,Empoli,4.0,3.0,5.0,43.0
 2022-10-08,Serie A,Bologna,3.0,3.0,4.0,54.0,4.0,Sampdoria,3.0,5.0,1.0,19.0
@@ -721,6 +734,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-17,Serie A,Bologna,5.0,0.0,9.0,54.0,4.0,Roma,2.0,3.0,4.0,63.0
 2023-12-23,Serie A,Bologna,5.0,0.0,9.0,54.0,6.0,Atalanta,1.0,5.0,1.0,64.0
 2024-01-05,Serie A,Bologna,4.0,1.0,7.0,54.0,4.0,Genoa,3.0,3.0,4.0,35.0
+2024-02-03,Serie A,Bologna,6.0,3.0,7.0,54.0,4.0,Sassuolo,2.0,8.0,0.0,45.0
 2022-08-28,Série A,Botafogo RJ,1.0,2.0,2.0,53.0,3.0,Flamengo,4.0,1.0,7.0,62.0
 2022-09-11,Série A,Botafogo RJ,0.0,1.0,2.0,53.0,2.0,America MG,2.0,1.0,5.0,53.0
 2022-09-17,Série A,Botafogo RJ,2.0,1.0,4.0,53.0,3.0,Coritiba,2.0,9.0,0.0,42.0
@@ -782,6 +796,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-10-28,Premier League,Bournemouth,3.0,7.0,3.0,39.0,3.0,Burnley,3.0,6.0,3.0,35.0
 2023-11-11,Premier League,Bournemouth,5.0,3.0,6.0,39.0,4.0,Newcastle United,4.0,6.0,2.0,71.0
 2023-12-03,Premier League,Bournemouth,6.0,3.0,7.0,39.0,1.0,Aston Villa,4.0,5.0,4.0,61.0
+2024-02-04,Premier League,Bournemouth,4.0,5.0,4.0,39.0,4.0,Nottingham Forest,6.0,5.0,4.0,38.0
 2022-09-03,Primeira Liga,Braga,9.0,3.0,7.0,78.0,3.0,Vitoria Guimaraes,2.0,3.0,3.0,53.0
 2022-09-18,Primeira Liga,Braga,8.0,0.0,9.0,78.0,6.0,Vizela,2.0,5.0,1.0,40.0
 2022-10-09,Primeira Liga,Braga,3.0,1.0,6.0,78.0,3.0,Chaves,1.0,4.0,3.0,46.0
@@ -806,6 +821,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-17,Primeira Liga,Braga,9.0,3.0,6.0,78.0,0.0,Benfica,3.0,0.0,7.0,87.0
 2024-01-06,Primeira Liga,Braga,4.0,3.0,4.0,78.0,1.0,Vitoria Guimaraes,4.0,3.0,5.0,53.0
 2024-01-31,Primeira Liga,Braga,2.0,3.0,2.0,78.0,4.0,Chaves,3.0,4.0,2.0,46.0
+2024-02-04,Primeira Liga,Braga,3.0,2.0,5.0,78.0,6.0,Moreirense,3.0,7.0,3.0,35.0
 2022-09-18,Série A,Bragantino,4.0,4.0,3.0,44.0,2.0,Goias,4.0,2.0,7.0,46.0
 2022-10-05,Série A,Bragantino,5.0,4.0,5.0,44.0,4.0,Cuiaba,3.0,6.0,1.0,41.0
 2022-10-17,Série A,Bragantino,3.0,4.0,4.0,44.0,1.0,Santos,2.0,2.0,3.0,47.0
@@ -869,6 +885,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-17,Premier League,Brentford,4.0,4.0,3.0,59.0,1.0,Aston Villa,6.0,4.0,7.0,61.0
 2023-12-27,Premier League,Brentford,5.0,7.0,3.0,59.0,0.0,Wolverhampton Wanderers,5.0,6.0,3.0,41.0
 2024-01-20,Premier League,Brentford,5.0,8.0,3.0,59.0,4.0,Nottingham Forest,6.0,5.0,4.0,38.0
+2024-02-05,Premier League,Brentford,5.0,9.0,3.0,59.0,3.0,Manchester City,9.0,4.0,9.0,89.0
 2022-09-04,Ligue 1,Brest,2.0,9.0,2.0,44.0,1.0,Strasbourg,2.0,3.0,2.0,40.0
 2022-09-18,Ligue 1,Brest,1.0,9.0,1.0,44.0,,Ajaccio,2.0,4.0,3.0,26.0
 2022-10-09,Ligue 1,Brest,2.0,4.0,1.0,44.0,0.0,Lorient,6.0,2.0,9.0,55.0
@@ -895,6 +912,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-07,Ligue 1,Brest,6.0,4.0,4.0,44.0,4.0,Strasbourg,3.0,4.0,2.0,40.0
 2023-12-20,Ligue 1,Brest,8.0,1.0,7.0,44.0,3.0,Lorient,1.0,6.0,1.0,55.0
 2024-01-14,Ligue 1,Brest,7.0,1.0,7.0,44.0,6.0,Montpellier,1.0,4.0,3.0,50.0
+2024-02-04,Ligue 1,Brest,6.0,0.0,7.0,44.0,2.0,Nice,1.0,5.0,1.0,58.0
 2022-09-04,Premier League,Brighton and Hove Albion,6.0,2.0,7.0,62.0,4.0,Leicester City,5.0,11.0,0.0,34.0
 2022-10-08,Premier League,Brighton and Hove Albion,6.0,3.0,6.0,62.0,3.0,Tottenham Hotspur,3.0,4.0,4.0,60.0
 2022-10-18,Premier League,Brighton and Hove Albion,5.0,3.0,4.0,62.0,,Nottingham Forest,0.0,5.0,1.0,38.0
@@ -921,6 +939,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,Premier League,Brighton and Hove Albion,4.0,3.0,5.0,62.0,1.0,Burnley,2.0,5.0,1.0,35.0
 2023-12-28,Premier League,Brighton and Hove Albion,7.0,4.0,7.0,62.0,3.0,Tottenham Hotspur,7.0,7.0,4.0,60.0
 2024-01-22,Premier League,Brighton and Hove Albion,5.0,3.0,5.0,62.0,4.0,Wolverhampton Wanderers,4.0,4.0,4.0,41.0
+2024-02-03,Premier League,Brighton and Hove Albion,8.0,3.0,7.0,62.0,4.0,Crystal Palace,2.0,11.0,0.0,45.0
 2022-11-06,A-League,Brisbane Roar,3.0,3.0,4.0,30.0,6.0,Sydney FC,7.0,6.0,6.0,38.0
 2022-12-09,A-League,Brisbane Roar,4.0,2.0,5.0,30.0,1.0,Adelaide United,7.0,5.0,5.0,42.0
 2022-12-23,A-League,Brisbane Roar,5.0,3.0,5.0,30.0,2.0,Western Sydney Wanderers,2.0,3.0,2.0,41.0
@@ -938,6 +957,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2024-01-06,A-League,Brisbane Roar,3.0,7.0,1.0,30.0,3.0,Sydney FC,7.0,5.0,6.0,38.0
 2024-01-14,A-League,Brisbane Roar,4.0,7.0,3.0,30.0,6.0,Newcastle Jets,4.0,7.0,1.0,29.0
 2024-01-18,A-League,Brisbane Roar,5.0,7.0,3.0,30.0,1.0,Macarthur FC,5.0,5.0,4.0,26.0
+2024-02-02,A-League,Brisbane Roar,5.0,6.0,4.0,30.0,1.0,Wellington Phoenix,7.0,5.0,7.0,35.0
 2023-09-02,Premier League,Burnley,3.0,11.0,0.0,35.0,0.0,Tottenham Hotspur,9.0,4.0,7.0,60.0
 2023-09-23,Premier League,Burnley,3.0,9.0,0.0,35.0,1.0,Manchester United,2.0,5.0,3.0,75.0
 2023-10-07,Premier League,Burnley,3.0,10.0,0.0,35.0,0.0,Chelsea,6.0,1.0,7.0,44.0
@@ -945,6 +965,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-11-25,Premier League,Burnley,2.0,8.0,0.0,35.0,1.0,West Ham United,5.0,8.0,3.0,40.0
 2023-12-16,Premier League,Burnley,6.0,4.0,3.0,35.0,3.0,Everton,6.0,2.0,9.0,36.0
 2023-12-26,Premier League,Burnley,5.0,4.0,3.0,35.0,0.0,Liverpool,6.0,1.0,9.0,67.0
+2024-02-03,Premier League,Burnley,3.0,5.0,2.0,35.0,4.0,Fulham,2.0,6.0,1.0,52.0
 2022-09-10,La Liga,Cadiz,0.0,9.0,0.0,42.0,3.0,Barcelona,11.0,1.0,9.0,88.0
 2022-10-01,La Liga,Cadiz,0.0,8.0,1.0,42.0,4.0,Villarreal,0.0,1.0,2.0,64.0
 2022-10-09,La Liga,Cadiz,2.0,6.0,2.0,42.0,2.0,Espanyol,4.0,4.0,4.0,37.0
@@ -1019,6 +1040,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-30,Primeira Liga,Casa Pia,2.0,4.0,3.0,41.0,0.0,Braga,7.0,2.0,9.0,78.0
 2024-01-13,Primeira Liga,Casa Pia,2.0,5.0,3.0,41.0,0.0,Famalicao,3.0,4.0,4.0,44.0
 2024-01-20,Primeira Liga,Casa Pia,2.0,8.0,0.0,41.0,3.0,Farense,3.0,6.0,3.0,35.0
+2024-02-05,Primeira Liga,Casa Pia,1.0,5.0,1.0,41.0,2.0,Boavista,4.0,3.0,4.0,44.0
 2022-09-10,Série A,Ceara,2.0,2.0,4.0,37.0,4.0,Santos,1.0,3.0,1.0,47.0
 2022-09-18,Série A,Ceara,2.0,3.0,4.0,37.0,1.0,Sao Paulo,3.0,2.0,4.0,54.0
 2022-10-01,Série A,Ceara,3.0,5.0,3.0,37.0,3.0,America MG,3.0,3.0,4.0,53.0
@@ -1103,6 +1125,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,Pro League A,Cercle Brugge,3.0,6.0,3.0,50.0,0.0,Antwerp,5.0,4.0,4.0,72.0
 2023-12-20,Pro League A,Cercle Brugge,6.0,3.0,6.0,50.0,3.0,Kortrijk,1.0,8.0,1.0,31.0
 2024-01-26,Pro League A,Cercle Brugge,5.0,4.0,4.0,50.0,4.0,Standard Liege,3.0,6.0,2.0,55.0
+2024-02-04,Pro League A,Cercle Brugge,8.0,2.0,7.0,50.0,6.0,Sint Truiden,3.0,7.0,1.0,42.0
 2022-09-04,Pro League A,Charleroi,4.0,7.0,3.0,48.0,6.0,Gent,5.0,3.0,6.0,56.0
 2022-09-17,Pro League A,Charleroi,5.0,7.0,3.0,48.0,,Westerlo,7.0,10.0,3.0,51.0
 2022-10-09,Pro League A,Charleroi,4.0,5.0,3.0,48.0,1.0,Standard Liege,4.0,1.0,9.0,55.0
@@ -1155,6 +1178,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-17,Primeira Liga,Chaves,3.0,6.0,3.0,46.0,3.0,Casa Pia,4.0,8.0,3.0,41.0
 2024-01-13,Primeira Liga,Chaves,3.0,7.0,3.0,46.0,0.0,Sporting CP,7.0,4.0,6.0,74.0
 2024-01-21,Primeira Liga,Chaves,1.0,6.0,1.0,46.0,1.0,Rio Ave,1.0,5.0,1.0,40.0
+2024-02-04,Primeira Liga,Chaves,1.0,4.0,2.0,46.0,1.0,Farense,4.0,3.0,4.0,35.0
 2022-09-03,Premier League,Chelsea,6.0,4.0,7.0,44.0,6.0,West Ham United,2.0,3.0,3.0,40.0
 2022-10-08,Premier League,Chelsea,7.0,2.0,9.0,44.0,4.0,Wolverhampton Wanderers,0.0,5.0,1.0,41.0
 2022-10-22,Premier League,Chelsea,6.0,2.0,7.0,44.0,2.0,Manchester United,6.0,8.0,4.0,75.0
@@ -1181,6 +1205,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-03,Premier League,Chelsea,7.0,8.0,4.0,44.0,3.0,Brighton and Hove Albion,6.0,6.0,4.0,62.0
 2023-12-27,Premier League,Chelsea,7.0,3.0,9.0,44.0,6.0,Crystal Palace,4.0,5.0,2.0,45.0
 2024-01-13,Premier League,Chelsea,5.0,1.0,9.0,44.0,6.0,Fulham,0.0,7.0,0.0,52.0
+2024-02-04,Premier League,Chelsea,5.0,5.0,6.0,44.0,0.0,Wolverhampton Wanderers,8.0,3.0,7.0,41.0
 2022-09-04,Ligue 1,Clermont Foot,3.0,5.0,6.0,59.0,,Toulouse,4.0,5.0,3.0,48.0
 2022-09-18,Ligue 1,Clermont Foot,4.0,3.0,6.0,59.0,3.0,Troyes,7.0,4.0,6.0,24.0
 2022-10-09,Ligue 1,Clermont Foot,5.0,4.0,6.0,59.0,,Auxerre,2.0,9.0,0.0,35.0
@@ -1420,6 +1445,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,Bundesliga,Darmstadt 98,0.0,2.0,1.0,35.0,,Wolfsburg,2.0,7.0,3.0,49.0
 2024-01-13,Bundesliga,Darmstadt 98,0.0,5.0,0.0,35.0,,Dortmund,5.0,2.0,5.0,71.0
 2024-01-20,Bundesliga,Darmstadt 98,2.0,6.0,1.0,35.0,1.0,Eintracht Frankfurt,3.0,5.0,4.0,50.0
+2024-02-03,Bundesliga,Darmstadt 98,2.0,7.0,1.0,35.0,0.0,Bayer Leverkusen,6.0,2.0,9.0,50.0
 2022-09-02,Bundesliga,Dortmund,4.0,3.0,6.0,71.0,6.0,Hoffenheim,4.0,4.0,3.0,36.0
 2022-09-17,Bundesliga,Dortmund,4.0,3.0,6.0,71.0,6.0,Schalke 04,1.0,2.0,2.0,31.0
 2022-10-08,Bundesliga,Dortmund,4.0,2.0,7.0,71.0,1.0,Bayern Munich,3.0,4.0,2.0,71.0
@@ -1525,6 +1551,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-22,Serie A,Empoli,4.0,7.0,1.0,43.0,0.0,Lazio,4.0,3.0,4.0,74.0
 2024-01-07,Serie A,Empoli,1.0,6.0,1.0,43.0,1.0,Milan,7.0,5.0,4.0,70.0
 2024-01-21,Serie A,Empoli,3.0,5.0,3.0,43.0,3.0,Monza,3.0,5.0,4.0,52.0
+2024-02-03,Serie A,Empoli,3.0,3.0,4.0,43.0,2.0,Genoa,3.0,2.0,5.0,35.0
 2022-09-10,La Liga,Espanyol,3.0,8.0,0.0,37.0,1.0,Sevilla,5.0,6.0,3.0,49.0
 2022-10-02,La Liga,Espanyol,5.0,8.0,1.0,37.0,2.0,Valencia,3.0,5.0,1.0,42.0
 2022-10-16,La Liga,Espanyol,5.0,5.0,4.0,37.0,3.0,Valladolid,4.0,5.0,3.0,40.0
@@ -1565,6 +1592,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-30,Primeira Liga,Estoril,12.0,0.0,9.0,35.0,,Farense,4.0,6.0,4.0,35.0
 2024-01-13,Primeira Liga,Estoril,9.0,3.0,6.0,35.0,3.0,Moreirense,4.0,2.0,5.0,35.0
 2024-01-20,Primeira Liga,Estoril,6.0,5.0,3.0,35.0,0.0,Arouca,7.0,4.0,6.0,54.0
+2024-02-04,Primeira Liga,Estoril,3.0,5.0,3.0,35.0,3.0,Estrela,1.0,5.0,1.0,35.0
 2023-09-15,Primeira Liga,Estrela,2.0,3.0,3.0,35.0,,Porto,5.0,2.0,9.0,85.0
 2023-09-28,Primeira Liga,Estrela,4.0,6.0,3.0,35.0,,Braga,8.0,7.0,6.0,78.0
 2023-10-29,Primeira Liga,Estrela,3.0,5.0,3.0,35.0,,Famalicao,3.0,4.0,2.0,44.0
@@ -1601,6 +1629,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-10,Pro League A,Eupen,3.0,7.0,1.0,28.0,3.0,Genk,5.0,5.0,3.0,75.0
 2023-12-23,Pro League A,Eupen,3.0,6.0,1.0,28.0,0.0,Union SG,6.0,3.0,7.0,75.0
 2024-01-28,Pro League A,Eupen,3.0,5.0,3.0,28.0,3.0,Antwerp,3.0,5.0,3.0,72.0
+2024-02-04,Pro League A,Eupen,2.0,3.0,3.0,28.0,0.0,Mechelen,4.0,4.0,6.0,40.0
 2022-09-03,Premier League,Everton,1.0,2.0,2.0,36.0,1.0,Liverpool,3.0,4.0,2.0,67.0
 2022-09-18,Premier League,Everton,2.0,1.0,5.0,36.0,3.0,West Ham United,2.0,3.0,3.0,40.0
 2022-10-09,Premier League,Everton,2.0,2.0,4.0,36.0,3.0,Manchester United,6.0,7.0,6.0,75.0
@@ -1629,6 +1658,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-10,Premier League,Everton,5.0,3.0,6.0,36.0,4.0,Chelsea,2.0,8.0,0.0,44.0
 2023-12-27,Premier League,Everton,6.0,3.0,6.0,36.0,0.0,Manchester City,5.0,3.0,6.0,89.0
 2024-01-14,Premier League,Everton,3.0,3.0,4.0,36.0,1.0,Aston Villa,4.0,4.0,4.0,61.0
+2024-02-03,Premier League,Everton,3.0,5.0,2.0,36.0,1.0,Tottenham Hotspur,6.0,8.0,2.0,60.0
 2022-09-10,Eredivisie,Excelsior,6.0,8.0,6.0,32.0,6.0,Emmen,2.0,10.0,0.0,28.0
 2022-10-02,Eredivisie,Excelsior,3.0,8.0,3.0,32.0,1.0,Utrecht,7.0,6.0,6.0,54.0
 2022-10-23,Eredivisie,Excelsior,4.0,3.0,6.0,32.0,6.0,AZ Alkmaar,7.0,4.0,6.0,67.0
@@ -1866,6 +1896,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-02,Eredivisie,Fortuna Sittard,7.0,2.0,7.0,36.0,6.0,Vitesse,2.0,13.0,0.0,40.0
 2023-12-10,Eredivisie,Fortuna Sittard,8.0,2.0,9.0,36.0,3.0,RKC Waalwijk,2.0,4.0,3.0,41.0
 2024-01-13,Eredivisie,Fortuna Sittard,4.0,3.0,6.0,36.0,1.0,Sparta Rotterdam,4.0,2.0,6.0,59.0
+2024-02-03,Eredivisie,Fortuna Sittard,4.0,5.0,4.0,36.0,1.0,Heerenveen,5.0,8.0,2.0,46.0
 2022-09-11,Bundesliga,Freiburg,2.0,3.0,4.0,59.0,2.0,Monchengladbach,3.0,3.0,3.0,43.0
 2022-10-01,Bundesliga,Freiburg,3.0,1.0,7.0,59.0,4.0,Mainz 05,3.0,6.0,3.0,46.0
 2022-10-22,Bundesliga,Freiburg,4.0,1.0,7.0,59.0,4.0,Werder Bremen,3.0,4.0,4.0,36.0
@@ -1890,6 +1921,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-17,Bundesliga,Freiburg,6.0,4.0,5.0,59.0,6.0,Koln,2.0,3.0,4.0,42.0
 2024-01-13,Bundesliga,Freiburg,3.0,1.0,5.0,59.0,1.0,Union Berlin,0.0,7.0,1.0,62.0
 2024-01-20,Bundesliga,Freiburg,5.0,2.0,7.0,59.0,6.0,Hoffenheim,3.0,9.0,0.0,36.0
+2024-02-03,Bundesliga,Freiburg,4.0,5.0,4.0,59.0,0.0,Stuttgart,4.0,5.0,3.0,33.0
 2023-09-17,Serie A,Frosinone,7.0,6.0,6.0,35.0,4.0,Sassuolo,4.0,8.0,1.0,45.0
 2023-09-28,Serie A,Frosinone,7.0,4.0,7.0,35.0,4.0,Fiorentina,3.0,5.0,4.0,56.0
 2023-10-08,Serie A,Frosinone,7.0,4.0,7.0,35.0,,Hellas Verona,1.0,3.0,1.0,31.0
@@ -1899,6 +1931,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-23,Serie A,Frosinone,3.0,3.0,4.0,35.0,0.0,Juventus,5.0,3.0,7.0,62.0
 2024-01-06,Serie A,Frosinone,3.0,5.0,1.0,35.0,,Monza,3.0,5.0,4.0,52.0
 2024-01-21,Serie A,Frosinone,6.0,6.0,3.0,35.0,3.0,Cagliari,2.0,6.0,1.0,35.0
+2024-02-03,Serie A,Frosinone,7.0,7.0,3.0,35.0,0.0,Milan,9.0,4.0,9.0,70.0
 2022-08-30,Premier League,Fulham,7.0,5.0,7.0,52.0,4.0,Brighton and Hove Albion,5.0,3.0,6.0,62.0
 2022-10-01,Premier League,Fulham,6.0,7.0,6.0,52.0,0.0,Newcastle United,6.0,4.0,4.0,71.0
 2022-10-15,Premier League,Fulham,5.0,7.0,4.0,52.0,4.0,Bournemouth,6.0,5.0,5.0,39.0
@@ -1954,6 +1987,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-17,Pro League A,Genk,9.0,3.0,7.0,75.0,6.0,Kortrijk,1.0,8.0,1.0,31.0
 2023-12-26,Pro League A,Genk,9.0,2.0,7.0,75.0,3.0,Antwerp,4.0,5.0,4.0,72.0
 2024-01-20,Pro League A,Genk,8.0,1.0,7.0,75.0,4.0,Cercle Brugge,3.0,4.0,4.0,50.0
+2024-02-03,Pro League A,Genk,4.0,2.0,4.0,75.0,3.0,Union SG,4.0,3.0,5.0,75.0
 2023-09-28,Serie A,Genoa,7.0,7.0,4.0,35.0,4.0,Roma,3.0,7.0,1.0,63.0
 2023-10-07,Serie A,Genoa,6.0,4.0,4.0,35.0,0.0,Milan,5.0,6.0,6.0,70.0
 2023-10-27,Serie A,Genoa,5.0,2.0,6.0,35.0,4.0,Salernitana,0.0,5.0,0.0,42.0
@@ -2073,6 +2107,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-18,La Liga,Girona,6.0,2.0,7.0,49.0,3.0,Alaves,1.0,5.0,1.0,35.0
 2024-01-03,La Liga,Girona,9.0,4.0,9.0,49.0,3.0,Atletico Madrid,3.0,7.0,0.0,77.0
 2024-01-21,La Liga,Girona,12.0,4.0,9.0,49.0,6.0,Sevilla,4.0,6.0,3.0,49.0
+2024-02-03,La Liga,Girona,9.0,4.0,7.0,49.0,2.0,Real Sociedad,2.0,2.0,4.0,71.0
 2022-09-03,Eredivisie,Go Ahead Eagles,5.0,10.0,0.0,40.0,0.0,Feyenoord,10.0,5.0,9.0,82.0
 2022-09-18,Eredivisie,Go Ahead Eagles,5.0,5.0,3.0,40.0,,Emmen,1.0,8.0,0.0,28.0
 2022-10-09,Eredivisie,Go Ahead Eagles,5.0,4.0,4.0,40.0,4.0,Cambuur,1.0,9.0,1.0,19.0
@@ -2142,6 +2177,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-19,La Liga,Granada,2.0,5.0,2.0,35.0,0.0,Sevilla,4.0,3.0,3.0,49.0
 2024-01-03,La Liga,Granada,3.0,4.0,4.0,35.0,4.0,Cadiz,2.0,4.0,2.0,42.0
 2024-01-22,La Liga,Granada,2.0,4.0,3.0,35.0,0.0,Atletico Madrid,4.0,6.0,3.0,77.0
+2024-02-03,La Liga,Granada,3.0,2.0,4.0,35.0,1.0,Las Palmas,3.0,2.0,4.0,35.0
 2023-05-14,Série A,Gremio,4.0,3.0,5.0,35.0,1.0,Fortaleza,4.0,1.0,5.0,55.0
 2023-05-21,Série A,Gremio,6.0,4.0,5.0,35.0,3.0,Internacional,1.0,7.0,0.0,73.0
 2023-06-04,Série A,Gremio,5.0,2.0,7.0,35.0,6.0,Sao Paulo,2.0,3.0,2.0,54.0
@@ -2217,6 +2253,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,Bundesliga,Heidenheim,5.0,2.0,7.0,35.0,,Darmstadt 98,3.0,12.0,1.0,35.0
 2023-12-20,Bundesliga,Heidenheim,6.0,4.0,7.0,35.0,,Freiburg,4.0,3.0,6.0,59.0
 2024-01-20,Bundesliga,Heidenheim,7.0,5.0,7.0,35.0,1.0,Wolfsburg,3.0,2.0,5.0,49.0
+2024-02-02,Bundesliga,Heidenheim,4.0,3.0,5.0,35.0,2.0,Dortmund,7.0,0.0,7.0,71.0
 2022-10-03,Serie A,Hellas Verona,3.0,4.0,3.0,31.0,3.0,Udinese,7.0,3.0,9.0,46.0
 2022-10-16,Serie A,Hellas Verona,4.0,5.0,3.0,31.0,0.0,Milan,7.0,3.0,9.0,70.0
 2022-10-31,Serie A,Hellas Verona,3.0,7.0,0.0,31.0,1.0,Roma,6.0,2.0,9.0,63.0
@@ -2353,6 +2390,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,Serie A,Internazionale,7.0,0.0,9.0,72.0,6.0,Udinese,2.0,7.0,3.0,46.0
 2023-12-23,Serie A,Internazionale,8.0,0.0,9.0,72.0,6.0,Lecce,3.0,5.0,2.0,36.0
 2024-01-06,Serie A,Internazionale,8.0,1.0,9.0,72.0,6.0,Hellas Verona,4.0,6.0,1.0,31.0
+2024-02-04,Serie A,Internazionale,5.0,1.0,9.0,72.0,4.0,Juventus,5.0,2.0,6.0,62.0
 2022-09-03,Série A,Juventude,3.0,4.0,2.0,22.0,4.0,Avai,2.0,3.0,2.0,35.0
 2022-09-18,Série A,Juventude,4.0,4.0,3.0,22.0,2.0,Fortaleza,3.0,3.0,4.0,55.0
 2022-10-04,Série A,Juventude,4.0,4.0,3.0,22.0,1.0,Corinthians,3.0,4.0,2.0,65.0
@@ -2411,6 +2449,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-10,Bundesliga,Koln,1.0,2.0,2.0,42.0,2.0,Mainz 05,1.0,1.0,3.0,46.0
 2024-01-13,Bundesliga,Koln,1.0,2.0,2.0,42.0,,Heidenheim,3.0,3.0,4.0,35.0
 2024-01-20,Bundesliga,Koln,1.0,5.0,2.0,42.0,0.0,Dortmund,8.0,1.0,7.0,71.0
+2024-02-03,Bundesliga,Koln,3.0,5.0,4.0,42.0,4.0,Eintracht Frankfurt,3.0,4.0,4.0,50.0
 2022-09-10,Pro League A,Kortrijk,1.0,5.0,1.0,31.0,0.0,Mechelen,5.0,4.0,4.0,40.0
 2022-10-02,Pro League A,Kortrijk,3.0,6.0,3.0,31.0,3.0,Antwerp,5.0,3.0,6.0,72.0
 2022-10-15,Pro League A,Kortrijk,4.0,8.0,3.0,31.0,3.0,Zulte Waregem,3.0,5.0,3.0,27.0
@@ -2436,6 +2475,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-08,Pro League A,Kortrijk,1.0,8.0,0.0,31.0,0.0,Westerlo,6.0,4.0,6.0,51.0
 2023-12-26,Pro League A,Kortrijk,1.0,7.0,0.0,31.0,0.0,Gent,4.0,4.0,4.0,56.0
 2024-01-27,Pro League A,Kortrijk,1.0,4.0,1.0,31.0,1.0,OH Leuven,1.0,5.0,2.0,48.0
+2024-02-03,Pro League A,Kortrijk,1.0,2.0,4.0,31.0,3.0,Charleroi,1.0,6.0,0.0,48.0
 2023-09-24,La Liga,Las Palmas,2.0,1.0,5.0,35.0,,Granada,4.0,9.0,0.0,35.0
 2023-10-02,La Liga,Las Palmas,3.0,1.0,7.0,35.0,3.0,Celta Vigo,6.0,7.0,3.0,43.0
 2023-10-22,La Liga,Las Palmas,3.0,2.0,6.0,35.0,,Rayo Vallecano,3.0,2.0,5.0,49.0
@@ -2507,6 +2547,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,Serie A,Lecce,5.0,4.0,5.0,36.0,,Frosinone,2.0,7.0,0.0,35.0
 2024-01-06,Serie A,Lecce,4.0,3.0,5.0,36.0,2.0,Cagliari,2.0,5.0,1.0,35.0
 2024-01-21,Serie A,Lecce,3.0,5.0,4.0,36.0,0.0,Juventus,7.0,2.0,9.0,62.0
+2024-02-02,Serie A,Lecce,4.0,6.0,4.0,36.0,4.0,Fiorentina,3.0,4.0,3.0,56.0
 2022-08-30,Premier League,Leeds United,6.0,2.0,7.0,31.0,1.0,Everton,3.0,4.0,2.0,36.0
 2022-10-02,Premier League,Leeds United,4.0,1.0,5.0,31.0,1.0,Aston Villa,2.0,5.0,1.0,61.0
 2022-10-16,Premier League,Leeds United,1.0,2.0,2.0,31.0,0.0,Arsenal,5.0,3.0,6.0,84.0
@@ -2593,6 +2634,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-03,Ligue 1,Lille,5.0,1.0,7.0,67.0,4.0,Metz,4.0,5.0,4.0,35.0
 2023-12-17,Ligue 1,Lille,4.0,2.0,5.0,67.0,1.0,Paris Saint Germain,6.0,1.0,7.0,85.0
 2024-01-14,Ligue 1,Lille,6.0,1.0,7.0,67.0,3.0,Lorient,1.0,8.0,1.0,55.0
+2024-02-04,Ligue 1,Lille,8.0,1.0,7.0,67.0,4.0,Clermont Foot,3.0,7.0,3.0,59.0
 2022-08-31,Premier League,Liverpool,12.0,2.0,7.0,67.0,6.0,Newcastle United,2.0,3.0,2.0,71.0
 2022-10-01,Premier League,Liverpool,14.0,4.0,7.0,67.0,4.0,Brighton and Hove Albion,6.0,5.0,4.0,62.0
 2022-10-16,Premier League,Liverpool,6.0,4.0,7.0,67.0,4.0,Manchester City,4.0,2.0,4.0,89.0
@@ -2684,6 +2726,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-10,Ligue 1,Lyon,4.0,3.0,4.0,62.0,6.0,Toulouse,1.0,5.0,1.0,48.0
 2023-12-20,Ligue 1,Lyon,4.0,2.0,6.0,62.0,4.0,Nantes,2.0,6.0,0.0,36.0
 2024-01-26,Ligue 1,Lyon,6.0,3.0,6.0,62.0,3.0,Rennes,6.0,3.0,7.0,68.0
+2024-02-04,Ligue 1,Lyon,4.0,3.0,6.0,62.0,3.0,Marseille,5.0,4.0,4.0,73.0
 2022-12-11,A-League,Macarthur FC,4.0,4.0,3.0,26.0,0.0,Melbourne Victory,1.0,3.0,4.0,28.0
 2022-12-18,A-League,Macarthur FC,3.0,4.0,3.0,26.0,6.0,Perth Glory,1.0,7.0,0.0,29.0
 2023-01-08,A-League,Macarthur FC,3.0,1.0,6.0,26.0,3.0,Newcastle Jets,1.0,5.0,3.0,29.0
@@ -2703,6 +2746,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2024-01-05,A-League,Macarthur FC,5.0,7.0,4.0,26.0,1.0,Newcastle Jets,5.0,4.0,4.0,29.0
 2024-01-12,A-League,Macarthur FC,4.0,7.0,2.0,26.0,4.0,Western United,5.0,9.0,1.0,32.0
 2024-01-28,A-League,Macarthur FC,6.0,6.0,3.0,26.0,1.0,Perth Glory,6.0,7.0,4.0,29.0
+2024-02-04,A-League,Macarthur FC,9.0,8.0,5.0,26.0,3.0,Western Sydney Wanderers,5.0,4.0,6.0,41.0
 2022-09-16,Bundesliga,Mainz 05,1.0,4.0,2.0,46.0,4.0,Hertha BSC,3.0,2.0,4.0,29.0
 2022-10-08,Bundesliga,Mainz 05,2.0,5.0,2.0,46.0,1.0,RB Leipzig,1.0,8.0,1.0,66.0
 2022-10-21,Bundesliga,Mainz 05,7.0,2.0,5.0,46.0,3.0,Koln,3.0,11.0,1.0,42.0
@@ -2726,6 +2770,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-03,Bundesliga,Mainz 05,3.0,4.0,3.0,46.0,1.0,Freiburg,3.0,5.0,3.0,59.0
 2023-12-16,Bundesliga,Mainz 05,2.0,2.0,3.0,46.0,,Heidenheim,4.0,6.0,3.0,35.0
 2024-01-13,Bundesliga,Mainz 05,1.0,3.0,1.0,46.0,1.0,Wolfsburg,3.0,4.0,4.0,49.0
+2024-02-03,Bundesliga,Mainz 05,1.0,3.0,1.0,46.0,0.0,Werder Bremen,3.0,1.0,7.0,36.0
 2022-09-17,La Liga,Mallorca,3.0,3.0,4.0,50.0,,Almeria,1.0,3.0,1.0,41.0
 2022-10-01,La Liga,Mallorca,2.0,2.0,4.0,50.0,0.0,Barcelona,8.0,0.0,9.0,88.0
 2022-10-15,La Liga,Mallorca,1.0,2.0,3.0,50.0,1.0,Sevilla,5.0,3.0,7.0,49.0
@@ -2807,6 +2852,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,Premier League,Manchester United,3.0,4.0,6.0,75.0,3.0,Bournemouth,8.0,1.0,9.0,39.0
 2023-12-26,Premier League,Manchester United,5.0,6.0,6.0,75.0,6.0,Aston Villa,6.0,6.0,4.0,61.0
 2024-01-14,Premier League,Manchester United,5.0,7.0,4.0,75.0,1.0,Tottenham Hotspur,6.0,6.0,4.0,60.0
+2024-02-04,Premier League,Manchester United,8.0,4.0,7.0,75.0,3.0,West Ham United,4.0,5.0,4.0,40.0
 2022-09-11,Primeira Liga,Maritimo,2.0,5.0,0.0,26.0,1.0,Gil Vicente FC,4.0,4.0,4.0,37.0
 2022-10-03,Primeira Liga,Maritimo,2.0,5.0,0.0,26.0,,Casa Pia,6.0,3.0,9.0,41.0
 2022-10-23,Primeira Liga,Maritimo,3.0,5.0,1.0,26.0,4.0,Arouca,2.0,2.0,3.0,54.0
@@ -2919,6 +2965,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-10,Ligue 1,Metz,3.0,2.0,4.0,35.0,0.0,Brest,4.0,3.0,6.0,44.0
 2023-12-17,Ligue 1,Metz,3.0,3.0,3.0,35.0,1.0,Montpellier,1.0,5.0,3.0,50.0
 2024-01-14,Ligue 1,Metz,0.0,3.0,0.0,35.0,0.0,Toulouse,1.0,4.0,3.0,48.0
+2024-02-04,Ligue 1,Metz,1.0,4.0,0.0,35.0,3.0,Lorient,2.0,8.0,3.0,55.0
 2022-09-03,Serie A,Milan,9.0,4.0,9.0,70.0,6.0,Internazionale,5.0,7.0,3.0,72.0
 2022-09-18,Serie A,Milan,6.0,4.0,6.0,70.0,3.0,Napoli,4.0,2.0,7.0,90.0
 2022-10-08,Serie A,Milan,6.0,4.0,6.0,70.0,4.0,Juventus,1.0,4.0,1.0,62.0
@@ -2973,6 +3020,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-03,Ligue 1,Monaco,6.0,1.0,9.0,65.0,3.0,Montpellier,0.0,7.0,0.0,50.0
 2023-12-15,Ligue 1,Monaco,4.0,1.0,6.0,65.0,0.0,Lyon,3.0,6.0,3.0,62.0
 2024-01-13,Ligue 1,Monaco,3.0,4.0,3.0,65.0,3.0,Reims,4.0,5.0,3.0,51.0
+2024-02-04,Ligue 1,Monaco,2.0,5.0,1.0,65.0,2.0,Le Havre,4.0,5.0,2.0,35.0
 2022-09-04,Bundesliga,Monchengladbach,4.0,2.0,6.0,43.0,1.0,Mainz 05,5.0,2.0,9.0,46.0
 2022-09-17,Bundesliga,Monchengladbach,4.0,1.0,6.0,43.0,6.0,RB Leipzig,1.0,9.0,0.0,66.0
 2022-10-09,Bundesliga,Monchengladbach,8.0,3.0,6.0,43.0,3.0,Koln,7.0,8.0,4.0,42.0
@@ -3084,6 +3132,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-03,Eredivisie,NEC Nijmegen,5.0,6.0,2.0,39.0,0.0,Ajax,6.0,8.0,4.0,69.0
 2023-12-15,Eredivisie,NEC Nijmegen,6.0,4.0,4.0,39.0,4.0,Fortuna Sittard,1.0,9.0,0.0,36.0
 2024-01-20,Eredivisie,NEC Nijmegen,6.0,3.0,6.0,39.0,4.0,Twente,5.0,4.0,4.0,64.0
+2024-02-03,Eredivisie,NEC Nijmegen,8.0,2.0,9.0,39.0,3.0,Heracles Almelo,3.0,6.0,3.0,35.0
 2022-09-03,Ligue 1,Nantes,4.0,5.0,4.0,36.0,3.0,Paris Saint Germain,13.0,1.0,9.0,85.0
 2022-09-18,Ligue 1,Nantes,3.0,4.0,4.0,36.0,2.0,Lens,5.0,2.0,5.0,84.0
 2022-10-16,Ligue 1,Nantes,4.0,4.0,4.0,36.0,4.0,Brest,2.0,6.0,1.0,44.0
@@ -3111,6 +3160,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-02,Ligue 1,Nantes,1.0,1.0,4.0,36.0,4.0,Nice,1.0,1.0,4.0,58.0
 2023-12-17,Ligue 1,Nantes,1.0,2.0,4.0,36.0,0.0,Brest,6.0,1.0,9.0,44.0
 2024-01-14,Ligue 1,Nantes,2.0,4.0,3.0,36.0,3.0,Clermont Foot,3.0,6.0,3.0,59.0
+2024-02-03,Ligue 1,Nantes,1.0,5.0,0.0,36.0,0.0,Lens,3.0,2.0,6.0,84.0
 2022-09-10,Serie A,Napoli,6.0,1.0,7.0,90.0,6.0,Spezia,0.0,6.0,0.0,31.0
 2022-10-01,Serie A,Napoli,5.0,2.0,7.0,90.0,6.0,Torino,2.0,7.0,0.0,53.0
 2022-10-16,Serie A,Napoli,7.0,3.0,9.0,90.0,6.0,Bologna,4.0,8.0,1.0,54.0
@@ -3138,6 +3188,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,Serie A,Napoli,2.0,5.0,3.0,90.0,4.0,Cagliari,2.0,5.0,0.0,35.0
 2023-12-29,Serie A,Napoli,2.0,4.0,4.0,90.0,1.0,Monza,1.0,4.0,2.0,52.0
 2024-01-13,Serie A,Napoli,4.0,2.0,7.0,90.0,6.0,Salernitana,3.0,6.0,3.0,42.0
+2024-02-04,Serie A,Napoli,4.0,2.0,7.0,90.0,6.0,Hellas Verona,3.0,6.0,0.0,31.0
 2022-11-12,A-League,Newcastle Jets,6.0,4.0,6.0,29.0,0.0,Melbourne City,6.0,1.0,9.0,55.0
 2023-01-01,A-League,Newcastle Jets,1.0,5.0,0.0,29.0,3.0,Sydney FC,4.0,5.0,3.0,38.0
 2023-01-22,A-League,Newcastle Jets,1.0,4.0,1.0,29.0,1.0,Western Sydney Wanderers,2.0,3.0,2.0,41.0
@@ -3154,6 +3205,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-30,A-League,Newcastle Jets,4.0,4.0,4.0,29.0,6.0,Western United,2.0,10.0,0.0,32.0
 2024-01-23,A-League,Newcastle Jets,7.0,3.0,7.0,29.0,3.0,Brisbane Roar,3.0,13.0,0.0,30.0
 2024-01-27,A-League,Newcastle Jets,6.0,3.0,6.0,29.0,3.0,Wellington Phoenix,8.0,6.0,7.0,35.0
+2024-02-03,A-League,Newcastle Jets,5.0,4.0,4.0,29.0,1.0,Melbourne Victory,3.0,3.0,3.0,28.0
 2022-09-03,Premier League,Newcastle United,5.0,3.0,5.0,71.0,4.0,Crystal Palace,3.0,5.0,2.0,45.0
 2022-09-17,Premier League,Newcastle United,4.0,4.0,3.0,71.0,4.0,Bournemouth,4.0,12.0,4.0,39.0
 2022-10-08,Premier League,Newcastle United,6.0,2.0,5.0,71.0,6.0,Brentford,2.0,6.0,2.0,59.0
@@ -3181,6 +3233,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,Premier League,Newcastle United,8.0,1.0,9.0,71.0,6.0,Fulham,4.0,10.0,0.0,52.0
 2023-12-26,Premier League,Newcastle United,5.0,3.0,6.0,71.0,3.0,Nottingham Forest,4.0,7.0,4.0,38.0
 2024-01-13,Premier League,Newcastle United,6.0,6.0,3.0,71.0,0.0,Manchester City,8.0,4.0,9.0,89.0
+2024-02-03,Premier League,Newcastle United,7.0,10.0,1.0,71.0,1.0,Luton Town,8.0,7.0,5.0,35.0
 2022-09-04,Ligue 1,Nice,1.0,5.0,1.0,58.0,0.0,Monaco,4.0,2.0,7.0,65.0
 2022-09-18,Ligue 1,Nice,0.0,5.0,0.0,58.0,3.0,Angers,2.0,8.0,3.0,18.0
 2022-10-09,Ligue 1,Nice,3.0,4.0,3.0,58.0,6.0,Troyes,5.0,5.0,3.0,24.0
@@ -3300,6 +3353,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-15,La Liga,Osasuna,3.0,2.0,5.0,53.0,3.0,Rayo Vallecano,0.0,5.0,1.0,49.0
 2024-01-04,La Liga,Osasuna,3.0,1.0,7.0,53.0,6.0,Almeria,3.0,6.0,0.0,41.0
 2024-01-21,La Liga,Osasuna,5.0,2.0,9.0,53.0,3.0,Getafe,8.0,6.0,4.0,42.0
+2024-02-04,La Liga,Osasuna,4.0,5.0,6.0,53.0,3.0,Celta Vigo,6.0,4.0,4.0,43.0
 2022-09-11,Eredivisie,PSV Eindhoven,12.0,2.0,9.0,75.0,6.0,RKC Waalwijk,3.0,4.0,2.0,41.0
 2022-09-18,Eredivisie,PSV Eindhoven,12.0,4.0,9.0,75.0,4.0,Feyenoord,8.0,7.0,6.0,82.0
 2022-10-16,Eredivisie,PSV Eindhoven,11.0,4.0,9.0,75.0,6.0,Utrecht,6.0,9.0,6.0,54.0
@@ -3419,6 +3473,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-23,A-League,Perth Glory,6.0,4.0,6.0,29.0,6.0,Macarthur FC,7.0,6.0,4.0,26.0
 2024-01-06,A-League,Perth Glory,6.0,7.0,3.0,29.0,1.0,Melbourne Victory,7.0,5.0,7.0,28.0
 2024-01-14,A-League,Perth Glory,8.0,9.0,3.0,29.0,0.0,Wellington Phoenix,7.0,8.0,4.0,35.0
+2024-02-02,A-League,Perth Glory,9.0,9.0,3.0,29.0,3.0,Melbourne City,5.0,7.0,3.0,55.0
 2022-09-04,Primeira Liga,Portimonense,3.0,2.0,6.0,34.0,6.0,Famalicao,0.0,3.0,1.0,44.0
 2022-09-16,Primeira Liga,Portimonense,4.0,1.0,9.0,34.0,3.0,Chaves,2.0,4.0,3.0,46.0
 2022-10-08,Primeira Liga,Portimonense,2.0,2.0,6.0,34.0,0.0,Porto,5.0,1.0,7.0,85.0
@@ -3442,6 +3497,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-30,Primeira Liga,Portimonense,4.0,4.0,4.0,34.0,0.0,Sporting CP,5.0,6.0,3.0,74.0
 2024-01-12,Primeira Liga,Portimonense,3.0,3.0,4.0,34.0,4.0,Farense,1.0,6.0,1.0,35.0
 2024-01-21,Primeira Liga,Portimonense,2.0,4.0,3.0,34.0,0.0,Gil Vicente FC,2.0,4.0,3.0,37.0
+2024-02-03,Primeira Liga,Portimonense,2.0,4.0,3.0,34.0,1.0,Arouca,5.0,4.0,6.0,54.0
 2022-09-10,Primeira Liga,Porto,11.0,1.0,9.0,85.0,6.0,Chaves,4.0,4.0,6.0,46.0
 2022-09-30,Primeira Liga,Porto,10.0,1.0,9.0,85.0,3.0,Braga,10.0,6.0,6.0,78.0
 2022-10-21,Primeira Liga,Porto,7.0,2.0,6.0,85.0,3.0,Benfica,2.0,0.0,7.0,87.0
@@ -3465,6 +3521,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-29,Primeira Liga,Porto,4.0,2.0,6.0,85.0,6.0,Chaves,1.0,7.0,0.0,46.0
 2024-01-14,Primeira Liga,Porto,6.0,1.0,9.0,85.0,4.0,Braga,6.0,4.0,6.0,78.0
 2024-01-20,Primeira Liga,Porto,8.0,0.0,9.0,85.0,6.0,Moreirense,3.0,6.0,4.0,35.0
+2024-02-03,Primeira Liga,Porto,7.0,0.0,7.0,85.0,4.0,Rio Ave,1.0,4.0,2.0,40.0
 2022-09-10,Bundesliga,RB Leipzig,7.0,2.0,7.0,66.0,6.0,Dortmund,4.0,4.0,6.0,71.0
 2022-10-01,Bundesliga,RB Leipzig,9.0,0.0,9.0,66.0,6.0,Bochum,1.0,8.0,0.0,35.0
 2022-10-15,Bundesliga,RB Leipzig,10.0,2.0,9.0,66.0,6.0,Hertha BSC,5.0,4.0,4.0,29.0
@@ -3490,6 +3547,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,Bundesliga,RB Leipzig,8.0,3.0,9.0,66.0,6.0,Hoffenheim,3.0,6.0,1.0,36.0
 2024-01-13,Bundesliga,RB Leipzig,5.0,3.0,6.0,66.0,3.0,Eintracht Frankfurt,2.0,5.0,3.0,50.0
 2024-01-20,Bundesliga,RB Leipzig,5.0,5.0,3.0,66.0,0.0,Bayer Leverkusen,5.0,3.0,7.0,50.0
+2024-02-04,Bundesliga,RB Leipzig,4.0,4.0,3.0,66.0,6.0,Union Berlin,0.0,3.0,1.0,62.0
 2022-09-10,Pro League A,RFC Seraing,0.0,7.0,0.0,20.0,0.0,Club Brugge,8.0,1.0,9.0,59.0
 2022-10-08,Pro League A,RFC Seraing,1.0,7.0,1.0,20.0,2.0,Oostende,3.0,4.0,2.0,27.0
 2022-10-18,Pro League A,RFC Seraing,1.0,4.0,1.0,20.0,0.0,Cercle Brugge,6.0,5.0,6.0,50.0
@@ -3539,6 +3597,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,Pro League A,RWD Molenbeek,4.0,1.0,5.0,35.0,3.0,Sint Truiden,5.0,6.0,4.0,42.0
 2023-12-22,Pro League A,RWD Molenbeek,4.0,6.0,4.0,35.0,0.0,Club Brugge,7.0,1.0,7.0,59.0
 2024-01-24,Pro League A,RWD Molenbeek,4.0,7.0,3.0,35.0,3.0,Eupen,1.0,5.0,3.0,28.0
+2024-02-03,Pro League A,RWD Molenbeek,3.0,9.0,1.0,35.0,2.0,Standard Liege,3.0,6.0,2.0,55.0
 2022-10-03,La Liga,Rayo Vallecano,4.0,4.0,6.0,49.0,3.0,Elche,1.0,9.0,0.0,25.0
 2022-10-14,La Liga,Rayo Vallecano,4.0,2.0,7.0,49.0,2.0,Getafe,3.0,5.0,4.0,42.0
 2022-10-22,La Liga,Rayo Vallecano,7.0,2.0,7.0,49.0,3.0,Cadiz,3.0,6.0,4.0,42.0
@@ -3565,6 +3624,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-11,La Liga,Rayo Vallecano,2.0,3.0,2.0,49.0,1.0,Celta Vigo,3.0,4.0,2.0,43.0
 2023-12-19,La Liga,Rayo Vallecano,1.0,2.0,2.0,49.0,1.0,Valencia,2.0,3.0,3.0,42.0
 2024-01-20,La Liga,Rayo Vallecano,0.0,3.0,1.0,49.0,3.0,Las Palmas,3.0,1.0,6.0,35.0
+2024-02-05,La Liga,Rayo Vallecano,1.0,5.0,0.0,49.0,1.0,Sevilla,3.0,7.0,3.0,49.0
 2022-09-11,La Liga,Real Betis,5.0,0.0,9.0,60.0,3.0,Villarreal,2.0,1.0,4.0,64.0
 2022-09-18,La Liga,Real Betis,4.0,1.0,9.0,60.0,6.0,Girona,2.0,4.0,1.0,49.0
 2022-10-16,La Liga,Real Betis,6.0,2.0,9.0,60.0,,Almeria,1.0,8.0,0.0,41.0
@@ -3592,6 +3652,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-21,La Liga,Real Betis,3.0,2.0,5.0,60.0,4.0,Girona,7.0,4.0,7.0,49.0
 2024-01-13,La Liga,Real Betis,3.0,2.0,5.0,60.0,4.0,Granada,0.0,4.0,0.0,35.0
 2024-01-21,La Liga,Real Betis,4.0,5.0,4.0,60.0,0.0,Barcelona,7.0,4.0,7.0,88.0
+2024-02-04,La Liga,Real Betis,4.0,5.0,4.0,60.0,2.0,Getafe,6.0,7.0,2.0,42.0
 2022-10-02,La Liga,Real Madrid,7.0,3.0,7.0,78.0,4.0,Osasuna,2.0,2.0,4.0,53.0
 2022-10-16,La Liga,Real Madrid,8.0,3.0,7.0,78.0,3.0,Barcelona,6.0,3.0,6.0,88.0
 2022-10-22,La Liga,Real Madrid,7.0,3.0,7.0,78.0,6.0,Sevilla,3.0,4.0,4.0,49.0
@@ -3619,6 +3680,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-17,La Liga,Real Madrid,11.0,2.0,9.0,78.0,3.0,Villarreal,3.0,8.0,1.0,64.0
 2024-01-03,La Liga,Real Madrid,7.0,1.0,9.0,78.0,3.0,Mallorca,0.0,2.0,1.0,50.0
 2024-01-21,La Liga,Real Madrid,8.0,3.0,9.0,78.0,6.0,Almeria,4.0,7.0,0.0,41.0
+2024-02-04,La Liga,Real Madrid,5.0,3.0,7.0,78.0,1.0,Atletico Madrid,5.0,5.0,4.0,77.0
 2022-09-18,La Liga,Real Sociedad,4.0,6.0,4.0,71.0,6.0,Espanyol,4.0,4.0,4.0,37.0
 2022-10-09,La Liga,Real Sociedad,4.0,2.0,7.0,71.0,6.0,Villarreal,0.0,2.0,1.0,64.0
 2022-10-19,La Liga,Real Sociedad,4.0,1.0,9.0,71.0,6.0,Mallorca,2.0,6.0,1.0,50.0
@@ -3672,6 +3734,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-01,Ligue 1,Reims,3.0,4.0,6.0,51.0,3.0,Strasbourg,2.0,6.0,1.0,40.0
 2023-12-20,Ligue 1,Reims,3.0,4.0,6.0,51.0,,Le Havre,1.0,3.0,1.0,35.0
 2024-01-28,Ligue 1,Reims,3.0,1.0,7.0,51.0,4.0,Nantes,1.0,3.0,1.0,36.0
+2024-02-04,Ligue 1,Reims,3.0,3.0,4.0,51.0,1.0,Toulouse,4.0,5.0,6.0,48.0
 2022-08-31,Ligue 1,Rennes,5.0,3.0,6.0,68.0,6.0,Brest,6.0,7.0,3.0,44.0
 2022-09-11,Ligue 1,Rennes,10.0,2.0,9.0,68.0,,Auxerre,3.0,8.0,3.0,35.0
 2022-10-09,Ligue 1,Rennes,11.0,1.0,9.0,68.0,3.0,Nantes,3.0,10.0,0.0,36.0
@@ -3697,6 +3760,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-11-26,Ligue 1,Rennes,4.0,3.0,4.0,68.0,6.0,Reims,3.0,4.0,4.0,51.0
 2023-12-09,Ligue 1,Rennes,4.0,4.0,3.0,68.0,3.0,Monaco,4.0,6.0,4.0,65.0
 2024-01-13,Ligue 1,Rennes,6.0,3.0,6.0,68.0,3.0,Nice,1.0,6.0,0.0,58.0
+2024-02-03,Ligue 1,Rennes,5.0,3.0,6.0,68.0,4.0,Montpellier,2.0,4.0,3.0,50.0
 2022-09-11,Primeira Liga,Rio Ave,5.0,5.0,3.0,40.0,1.0,Braga,12.0,2.0,9.0,78.0
 2022-10-02,Primeira Liga,Rio Ave,6.0,4.0,6.0,40.0,3.0,Santa Clara,0.0,3.0,0.0,22.0
 2022-10-24,Primeira Liga,Rio Ave,4.0,3.0,6.0,40.0,4.0,Portimonense,0.0,6.0,0.0,34.0
@@ -3750,6 +3814,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-23,Serie A,Roma,6.0,2.0,7.0,63.0,3.0,Napoli,2.0,4.0,3.0,90.0
 2024-01-07,Serie A,Roma,4.0,2.0,5.0,63.0,1.0,Atalanta,1.0,5.0,1.0,64.0
 2024-01-20,Serie A,Roma,5.0,2.0,7.0,63.0,3.0,Hellas Verona,2.0,5.0,0.0,31.0
+2024-02-05,Serie A,Roma,7.0,2.0,7.0,63.0,6.0,Cagliari,2.0,8.0,1.0,35.0
 2022-09-05,Serie A,Salernitana,6.0,3.0,4.0,42.0,2.0,Empoli,3.0,4.0,2.0,43.0
 2022-09-16,Serie A,Salernitana,7.0,4.0,4.0,42.0,,Lecce,3.0,3.0,4.0,36.0
 2022-10-09,Serie A,Salernitana,5.0,5.0,4.0,42.0,6.0,Hellas Verona,1.0,6.0,0.0,31.0
@@ -3963,6 +4028,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-06,Premier League,Sheffield United,3.0,6.0,3.0,35.0,0.0,Liverpool,4.0,2.0,5.0,67.0
 2023-12-09,Premier League,Sheffield United,2.0,5.0,3.0,35.0,,Brentford,1.0,6.0,0.0,59.0
 2024-01-21,Premier League,Sheffield United,5.0,5.0,4.0,35.0,1.0,West Ham United,4.0,7.0,4.0,40.0
+2024-02-03,Premier League,Sheffield United,4.0,10.0,1.0,35.0,1.0,Aston Villa,7.0,3.0,4.0,61.0
 2022-09-09,Pro League A,Sint Truiden,4.0,6.0,3.0,42.0,3.0,Standard Liege,5.0,5.0,6.0,55.0
 2022-10-02,Pro League A,Sint Truiden,4.0,4.0,3.0,42.0,3.0,Eupen,2.0,1.0,6.0,28.0
 2022-10-15,Pro League A,Sint Truiden,3.0,4.0,3.0,42.0,3.0,Charleroi,4.0,5.0,3.0,48.0
@@ -4034,6 +4100,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-11-26,Eredivisie,Sparta Rotterdam,4.0,4.0,3.0,59.0,0.0,Utrecht,2.0,2.0,4.0,54.0
 2023-12-17,Eredivisie,Sparta Rotterdam,4.0,6.0,1.0,59.0,1.0,Twente,6.0,4.0,5.0,64.0
 2024-01-21,Eredivisie,Sparta Rotterdam,3.0,6.0,1.0,59.0,1.0,Go Ahead Eagles,4.0,2.0,5.0,40.0
+2024-02-04,Eredivisie,Sparta Rotterdam,2.0,6.0,1.0,59.0,3.0,Zwolle,6.0,4.0,5.0,35.0
 2022-09-04,Serie A,Spezia,5.0,4.0,5.0,31.0,1.0,Bologna,3.0,6.0,1.0,54.0
 2022-09-17,Serie A,Spezia,6.0,5.0,5.0,31.0,6.0,Sampdoria,2.0,8.0,0.0,19.0
 2022-10-16,Serie A,Spezia,6.0,5.0,5.0,31.0,,Cremonese,4.0,4.0,3.0,27.0
@@ -4132,6 +4199,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-11-25,Ligue 1,Strasbourg,2.0,3.0,2.0,40.0,2.0,Marseille,1.0,3.0,1.0,73.0
 2023-12-10,Ligue 1,Strasbourg,3.0,2.0,5.0,40.0,,Le Havre,3.0,3.0,4.0,35.0
 2023-12-20,Ligue 1,Strasbourg,5.0,3.0,7.0,40.0,3.0,Lille,3.0,2.0,4.0,67.0
+2024-02-02,Ligue 1,Strasbourg,5.0,4.0,6.0,40.0,0.0,Paris Saint Germain,5.0,2.0,7.0,85.0
 2022-09-03,Bundesliga,Stuttgart,2.0,3.0,2.0,33.0,4.0,Schalke 04,2.0,4.0,2.0,31.0
 2022-09-17,Bundesliga,Stuttgart,2.0,5.0,1.0,33.0,0.0,Eintracht Frankfurt,8.0,5.0,7.0,50.0
 2022-10-09,Bundesliga,Stuttgart,2.0,5.0,1.0,33.0,1.0,Union Berlin,2.0,2.0,6.0,62.0
@@ -4200,6 +4268,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,Serie A,Torino,6.0,1.0,9.0,53.0,4.0,Empoli,2.0,2.0,4.0,43.0
 2023-12-23,Serie A,Torino,5.0,1.0,7.0,53.0,4.0,Udinese,2.0,8.0,1.0,46.0
 2024-01-07,Serie A,Torino,5.0,1.0,7.0,53.0,3.0,Napoli,0.0,6.0,0.0,90.0
+2024-02-04,Serie A,Torino,4.0,1.0,5.0,53.0,4.0,Salernitana,2.0,2.0,4.0,42.0
 2022-09-03,Premier League,Tottenham Hotspur,7.0,2.0,9.0,60.0,6.0,Fulham,2.0,4.0,1.0,52.0
 2022-09-17,Premier League,Tottenham Hotspur,9.0,3.0,9.0,60.0,6.0,Leicester City,5.0,13.0,0.0,34.0
 2022-10-15,Premier League,Tottenham Hotspur,10.0,3.0,9.0,60.0,6.0,Everton,3.0,4.0,4.0,36.0
@@ -4295,6 +4364,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-11-25,Eredivisie,Twente,5.0,7.0,4.0,64.0,0.0,PSV Eindhoven,13.0,0.0,9.0,75.0
 2023-12-08,Eredivisie,Twente,7.0,8.0,4.0,64.0,4.0,Excelsior,6.0,8.0,2.0,32.0
 2024-01-13,Eredivisie,Twente,6.0,6.0,6.0,64.0,6.0,AZ Alkmaar,2.0,4.0,1.0,67.0
+2024-02-03,Eredivisie,Twente,9.0,3.0,9.0,64.0,3.0,RKC Waalwijk,2.0,8.0,1.0,41.0
 2022-09-04,Serie A,Udinese,5.0,0.0,7.0,46.0,4.0,Roma,2.0,5.0,4.0,63.0
 2022-09-18,Serie A,Udinese,8.0,1.0,9.0,46.0,3.0,Internazionale,4.0,9.0,0.0,72.0
 2022-10-09,Serie A,Udinese,9.0,3.0,7.0,46.0,1.0,Atalanta,5.0,2.0,7.0,64.0
@@ -4322,6 +4392,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-30,Serie A,Udinese,8.0,5.0,5.0,46.0,3.0,Bologna,3.0,5.0,4.0,54.0
 2024-01-07,Serie A,Udinese,6.0,4.0,4.0,46.0,0.0,Lazio,5.0,2.0,7.0,74.0
 2024-01-20,Serie A,Udinese,6.0,5.0,3.0,46.0,3.0,Milan,8.0,4.0,7.0,70.0
+2024-02-03,Serie A,Udinese,3.0,5.0,1.0,46.0,2.0,Monza,3.0,5.0,4.0,52.0
 2022-09-03,Bundesliga,Union Berlin,6.0,3.0,7.0,62.0,1.0,Bayern Munich,14.0,2.0,7.0,71.0
 2022-09-18,Bundesliga,Union Berlin,5.0,2.0,7.0,62.0,3.0,Wolfsburg,1.0,4.0,3.0,49.0
 2022-10-16,Bundesliga,Union Berlin,5.0,1.0,7.0,62.0,3.0,Dortmund,2.0,8.0,0.0,71.0
@@ -4403,6 +4474,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-03,Eredivisie,Utrecht,4.0,4.0,3.0,54.0,2.0,AZ Alkmaar,2.0,3.0,2.0,67.0
 2023-12-16,Eredivisie,Utrecht,4.0,4.0,3.0,54.0,4.0,RKC Waalwijk,3.0,3.0,4.0,41.0
 2024-01-21,Eredivisie,Utrecht,3.0,3.0,3.0,54.0,1.0,PSV Eindhoven,7.0,2.0,7.0,75.0
+2024-02-04,Eredivisie,Utrecht,6.0,4.0,5.0,54.0,3.0,Volendam,5.0,6.0,4.0,36.0
 2022-09-17,La Liga,Valencia,8.0,2.0,6.0,42.0,6.0,Celta Vigo,2.0,7.0,3.0,43.0
 2022-10-15,La Liga,Valencia,10.0,3.0,7.0,42.0,4.0,Elche,3.0,7.0,1.0,25.0
 2022-10-22,La Liga,Valencia,6.0,4.0,4.0,42.0,3.0,Mallorca,3.0,3.0,4.0,50.0
@@ -4428,6 +4500,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-16,La Liga,Valencia,2.0,1.0,5.0,42.0,1.0,Barcelona,3.0,2.0,5.0,88.0
 2024-01-02,La Liga,Valencia,4.0,2.0,5.0,42.0,4.0,Villarreal,3.0,8.0,1.0,64.0
 2024-01-20,La Liga,Valencia,5.0,2.0,7.0,42.0,4.0,Athletic Club,3.0,2.0,4.0,51.0
+2024-02-03,La Liga,Valencia,6.0,2.0,9.0,42.0,4.0,Almeria,3.0,6.0,0.0,41.0
 2022-09-16,La Liga,Valladolid,1.0,4.0,3.0,40.0,1.0,Cadiz,1.0,5.0,3.0,42.0
 2022-10-09,La Liga,Valladolid,1.0,1.0,4.0,40.0,2.0,Real Betis,1.0,3.0,1.0,60.0
 2022-10-19,La Liga,Valladolid,4.0,2.0,4.0,40.0,4.0,Celta Vigo,1.0,8.0,0.0,43.0
@@ -4500,6 +4573,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,La Liga,Villarreal,5.0,7.0,3.0,64.0,3.0,Real Sociedad,7.0,2.0,7.0,71.0
 2023-12-20,La Liga,Villarreal,6.0,6.0,6.0,64.0,6.0,Celta Vigo,2.0,3.0,2.0,43.0
 2024-01-20,La Liga,Villarreal,4.0,6.0,4.0,64.0,4.0,Mallorca,1.0,2.0,2.0,50.0
+2024-02-04,La Liga,Villarreal,4.0,3.0,5.0,64.0,1.0,Cadiz,0.0,3.0,1.0,42.0
 2022-09-17,Eredivisie,Vitesse,3.0,7.0,2.0,40.0,,Volendam,2.0,12.0,1.0,36.0
 2022-10-09,Eredivisie,Vitesse,4.0,5.0,2.0,40.0,3.0,Fortuna Sittard,4.0,4.0,4.0,36.0
 2022-10-22,Eredivisie,Vitesse,4.0,4.0,4.0,40.0,6.0,Emmen,2.0,7.0,0.0,28.0
@@ -4523,6 +4597,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-10,Eredivisie,Vitesse,4.0,4.0,4.0,40.0,4.0,Heracles Almelo,6.0,6.0,3.0,35.0
 2024-01-14,Eredivisie,Vitesse,3.0,3.0,4.0,40.0,4.0,Utrecht,4.0,1.0,7.0,54.0
 2024-01-21,Eredivisie,Vitesse,3.0,2.0,4.0,40.0,0.0,Feyenoord,10.0,3.0,9.0,82.0
+2024-02-04,Eredivisie,Vitesse,1.0,4.0,1.0,40.0,0.0,Go Ahead Eagles,5.0,1.0,7.0,40.0
 2022-09-09,Primeira Liga,Vitoria Guimaraes,2.0,1.0,6.0,53.0,4.0,Santa Clara,1.0,4.0,0.0,22.0
 2022-10-01,Primeira Liga,Vitoria Guimaraes,1.0,1.0,4.0,53.0,1.0,Benfica,4.0,0.0,7.0,87.0
 2022-10-23,Primeira Liga,Vitoria Guimaraes,4.0,2.0,7.0,53.0,4.0,Boavista,4.0,8.0,3.0,44.0
@@ -4573,6 +4648,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-23,Primeira Liga,Vizela,1.0,3.0,2.0,40.0,1.0,Moreirense,2.0,1.0,5.0,35.0
 2024-01-14,Primeira Liga,Vizela,2.0,7.0,1.0,40.0,1.0,Boavista,5.0,5.0,3.0,44.0
 2024-01-18,Primeira Liga,Vizela,3.0,9.0,1.0,40.0,0.0,Sporting CP,10.0,3.0,9.0,74.0
+2024-02-04,Primeira Liga,Vizela,3.0,10.0,0.0,40.0,0.0,Vitoria Guimaraes,2.0,2.0,4.0,53.0
 2022-09-09,Eredivisie,Volendam,4.0,7.0,3.0,36.0,,Go Ahead Eagles,3.0,5.0,3.0,40.0
 2022-10-08,Eredivisie,Volendam,5.0,7.0,3.0,36.0,,Ajax,7.0,4.0,6.0,69.0
 2022-10-23,Eredivisie,Volendam,5.0,10.0,0.0,36.0,,Heerenveen,4.0,2.0,5.0,46.0
@@ -4693,6 +4769,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-15,Pro League A,Westerlo,6.0,6.0,4.0,51.0,4.0,Eupen,1.0,5.0,1.0,28.0
 2023-12-26,Pro League A,Westerlo,6.0,3.0,6.0,51.0,4.0,RWD Molenbeek,1.0,9.0,0.0,35.0
 2024-01-30,Pro League A,Westerlo,9.0,2.0,9.0,51.0,3.0,Cercle Brugge,3.0,7.0,1.0,50.0
+2024-02-03,Pro League A,Westerlo,7.0,5.0,6.0,51.0,3.0,OH Leuven,3.0,4.0,4.0,48.0
 2023-01-01,A-League,Western Sydney Wanderers,6.0,3.0,6.0,41.0,4.0,Macarthur FC,6.0,6.0,6.0,26.0
 2023-01-15,A-League,Western Sydney Wanderers,5.0,4.0,4.0,41.0,1.0,Melbourne City,5.0,4.0,4.0,55.0
 2023-02-05,A-League,Western Sydney Wanderers,6.0,1.0,7.0,41.0,3.0,Western United,2.0,7.0,1.0,32.0
@@ -4728,6 +4805,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-15,A-League,Western United,3.0,5.0,3.0,32.0,3.0,Brisbane Roar,5.0,3.0,6.0,30.0
 2024-01-07,A-League,Western United,3.0,4.0,3.0,32.0,3.0,Melbourne City,6.0,2.0,9.0,55.0
 2024-01-27,A-League,Western United,3.0,4.0,3.0,32.0,0.0,Western Sydney Wanderers,2.0,2.0,6.0,41.0
+2024-02-03,A-League,Western United,3.0,5.0,1.0,32.0,1.0,Sydney FC,6.0,7.0,2.0,38.0
 2022-09-03,Bundesliga,Wolfsburg,4.0,6.0,2.0,49.0,3.0,Koln,7.0,5.0,5.0,42.0
 2022-10-01,Bundesliga,Wolfsburg,5.0,6.0,4.0,49.0,4.0,Stuttgart,4.0,5.0,2.0,33.0
 2022-10-15,Bundesliga,Wolfsburg,7.0,8.0,4.0,49.0,2.0,Monchengladbach,3.0,7.0,2.0,43.0
@@ -4751,6 +4829,7 @@ date,comp,home,gf_rolling_home,ga_rolling_home,pont_rolling_home,Points last sea
 2023-12-09,Bundesliga,Wolfsburg,4.0,4.0,4.0,49.0,0.0,Freiburg,3.0,3.0,6.0,59.0
 2023-12-20,Bundesliga,Wolfsburg,3.0,4.0,3.0,49.0,0.0,Bayern Munich,4.0,6.0,6.0,71.0
 2024-01-27,Bundesliga,Wolfsburg,2.0,4.0,1.0,49.0,4.0,Koln,1.0,5.0,1.0,42.0
+2024-02-04,Bundesliga,Wolfsburg,4.0,5.0,2.0,49.0,1.0,Hoffenheim,4.0,8.0,1.0,36.0
 2022-09-03,Premier League,Wolverhampton Wanderers,2.0,1.0,5.0,41.0,6.0,Southampton,3.0,6.0,3.0,25.0
 2022-09-17,Premier League,Wolverhampton Wanderers,2.0,4.0,4.0,41.0,0.0,Manchester City,7.0,4.0,5.0,89.0
 2022-10-15,Premier League,Wolverhampton Wanderers,2.0,3.0,6.0,41.0,,Nottingham Forest,0.0,11.0,0.0,38.0
