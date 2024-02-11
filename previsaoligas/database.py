@@ -58,7 +58,7 @@ def get_df_odds():
                                       "Pred_A": "Previsão 2"})
     df_odds['Dica'] = np.where(
     ((df_odds['Previsão 1'] >= 0.80) & (df_odds['Odds 1'] >= 1.20) & (df_odds['Odds 1'] <= 1.90)) |
-    ((df_odds['Previsão 2'] >= 0.65) & (df_odds['Odds 2'] >= 1.20) & (df_odds['Odds 2'] <= 1.65)),
+    ((df_odds['Previsão 2'] >= 0.65) & (df_odds['Odds 2'] >= 1.20) & (df_odds['Odds 2'] <= 1.75)),
     'Sim',  # Value if True
     'Não'   # Value if False
 )
