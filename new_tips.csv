@@ -1,9 +1,20 @@
 Date,League,Home,Away,Odds_H,Odds_D,Odds_A,Odds_H_X,Odds_H_A,Odds_X_A,Pred_H,Pred_A,Winning_team,Winning_prob,Winning_bet,Winning_bet_final,bet_type,bet_type_order
-2024-02-09,LIGUE 1 ,Marseille,Metz,1.34,4.9,9.8,1.04,1.15,3.3,0.92,0.08,Marseille,0.92,1.34,1.34,safest_bet,3
-2024-02-10,PREMIER LEAGUE ,Manchester City,Everton,1.22,7.1,14.5,1.02,1.1,4.5,0.97,0.03,Manchester City,0.97,1.22,1.22,safest_bet,3
-2024-02-10,LIGUE 1 ,Lens,Strasbourg,1.62,3.95,5.45,1.14,1.22,2.35,0.89,0.11,Lens,0.89,1.62,1.62,safest_bet,3
-2024-02-10,BUNDESLIGA ,Augsburg,RB Leipzig,4.35,4.2,1.75,2.15,1.19,1.22,0.33,0.67,RB Leipzig,0.67,1.75,1.22,safest_bet,3
-2024-02-10,BUNDESLIGA ,Eintracht Frankfurt,Bochum,1.75,4.0,4.75,1.2,1.22,2.15,0.8,0.2,Eintracht Frankfurt,0.8,1.75,1.2,safest_bet,3
-2024-02-11,JUPILER PRO LEAGUE ,RWD Molenbeek,Antwerp,5.0,4.2,1.6,2.35,1.18,1.16,0.34,0.66,Antwerp,0.66,1.6,1.16,safest_bet,3
-2024-02-11,SERIE A ,Bologna,Lecce,1.75,3.55,4.9,1.17,1.25,2.15,0.84,0.16,Bologna,0.84,1.75,1.17,safest_bet,3
-2024-02-12,LALIGA ,Almeria,Athletic Club,4.75,4.0,1.72,2.2,1.22,1.18,0.35,0.65,Athletic Club,0.65,1.72,1.18,safest_bet,3
+2024-02-16,SERIE A ,Torino,Lecce,1.7,3.55,5.4,1.16,1.26,2.15,0.83,0.17,Torino,0.83,1.7,1.16,safest_bet,3
+2024-02-17,EREDIVISIE ,Sparta Rotterdam,Excelsior,1.88,3.7,3.95,1.25,1.22,1.98,0.82,0.18,Sparta Rotterdam,0.82,1.88,1.25,safest_bet,3
+2024-02-18,LALIGA ,Rayo Vallecano,Real Madrid,5.0,4.2,1.66,2.3,1.2,1.16,0.25,0.75,Real Madrid,0.75,1.66,1.16,safest_bet,3
+2024-02-18,LIGA PORTUGAL ,Braga,Farense,1.35,5.0,8.5,1.06,1.12,3.3,0.89,0.11,Braga,0.89,1.35,1.35,safest_bet,3
+2024-02-18,EREDIVISIE ,Ajax,NEC Nijmegen,1.4,4.9,7.3,1.09,1.13,3.0,0.85,0.15,Ajax,0.85,1.4,1.4,safest_bet,3
+2024-02-18,BUNDESLIGA ,Bochum,Bayern Munich,8.5,6.0,1.32,3.5,1.11,1.04,0.33,0.67,Bayern Munich,0.67,1.32,1.32,safest_bet,3
+2024-02-18,JUPILER PRO LEAGUE ,Eupen,Gent,4.5,4.0,1.7,2.2,1.2,1.18,0.33,0.67,Gent,0.67,1.7,1.18,safest_bet,3
+2024-02-18,JUPILER PRO LEAGUE ,Kortrijk,Union SG,7.5,5.0,1.38,3.1,1.12,1.07,0.29,0.71,Union SG,0.71,1.38,1.38,safest_bet,3
+2024-02-17,LALIGA ,Atletico Madrid,Las Palmas,1.45,4.75,7.0,1.09,1.16,2.8,0.9,0.1,Atletico Madrid,0.9,1.45,1.45,safest_bet,3
+2024-02-17,SERIE A ,Atalanta,Sassuolo,1.34,5.35,8.2,1.06,1.12,3.2,0.82,0.18,Atalanta,0.82,1.34,1.34,safest_bet,3
+2024-02-17,JUPILER PRO LEAGUE ,Antwerp,Mechelen,1.57,4.2,5.5,1.15,1.18,2.35,0.83,0.17,Antwerp,0.83,1.57,1.57,safest_bet,3
+2024-02-17,SERIE A ,Hellas Verona,Juventus,5.45,3.7,1.68,2.25,1.25,1.14,0.3,0.7,Juventus,0.7,1.68,1.14,safest_bet,3
+2024-02-17,SERIE A ,Napoli,Genoa,1.58,3.95,5.9,1.13,1.22,2.4,0.94,0.06,Napoli,0.94,1.58,1.58,safest_bet,3
+2024-02-17,BUNDESLIGA ,RB Leipzig,Monchengladbach,1.38,5.5,7.5,1.08,1.12,3.2,0.8,0.2,RB Leipzig,0.8,1.38,1.38,safest_bet,3
+2024-02-17,LIGUE 1 ,Nantes,Paris Saint Germain,5.85,4.65,1.5,2.65,1.17,1.12,0.24,0.76,Paris Saint Germain,0.76,1.5,1.5,safest_bet,3
+2024-02-17,LIGUE 1 ,Lille,Le Havre,1.5,4.15,6.8,1.1,1.19,2.65,0.87,0.13,Lille,0.87,1.5,1.5,safest_bet,3
+2024-02-17,PREMIER LEAGUE ,Manchester City,Chelsea,1.35,5.7,8.6,1.07,1.14,3.25,0.88,0.12,Manchester City,0.88,1.35,1.35,safest_bet,3
+2024-02-17,PREMIER LEAGUE ,Burnley,Arsenal,9.8,5.5,1.34,3.4,1.14,1.05,0.28,0.72,Arsenal,0.72,1.34,1.34,safest_bet,3
+2024-02-19,LIGA PORTUGAL ,Moreirense,Sporting CP,7.0,5.0,1.33,3.0,1.15,1.07,0.29,0.71,Sporting CP,0.71,1.33,1.33,safest_bet,3
