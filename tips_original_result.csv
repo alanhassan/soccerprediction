@@ -188,3 +188,16 @@ Date,League,Home,Away,Odds_H,Odds_A,Odds_H_X,Odds_X_A,Pred_H,Pred_A,Winning_team
 2024-02-17,PREMIER LEAGUE ,Manchester City,Chelsea,1.35,8.6,1.07,3.25,0.88,0.12,Manchester City,0.88,1.35,1.35,safest_bet,3,2024-02-17,Manchester City,Chelsea,D,Draw,0,1
 2024-02-17,PREMIER LEAGUE ,Burnley,Arsenal,9.8,1.34,3.4,1.05,0.28,0.72,Arsenal,0.72,1.34,1.34,safest_bet,3,2024-02-17,Burnley,Arsenal,L,Arsenal,1,1
 2024-02-19,LIGA PORTUGAL ,Moreirense,Sporting CP,7.0,1.33,3.0,1.07,0.29,0.71,Sporting CP,0.71,1.33,1.33,safest_bet,3,2024-02-19,Moreirense,Sporting CP,L,Sporting CP,1,1
+2024-02-21,PREMIER LEAGUE ,Liverpool,Luton Town,1.23,12.5,1.03,4.3,0.83,0.17,Liverpool,0.83,1.23,1.23,safest_bet,3,2024-02-21,Liverpool,Luton Town,W,Liverpool,1,1
+2024-02-23,SERIE A ,Bologna,Hellas Verona,1.6,6.4,1.12,2.4,0.86,0.14,Bologna,0.86,1.6,1.6,safest_bet,3,2024-02-23,Bologna,Hellas Verona,W,Bologna,1,1
+2024-02-24,PREMIER LEAGUE ,Brighton and Hove Albion,Everton,1.85,4.05,1.26,2.03,0.89,0.11,Brighton and Hove Albion,0.89,1.85,1.85,safest_bet,3,2024-02-24,Brighton and Hove Albion,Everton,D,Draw,0,1
+2024-02-24,PREMIER LEAGUE ,Manchester United,Fulham,1.55,5.9,1.14,2.63,0.82,0.18,Manchester United,0.82,1.55,1.55,safest_bet,3,2024-02-24,Manchester United,Fulham,L,Fulham,0,0
+2024-02-24,PREMIER LEAGUE ,Bournemouth,Manchester City,7.3,1.42,2.97,1.1,0.29,0.71,Manchester City,0.71,1.42,1.42,safest_bet,3,2024-02-24,Bournemouth,Manchester City,L,Manchester City,1,1
+2024-02-24,LALIGA ,Barcelona,Getafe,1.4,8.0,1.07,3.0,0.86,0.14,Barcelona,0.86,1.4,1.4,safest_bet,3,2024-02-24,Barcelona,Getafe,W,Barcelona,1,1
+2024-02-24,LALIGA ,Almeria,Atletico Madrid,4.5,1.75,2.15,1.2,0.3,0.7,Atletico Madrid,0.7,1.75,1.2,safest_bet,3,2024-02-24,Almeria,Atletico Madrid,D,Draw,1,1
+2024-02-25,BUNDESLIGA ,Dortmund,Hoffenheim,1.52,5.5,1.15,2.6,0.9,0.1,Dortmund,0.9,1.52,1.52,safest_bet,3,2024-02-25,Dortmund,Hoffenheim,L,Hoffenheim,0,0
+2024-02-25,SERIE A ,Juventus,Frosinone,1.31,9.6,1.05,3.4,0.86,0.14,Juventus,0.86,1.31,1.31,safest_bet,3,2024-02-25,Juventus,Frosinone,W,Juventus,1,1
+2024-02-25,SERIE A ,Lecce,Internazionale,7.3,1.42,2.85,1.09,0.28,0.72,Internazionale,0.72,1.42,1.42,safest_bet,3,2024-02-25,Lecce,Internazionale,L,Internazionale,1,1
+2024-02-25,EREDIVISIE ,Almere City,Feyenoord,10.5,1.27,3.75,1.02,0.29,0.71,Feyenoord,0.71,1.27,1.27,safest_bet,3,2024-02-25,Almere City,Feyenoord,L,Feyenoord,1,1
+2024-02-25,LIGA PORTUGAL ,Gil Vicente FC,Porto,7.5,1.38,3.0,1.07,0.35,0.65,Porto,0.65,1.38,1.38,safest_bet,3,2024-02-25,Gil Vicente FC,Porto,D,Draw,0,1
+2024-02-25,LIGA PORTUGAL ,Rio Ave,Sporting CP,8.0,1.36,3.1,1.06,0.34,0.66,Sporting CP,0.66,1.36,1.36,safest_bet,3,2024-02-25,Rio Ave,Sporting CP,D,Draw,0,1
